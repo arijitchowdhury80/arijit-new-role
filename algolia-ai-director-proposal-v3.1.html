@@ -562,7 +562,6 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 </style>
 </head>
 <body>
-<svg id="animated-grid" aria-hidden="true"></svg>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -1104,21 +1103,18 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       </div>
     </div>
 
-  <!-- Modern Timeline -->
-  <div class="tl-wrap" id="tl-container">
-    <div class="tl-line" id="tl-line"></div>
+  <!-- Year 1 Timeline — quarter containers -->
+  <div class="yr1-timeline">
 
-    <!-- Q1 -->
-    <div class="tl-item" style="position:relative;">
-      <div class="tl-node tl-node--current">Q1</div>
-      <div class="tl-card" style="margin-left:28px;">
-        <div class="tl-card-top">
-          <div>
-            <div class="tl-period">Q1 2026 · Sales, Marketing &amp; GTM Engineering</div>
-            <h3 class="tl-title">GTM Intelligence Engine + Marketing Content + Competitive Monitoring</h3>
-          </div>
-          <span class="tl-badge tl-badge--current">Current</span>
-        </div>
+    <!-- ═══ Q1 2026 ═══ -->
+    <div class="yr1-quarter yr1-q1">
+      <div class="yr1-qlabel">Q1 2026 <span class="yr1-status yr1-status--current">Current</span></div>
+
+      <!-- Project 1: GTM Engineering -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Sales &amp; GTM Engineering</div>
+        <h3 class="yr1-card-title">GTM Engineering &amp; Prospect Intelligence</h3>
+        <PLACEHOLDER_Q1_REST>
 
         <!-- Workstream 1: GTM -->
         <div class="ws-header">
@@ -2159,53 +2155,47 @@ function scrollToToc(e, id) {
 }
 
 function initAnimatedGrid() {
-  var svg = document.getElementById('animated-grid');
-  if (!svg) return;
-  var W = window.innerWidth, H = window.innerHeight;
-  var S = 40;
-  var cols = Math.ceil(W / S) + 1;
-  var rows = Math.ceil(H / S) + 1;
-  var ns = 'http://www.w3.org/2000/svg';
-  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-  // Grid lines
-  for (var c = 0; c <= cols; c++) {
-    var vl = document.createElementNS(ns, 'line');
-    vl.setAttribute('x1', c * S); vl.setAttribute('y1', 0);
-    vl.setAttribute('x2', c * S); vl.setAttribute('y2', H);
-    vl.setAttribute('stroke', 'rgba(0,61,255,0.07)'); vl.setAttribute('stroke-width', '1');
-    svg.appendChild(vl);
+  if (typeof document.createElementNS !== 'function' || !document.body) return;
+  const GRID = 44, NUM = 45, MAX_OP = 0.55, MIN_OP = 0.12;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.id = 'animated-grid';
+  svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+  // Base grid lines via pattern
+  const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+  defs.innerHTML = `<pattern id="agp" x="0" y="0" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><path d="M${GRID} 0 L 0 0 0 ${GRID}" fill="none" stroke="rgba(0,61,255,0.07)" stroke-width="0.8"/></pattern>`;
+  svg.appendChild(defs);
+  const bg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  bg.setAttribute('width','100%'); bg.setAttribute('height','100%');
+  bg.setAttribute('fill','url(#agp)');
+  svg.appendChild(bg);
+  // 45 animated squares that reposition randomly
+  const squares = Array.from({length: NUM}, () => {
+    const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    r.setAttribute('width', GRID-1); r.setAttribute('height', GRID-1);
+    r.style.opacity = '0';
+    r.style.fill = 'rgba(0,61,255,0.10)';
+    svg.appendChild(r);
+    return r;
+  });
+  document.body.insertBefore(svg, document.body.firstChild);
+  function reposition(r) {
+    const cols = Math.ceil(window.innerWidth / GRID) + 1;
+    const rows = Math.ceil(window.innerHeight / GRID) + 1;
+    r.setAttribute('x', Math.floor(Math.random()*cols) * GRID);
+    r.setAttribute('y', Math.floor(Math.random()*rows) * GRID);
   }
-  for (var r = 0; r <= rows; r++) {
-    var hl = document.createElementNS(ns, 'line');
-    hl.setAttribute('x1', 0); hl.setAttribute('y1', r * S);
-    hl.setAttribute('x2', W); hl.setAttribute('y2', r * S);
-    hl.setAttribute('stroke', 'rgba(0,61,255,0.07)'); hl.setAttribute('stroke-width', '1');
-    svg.appendChild(hl);
+  function pulse(r, delay) {
+    setTimeout(() => {
+      reposition(r);
+      r.style.transition = 'opacity 1.8s ease';
+      r.style.opacity = String(MIN_OP + Math.random()*(MAX_OP-MIN_OP));
+      setTimeout(() => {
+        r.style.opacity = '0';
+        setTimeout(() => pulse(r, 0), 2000 + Math.random()*1500);
+      }, 1800 + Math.random()*800);
+    }, delay);
   }
-  // Animated cells
-  var cells = [];
-  for (var ci = 0; ci < cols; ci++) {
-    for (var ri = 0; ri < rows; ri++) {
-      var rect = document.createElementNS(ns, 'rect');
-      rect.setAttribute('x', ci * S + 1); rect.setAttribute('y', ri * S + 1);
-      rect.setAttribute('width', S - 2); rect.setAttribute('height', S - 2);
-      rect.setAttribute('fill', 'rgba(0,61,255,0)'); rect.setAttribute('rx', '2');
-      svg.appendChild(rect);
-      cells.push(rect);
-    }
-  }
-  function pulse() {
-    var cell = cells[Math.floor(Math.random() * cells.length)];
-    var op = 0.04 + Math.random() * 0.08;
-    var dur = 700 + Math.random() * 1200;
-    if (cell.animate) {
-      cell.animate([
-        {fill:'rgba(0,61,255,0)'},{fill:'rgba(0,61,255,'+op+')'},{fill:'rgba(0,61,255,0)'}
-      ], {duration: dur, easing: 'ease-in-out'});
-    }
-    setTimeout(pulse, 20 + Math.random() * 80);
-  }
-  for (var i = 0; i < 10; i++) setTimeout(pulse, Math.random() * 1500);
+  squares.forEach((r, i) => pulse(r, i * 200 + Math.random()*300));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
