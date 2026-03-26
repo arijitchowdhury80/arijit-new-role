@@ -412,6 +412,20 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .ys-val--blue{color:#8AABFF;}
 .ys-sub{font-size:13px;color:rgba(255,255,255,0.45);margin-top:3px;}
 
+
+/* ── Interactive ROI Calculator — team inputs & live recalc ── */
+.team-input{width:58px;padding:5px 6px;border:1.5px solid var(--border-med);border-radius:6px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:var(--navy);text-align:center;background:white;transition:border-color .2s,box-shadow .2s;-moz-appearance:textfield;}
+.team-input::-webkit-outer-spin-button,.team-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.team-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,61,255,0.12);}
+.team-input-wrap{display:flex;align-items:center;justify-content:center;gap:3px;}
+.team-spin{background:none;border:none;cursor:pointer;font-size:14px;color:var(--blue);padding:2px 3px;line-height:1;font-weight:700;border-radius:3px;transition:background .15s;}
+.team-spin:hover{background:rgba(0,61,255,0.08);}
+@keyframes calcFlash{0%{color:#003DFF;transform:scale(1.08);}100%{color:inherit;transform:scale(1);}}
+.calc-flash{animation:calcFlash .45s ease;}
+.calc-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-hint);margin-bottom:3px;text-align:center;}
+.invest-table th.team-col{text-align:center;}
+.invest-table td.team-col{text-align:center;}
+
 /* ── Modern Timeline — Year 1 Plan ─────────────────────────────────────────
    Vertical animated line + glassmorphism cards + scroll-reveal stagger.
    All classes prefixed tl- to avoid conflicts.
@@ -537,7 +551,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <div class="ov-tile ov-tile-score" data-spotlight-color="5,150,105">
       <div class="ov-q">WHAT DOES IT RETURN?</div>
       <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;">
-        <div style="font-size:64px;font-weight:700;line-height:1;letter-spacing:-2px;color:#059669;">8.7×</div>
+        <div style="font-size:64px;font-weight:700;line-height:1;letter-spacing:-2px;color:#059669;" id="ov-roi">8.7×</div>
         <div style="padding-bottom:10px;">
           <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:4px;">year 1 ROI</div>
           <div style="display:inline-block;background:rgba(5,150,105,0.10);color:#059669;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;">Strong investment case</div>
@@ -546,7 +560,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       <div style="border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:8px;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:15px;color:var(--text-muted);">Combined Year 1 value</span>
-          <span style="font-size:15px;font-weight:700;color:#059669;">$3.94M</span>
+          <span style="font-size:15px;font-weight:700;color:#059669;" id="ov-value">$3.94M</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span style="font-size:15px;color:var(--text-muted);">Total investment</span>
@@ -986,61 +1000,61 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Productize the Prospect Intelligence Platform for shared AE and BDR use across Algolia's target account list - self-serve hub, audit scheduler, pre-call briefs delivered the night before every discovery call. Account scoring, ABX packages per account, and personalized outreach sequences.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-gtm">
           <thead>
             <tr>
               <th>Role</th>
               <th>Median total comp &amp; companies</th>
               <th class="r">$/hr loaded</th>
-              <th class="r">Team</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
               <th class="r">Hrs/wk saved</th>
               <th class="r">Annual saving</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-ae" data-rate="138" data-hrs="4">
               <td>Senior Account Executive</td>
               <td class="src">$285K OTE median · Algolia $287K · Adobe $320K · Salesforce $290K · Elastic $287K · Coveo $292K</td>
               <td class="rate-val">$138</td>
-              <td class="r">10</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('ae',-1)">−</button><input class="team-input" id="inp-ae" type="number" min="0" max="999" value="10" oninput="calcInvestRow('ae')"><button class="team-spin" onclick="spinTeam('ae',1)">+</button></div></td>
               <td class="r">4 hrs</td>
-              <td class="r">$276,000</td>
+              <td class="r calc-saving" id="save-ae">$276,000</td>
             </tr>
-            <tr>
+            <tr id="row-bdr" data-rate="46" data-hrs="4">
               <td>BDR / SDR</td>
               <td class="src">$96K OTE median · Algolia $97K · Coveo $112K · market $85-90K</td>
               <td class="rate-val">$46</td>
-              <td class="r">5</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('bdr',-1)">−</button><input class="team-input" id="inp-bdr" type="number" min="0" max="999" value="5" oninput="calcInvestRow('bdr')"><button class="team-spin" onclick="spinTeam('bdr',1)">+</button></div></td>
               <td class="r">4 hrs</td>
-              <td class="r">$46,000</td>
+              <td class="r calc-saving" id="save-bdr">$46,000</td>
             </tr>
-            <tr>
+            <tr id="row-se" data-rate="119" data-hrs="2">
               <td>Senior Sales Engineer</td>
               <td class="src">$248K median · Salesforce $230K · Adobe $311K · Elastic $288K · Algolia $190K · Nvidia $383K</td>
               <td class="rate-val">$119</td>
-              <td class="r">5</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('se',-1)">−</button><input class="team-input" id="inp-se" type="number" min="0" max="999" value="5" oninput="calcInvestRow('se')"><button class="team-spin" onclick="spinTeam('se',1)">+</button></div></td>
               <td class="r">2 hrs</td>
-              <td class="r">$59,500</td>
+              <td class="r calc-saving" id="save-se">$59,500</td>
             </tr>
-            <tr>
+            <tr id="row-sa" data-rate="118" data-hrs="2">
               <td>Senior Solutions Architect</td>
               <td class="src">$245K median · Salesforce $230K · Elastic $260K · Adobe ~$311K · Nvidia $383K</td>
               <td class="rate-val">$118</td>
-              <td class="r">3</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('sa',-1)">−</button><input class="team-input" id="inp-sa" type="number" min="0" max="999" value="3" oninput="calcInvestRow('sa')"><button class="team-spin" onclick="spinTeam('sa',1)">+</button></div></td>
               <td class="r">2 hrs</td>
-              <td class="r">$35,400</td>
+              <td class="r calc-saving" id="save-sa">$35,400</td>
             </tr>
-            <tr>
+            <tr id="row-vps" data-rate="161" data-hrs="3">
               <td>VP Sales</td>
               <td class="src">$334K median · Elastic $306K · Salesforce $280K · Coveo ~$362K · market avg $334K</td>
               <td class="rate-val">$161</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vps',-1)">−</button><input class="team-input" id="inp-vps" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vps')"><button class="team-spin" onclick="spinTeam('vps',1)">+</button></div></td>
               <td class="r">3 hrs</td>
-              <td class="r">$24,150</td>
+              <td class="r calc-saving" id="save-vps">$24,150</td>
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — GTM Engineering</td>
-              <td class="r">$441,050</td>
+              <td class="r calc-saving" id="totalval-gtm">$441,050</td>
             </tr>
           </tbody>
         </table>
@@ -1063,59 +1077,59 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Blog briefs to draft pipeline, case study generation from customer calls, email nurture sequences per persona, social content calendar automation, and executive thought leadership drafts. Content strategy informed by competitive and audience intelligence.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-mkt">
           <thead>
             <tr>
               <th>Role</th>
               <th>Median total comp &amp; companies</th>
               <th class="r">$/hr loaded</th>
-              <th class="r">Team</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
               <th class="r">Hrs/wk saved</th>
               <th class="r">Annual saving</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-cmm" data-rate="72" data-hrs="10">
               <td>Content Marketing Manager</td>
               <td class="src">$135K median · Adobe $136K · Salesforce ~$152K · Nvidia ~$177K · B2B SaaS benchmark</td>
               <td class="rate-val">$72</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('cmm',-1)">−</button><input class="team-input" id="inp-cmm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('cmm')"><button class="team-spin" onclick="spinTeam('cmm',1)">+</button></div></td>
               <td class="r">10 hrs</td>
-              <td class="r">$36,000</td>
+              <td class="r calc-saving" id="save-cmm">$36,000</td>
             </tr>
-            <tr>
+            <tr id="row-smm" data-rate="43" data-hrs="8">
               <td>Social Media Manager</td>
               <td class="src">$90K median · Glassdoor avg $80K · Indeed $64K · B2B SaaS benchmark</td>
               <td class="rate-val">$43</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('smm',-1)">−</button><input class="team-input" id="inp-smm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('smm')"><button class="team-spin" onclick="spinTeam('smm',1)">+</button></div></td>
               <td class="r">8 hrs</td>
-              <td class="r">$17,200</td>
+              <td class="r calc-saving" id="save-smm">$17,200</td>
             </tr>
-            <tr>
+            <tr id="row-mm" data-rate="70" data-hrs="6">
               <td>Marketing Manager (demand gen / paid / organic)</td>
               <td class="src">$145K median · Adobe $136K · Salesforce ~$152K · Glassdoor demand gen avg $120K</td>
               <td class="rate-val">$70</td>
-              <td class="r">2</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('mm',-1)">−</button><input class="team-input" id="inp-mm" type="number" min="0" max="999" value="2" oninput="calcInvestRow('mm')"><button class="team-spin" onclick="spinTeam('mm',1)">+</button></div></td>
               <td class="r">6 hrs</td>
-              <td class="r">$42,000</td>
+              <td class="r calc-saving" id="save-mm">$42,000</td>
             </tr>
-            <tr>
+            <tr id="row-dre" data-rate="85" data-hrs="5">
               <td>Developer Relations Engineer</td>
               <td class="src">$177K median · Nvidia $161-$265K · Glassdoor avg $139K · Levels.fyi median $150K</td>
               <td class="rate-val">$85</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('dre',-1)">−</button><input class="team-input" id="inp-dre" type="number" min="0" max="999" value="1" oninput="calcInvestRow('dre')"><button class="team-spin" onclick="spinTeam('dre',1)">+</button></div></td>
               <td class="r">5 hrs</td>
-              <td class="r">$21,250</td>
+              <td class="r calc-saving" id="save-dre">$21,250</td>
             </tr>
-            <tr>
+            <tr id="row-vpm" data-rate="185" data-hrs="3">
               <td>VP Marketing</td>
               <td class="src">$384K median · Adobe $284K · Salesforce $502K · Nvidia ~$400K · market avg $384K</td>
               <td class="rate-val">$185</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpm',-1)">−</button><input class="team-input" id="inp-vpm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpm')"><button class="team-spin" onclick="spinTeam('vpm',1)">+</button></div></td>
               <td class="r">3 hrs</td>
-              <td class="r">$27,750</td>
+              <td class="r calc-saving" id="save-vpm">$27,750</td>
             </tr>
-            <tr>
+            <tr data-fixed="80000">
               <td>Agency fees offset</td>
               <td class="src">B2B SaaS content agency: $25K per campaign series · 2 series/quarter displaced · 40% in-house</td>
               <td class="rate-val">—</td>
@@ -1125,7 +1139,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — Marketing Content Engine</td>
-              <td class="r">$224,200</td>
+              <td class="r calc-saving" id="totalval-mkt">$224,200</td>
             </tr>
           </tbody>
         </table>
@@ -1148,7 +1162,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Always-on listeners monitoring everything Algolia's competitors do - press releases, product launches, analyst reviews, blog posts, social media, Hacker News, Stack Exchange, YouTube, and customer or partner communities. Signals feed automatically into sales battle cards, content response briefs, and product roadmap inputs.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-ci">
           <thead>
             <tr>
               <th>Cost element</th>
@@ -1157,24 +1171,25 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-pmm" data-rate="70" data-hrs="9">
               <td>PMM / Competitive Analyst time</td>
-              <td class="src">Manual CI monitoring = 12 hrs/wk (Crayon research). Automated = 2-3 hrs/wk. 9 hrs saved · $70/hr · 50 weeks</td>
-              <td class="r" colspan="4">$31,500</td>
+              <td class="src">Manual CI monitoring = 12 hrs/wk (Crayon research). Automated = 2-3 hrs/wk. 9 hrs/wk saved · $70/hr loaded · 50 weeks. <strong>Adjust team size:</strong></td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('pmm',-1)">−</button><input class="team-input" id="inp-pmm" type="number" min="0" max="99" value="1" oninput="calcInvestRow('pmm')"><button class="team-spin" onclick="spinTeam('pmm',1)">+</button></div></td>
+              <td class="r calc-saving" id="save-pmm" colspan="2">$31,500</td>
             </tr>
-            <tr>
+            <tr data-fixed="35000">
               <td>Crayon or Klue subscription displaced</td>
               <td class="src">Vendr median contract $30K-$46K/yr · Algolia confirmed active CI program (PMM CI job posting, algolia.com/competitors)</td>
               <td class="r" colspan="4">$35,000</td>
             </tr>
-            <tr>
+            <tr data-fixed="1000">
               <td>Owler Pro subscription displaced</td>
               <td class="src">$468/user/yr · news and alert monitoring replaced by internal system</td>
               <td class="r" colspan="4">$1,000</td>
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — Competitive Intelligence</td>
-              <td class="r">$67,500</td>
+              <td class="r calc-saving" id="totalval-ci">$67,500</td>
             </tr>
           </tbody>
         </table>
@@ -1194,7 +1209,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <div class="q-total-box">
           <div class="q-total-item">
             <span class="q-total-lbl">Q1 Cost Savings</span>
-            <span class="q-total-val q-total-val--teal">$732,750<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
+            <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q1-cost">$732,750<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
           </div>
           <div class="q-total-item">
             <span class="q-total-lbl">Q1 Productivity &amp; Pipeline Gain</span>
@@ -1224,37 +1239,37 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Systematically analyze user feedback from support tickets, G2 and Capterra reviews, community forums, and customer calls. Build structured weekly signal digests for R&amp;D and Product teams covering what users are asking for, what they are reporting as friction, what competitors are shipping, and where the industry is heading.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-prod">
           <thead>
             <tr>
               <th>Role</th>
               <th>Median total comp &amp; companies</th>
               <th class="r">$/hr loaded</th>
-              <th class="r">Team</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
               <th class="r">Hrs/wk saved</th>
               <th class="r">Annual saving</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-spm" data-rate="127" data-hrs="4">
               <td>Senior Product Manager</td>
               <td class="src">$264K median · Levels.fyi US median 3,898 data pts · Adobe $310K · Salesforce $279K · Algolia $147K · Elastic $247K</td>
               <td class="rate-val">$127</td>
-              <td class="r">2</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('spm',-1)">−</button><input class="team-input" id="inp-spm" type="number" min="0" max="999" value="2" oninput="calcInvestRow('spm')"><button class="team-spin" onclick="spinTeam('spm',1)">+</button></div></td>
               <td class="r">4 hrs</td>
-              <td class="r">$50,800</td>
+              <td class="r calc-saving" id="save-spm">$50,800</td>
             </tr>
-            <tr>
+            <tr id="row-vpc" data-rate="168" data-hrs="2">
               <td>VP Product</td>
               <td class="src">$350K median · Salesforce $718K · Adobe ~$406K · Nvidia ~$550K · market avg $273K</td>
               <td class="rate-val">$168</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpc',-1)">−</button><input class="team-input" id="inp-vpc" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpc')"><button class="team-spin" onclick="spinTeam('vpc',1)">+</button></div></td>
               <td class="r">2 hrs</td>
-              <td class="r">$16,800</td>
+              <td class="r calc-saving" id="save-vpc">$16,800</td>
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — Product Intelligence</td>
-              <td class="r">$67,600</td>
+              <td class="r calc-saving" id="totalval-prod">$67,600</td>
             </tr>
           </tbody>
         </table>
@@ -1310,27 +1325,27 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">AI-assisted first-pass review for complex enterprise agreements, NDAs, MSAs, and compliance audits. Flags non-standard clauses against approved positions and summarizes risk before legal counsel opens a document. Measurable outcomes: reduced outside counsel spend, faster turnaround, improved deal velocity.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-legal">
           <thead>
             <tr>
               <th>Cost element</th>
               <th>Median comp &amp; basis</th>
               <th class="r">$/hr loaded</th>
-              <th class="r">Team</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
               <th class="r">Hrs/wk saved</th>
               <th class="r">Annual saving</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-counsel" data-rate="122" data-hrs="9">
               <td>In-House Corporate Counsel</td>
               <td class="src">$253K median · Adobe $233K · Salesforce $351K · Nvidia $275K · InhouseBlog 2026</td>
               <td class="rate-val">$122</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('counsel',-1)">−</button><input class="team-input" id="inp-counsel" type="number" min="0" max="999" value="1" oninput="calcInvestRow('counsel')"><button class="team-spin" onclick="spinTeam('counsel',1)">+</button></div></td>
               <td class="r">9 hrs</td>
-              <td class="r">$54,900</td>
+              <td class="r calc-saving" id="save-counsel">$54,900</td>
             </tr>
-            <tr>
+            <tr data-fixed="60000">
               <td>Outside counsel fees offset</td>
               <td class="src">Thomson Reuters: 63% review time reduction. 40% of $150K/yr outside counsel spend displaced. Outside counsel avg $400/hr.</td>
               <td class="rate-val">$400</td>
@@ -1340,7 +1355,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — Contract Review</td>
-              <td class="r">$114,900</td>
+              <td class="r calc-saving" id="totalval-legal">$114,900</td>
             </tr>
           </tbody>
         </table>
@@ -1356,37 +1371,37 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Monthly close narratives, budget vs actuals commentary, and board pack preparation generated from ledger data. Practical, measurable time savings - not a transformation programme.</p>
 
-        <table class="invest-table">
+        <table class="invest-table" id="tbl-finance">
           <thead>
             <tr>
               <th>Role</th>
               <th>Median total comp &amp; companies</th>
               <th class="r">$/hr loaded</th>
-              <th class="r">Team</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
               <th class="r">Hrs/wk saved</th>
               <th class="r">Annual saving</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="row-fm" data-rate="75" data-hrs="6">
               <td>Finance Manager / Sr Analyst</td>
               <td class="src">$155K median · Glassdoor avg $131K · BLS national $162K · SaaS benchmark $143K</td>
               <td class="rate-val">$75</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('fm',-1)">−</button><input class="team-input" id="inp-fm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('fm')"><button class="team-spin" onclick="spinTeam('fm',1)">+</button></div></td>
               <td class="r">6 hrs</td>
-              <td class="r">$22,500</td>
+              <td class="r calc-saving" id="save-fm">$22,500</td>
             </tr>
-            <tr>
+            <tr id="row-vpf" data-rate="144" data-hrs="3">
               <td>VP Finance / Head of FP&amp;A</td>
               <td class="src">$300K median · Salesforce $430K top reported · B2B SaaS FP&amp;A benchmark $300K · Datarails 2026</td>
               <td class="rate-val">$144</td>
-              <td class="r">1</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpf',-1)">−</button><input class="team-input" id="inp-vpf" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpf')"><button class="team-spin" onclick="spinTeam('vpf',1)">+</button></div></td>
               <td class="r">3 hrs</td>
-              <td class="r">$21,600</td>
+              <td class="r calc-saving" id="save-vpf">$21,600</td>
             </tr>
             <tr class="invest-total">
               <td colspan="5">Annual cost savings — Finance Automation</td>
-              <td class="r">$44,100</td>
+              <td class="r calc-saving" id="totalval-finance">$44,100</td>
             </tr>
           </tbody>
         </table>
@@ -1400,7 +1415,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <div class="q-total-box">
           <div class="q-total-item">
             <span class="q-total-lbl">Q4 Cost Savings</span>
-            <span class="q-total-val q-total-val--teal">$159,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
+            <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q4-cost">$159,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
           </div>
           <div class="q-total-item">
             <span class="q-total-lbl">Deal velocity + executive time reclaimed</span>
@@ -1437,18 +1452,18 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <div class="year-summary-grid">
       <div class="ys-item">
         <span class="ys-lbl">Direct Cost Savings</span>
-        <span class="ys-val ys-val--teal">$959,350</span>
+        <span class="ys-val ys-val--teal calc-saving" id="ys-cost">$959,350</span>
         <span class="ys-sub">2.1× on cost savings alone</span>
       </div>
       <div class="ys-item">
         <span class="ys-lbl">Productivity &amp; Pipeline Gains</span>
-        <span class="ys-val ys-val--blue">$2,978,000</span>
+        <span class="ys-val ys-val--blue" id="ys-prod">$2,978,000</span>
         <span class="ys-sub">Sourced: Salesforce, Klue, Bloomreach, McKinsey</span>
       </div>
       <div class="ys-item">
         <span class="ys-lbl">Combined Year 1 Value vs $450K Investment</span>
-        <span class="ys-val">8.7×</span>
-        <span class="ys-sub">$3,937,350 total return</span>
+        <span class="ys-val calc-saving" id="ys-roi">8.7×</span>
+        <span class="ys-sub" id="ys-total-sub">$3,937,350 total return</span>
       </div>
     </div>
   </div>
@@ -1870,6 +1885,125 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function openDswModal() { document.getElementById('dsw-modal').classList.add('open'); }
 function closeDswModal() { document.getElementById('dsw-modal').classList.remove('open'); }
+
+/* ── Live ROI Calculator ─────────────────────────────────────────────────── */
+(function(){
+  var FIXED_AGENCY = 80000;
+  var FIXED_CI_SUBS = 36000;  // Crayon/Klue + Owler
+  var FIXED_OUTSIDE_COUNSEL = 60000;
+  var PROD_GAINS = 2978000;
+  var INVESTMENT = 450000;
+
+  function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function fmtM(n){ return '$' + (n/1000000).toFixed(2) + 'M'; }
+
+  function calcRow(id){
+    var row = document.getElementById('row-' + id);
+    if(!row) return;
+    var rate = parseFloat(row.dataset.rate)||0;
+    var hrs  = parseFloat(row.dataset.hrs)||0;
+    var inp  = document.getElementById('inp-' + id);
+    var team = Math.max(0, parseInt(inp ? inp.value : 0)||0);
+    var saving = Math.round(team * hrs * 50 * rate);
+    row.dataset.current = saving;
+    var cell = document.getElementById('save-' + id);
+    if(cell){ cell.textContent = fmt(saving); flash(cell); }
+    rebuild();
+  }
+
+  function spinTeam(id, delta){
+    var inp = document.getElementById('inp-' + id);
+    if(!inp) return;
+    var v = Math.max(0, (parseInt(inp.value)||0) + delta);
+    inp.value = v;
+    calcRow(id);
+  }
+
+  function sumTable(tblId, fixedAmt){
+    var tbl = document.getElementById(tblId);
+    var total = fixedAmt || 0;
+    if(!tbl) return total;
+    tbl.querySelectorAll('tr[data-rate]').forEach(function(r){
+      total += parseFloat(r.dataset.current||0);
+    });
+    return total;
+  }
+
+  function setCell(id, val){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.textContent = fmt(val);
+    flash(el);
+  }
+
+  function flash(el){
+    if(!el) return;
+    el.classList.remove('calc-flash');
+    void el.offsetWidth;
+    el.classList.add('calc-flash');
+  }
+
+  function rebuild(){
+    var gtm    = sumTable('tbl-gtm', 0);
+    var mkt    = sumTable('tbl-mkt', FIXED_AGENCY);
+    var ci     = sumTable('tbl-ci',  FIXED_CI_SUBS);
+    var prod   = sumTable('tbl-prod', 0);
+    var legal  = sumTable('tbl-legal', FIXED_OUTSIDE_COUNSEL);
+    var fin    = sumTable('tbl-finance', 0);
+
+    setCell('totalval-gtm',    gtm);
+    setCell('totalval-mkt',    mkt);
+    setCell('totalval-ci',     ci);
+    setCell('totalval-prod',   prod);
+    setCell('totalval-legal',  legal);
+    setCell('totalval-finance',fin);
+
+    var q1 = gtm + mkt + ci;
+    var q4 = legal + fin;
+
+    // Q total boxes
+    var q1el = document.getElementById('qtotal-q1-cost');
+    if(q1el){ q1el.innerHTML = fmt(q1) + '<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash(q1el); }
+    var q4el = document.getElementById('qtotal-q4-cost');
+    if(q4el){ q4el.innerHTML = fmt(q4) + '<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash(q4el); }
+
+    // Year summary
+    var totalCost = q1 + prod + q4;
+    var combined  = totalCost + PROD_GAINS;
+    var roi       = (combined / INVESTMENT).toFixed(1);
+
+    setCell('ys-cost', totalCost);
+    var roiEl = document.getElementById('ys-roi');
+    if(roiEl){ roiEl.textContent = roi + '×'; flash(roiEl); }
+    var subEl = document.getElementById('ys-total-sub');
+    if(subEl) subEl.textContent = fmt(combined) + ' total return';
+
+    // Overview tile
+    var ovRoi = document.getElementById('ov-roi');
+    if(ovRoi){ ovRoi.textContent = roi + '×'; flash(ovRoi); }
+    var ovVal = document.getElementById('ov-value');
+    if(ovVal){ ovVal.textContent = fmtM(combined); }
+  }
+
+  // Init — seed data-current from default inputs
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('tr[data-rate]').forEach(function(row){
+      var rate = parseFloat(row.dataset.rate)||0;
+      var hrs  = parseFloat(row.dataset.hrs)||0;
+      var inp  = row.querySelector('.team-input');
+      var team = inp ? (parseInt(inp.value)||0) : 0;
+      row.dataset.current = Math.round(team * hrs * 50 * rate);
+    });
+    // Also add fixed data to fixed rows for safety
+    document.querySelectorAll('tr[data-fixed]').forEach(function(row){
+      // Already handled in sumTable via data-fixed
+    });
+  });
+
+  window.calcInvestRow = calcRow;
+  window.spinTeam = spinTeam;
+})();
+
 </script>
 
 </body>
