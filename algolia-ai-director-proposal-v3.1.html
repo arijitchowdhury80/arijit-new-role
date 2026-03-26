@@ -193,6 +193,20 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .comp-table tr.highlight td{background:var(--blue-light);font-weight:600;color:var(--blue-dark)}
 
 /* RISK BOX */
+/* Why accordion */
+.why-accordion{display:flex;gap:0;border-radius:16px;overflow:hidden;height:320px;margin:0 0 28px;}
+.why-panel{flex:0 0 64px;background:var(--panel-bg);cursor:pointer;transition:flex 0.55s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;}
+.why-panel--active{flex:1 1 0;}
+.why-tab{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:20px 0;gap:10px;opacity:1;transition:opacity 0.25s;}
+.why-panel--active .why-tab{opacity:0;pointer-events:none;}
+.why-tab-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,0.5);writing-mode:vertical-rl;text-transform:uppercase;}
+.why-tab-title{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);writing-mode:vertical-rl;transform:rotate(180deg);line-height:1.3;max-height:200px;overflow:hidden;}
+.why-content{position:absolute;inset:0;display:flex;align-items:center;padding:40px 44px;opacity:0;transition:opacity 0.3s 0.15s;}
+.why-panel--active .why-content{opacity:1;}
+.why-content-inner{max-width:520px;}
+.why-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;}
+.why-heading{font-size:22px;font-weight:600;color:#fff;line-height:1.3;margin:0 0 14px;font-family:'Sora',sans-serif;}
+.why-body{font-size:15px;color:rgba(255,255,255,0.82);line-height:1.75;margin:0;font-family:'Sora',sans-serif;}
 .risk-row{display:flex;gap:10px;padding:10px 14px;background:var(--orange-light);border-radius:var(--r);margin:6px 0;align-items:flex-start}
 .risk-row .ri{flex-shrink:0;font-size:15px;margin-top:1px}
 .risk-row p{margin:0;font-size:15px;color:#7A1E08;line-height:1.75;}
@@ -362,6 +376,28 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 @media(max-width:900px){.ov-bento{grid-template-columns:1fr 1fr;}.ov-tile-score{grid-column:1/3;}.ov-tile-next{grid-column:1/2;}.ov-tile-who{grid-column:2/3;}.ov-tile-opp{grid-column:1/3;}}
 @media(max-width:600px){.ov-bento{grid-template-columns:1fr;}.ov-tile-score,.ov-tile-next,.ov-tile-who,.ov-tile-opp{grid-column:1/2;}}
 
+/* ── Year 1 Quarter Containers + Project Cards ──────────────────────────────
+   Structure: .yr1-timeline > .yr1-quarter > .yr1-card (project)
+   Each quarter has a gradient bg. Each project has its own glassmorphism card.
+   ───────────────────────────────────────────────────────────────────────── */
+.yr1-timeline{display:flex;flex-direction:column;gap:20px;}
+.yr1-quarter{border-radius:20px;padding:20px 22px;position:relative;}
+.yr1-q1{background:rgba(0,61,255,0.03);border:1px solid rgba(0,61,255,0.10);}
+.yr1-q2{background:rgba(84,104,255,0.03);border:1px solid rgba(84,104,255,0.10);}
+.yr1-q3{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
+.yr1-q4{background:rgba(217,119,6,0.03);border:1px solid rgba(217,119,6,0.12);}
+.yr1-y2{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
+.yr1-qlabel{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.yr1-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;}
+.yr1-status--current{background:rgba(0,61,255,0.09);color:var(--blue);border:1px solid rgba(0,61,255,0.2);}
+.yr1-status--upcoming{background:rgba(148,163,184,0.14);color:#64748B;border:1px solid rgba(148,163,184,0.28);}
+.yr1-status--horizon{background:rgba(13,140,107,0.08);color:var(--teal);border:1px solid rgba(13,140,107,0.2);}
+.yr1-card{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.92);border-radius:16px;padding:24px 28px;margin-bottom:12px;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06),0 14px 30px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.95);transition:transform 0.22s ease,box-shadow 0.22s ease;}
+.yr1-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.04),0 14px 32px rgba(0,0,0,0.09),0 24px 44px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95);}
+.yr1-card:last-child{margin-bottom:0;}
+.yr1-period{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:6px;}
+.yr1-card-title{font-size:18px;font-weight:600;color:var(--navy);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.35;}
+
 /* ── Invest Row Card — server-management-table inspired, vanilla CSS ───────
    Replaces flat <table> rows with individual rounded cards.
    Each role = one card. Savings column gets green right-gradient.
@@ -526,6 +562,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 </style>
 </head>
 <body>
+<svg id="animated-grid" aria-hidden="true"></svg>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -770,19 +807,50 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   </div>
 
   <h2 class="section-head">Three reasons this is the right moment</h2>
-  <div class="g3">
-    <div class="card">
-      <h3>AI has crossed the productivity threshold</h3>
-      <p>The tools available in 2026 -autonomous agents, real-time data integrations, multi-step workflow automation - can now replace entire categories of manual work. The window to build a systematic internal advantage before competitors systemize it is open now, not in three years.</p>
+  <div class="why-accordion" id="whyAccordion">
+
+    <div class="why-panel why-panel--active" data-idx="0" style="--panel-bg: linear-gradient(145deg,#003DFF 0%,#0029B3 100%);">
+      <div class="why-tab">
+        <span class="why-tab-num">01</span>
+        <span class="why-tab-title">AI has crossed the productivity threshold</span>
+      </div>
+      <div class="why-content">
+        <div class="why-content-inner">
+          <div class="why-eyebrow">Reason 01</div>
+          <h3 class="why-heading">AI has crossed the productivity threshold</h3>
+          <p class="why-body">The tools available in 2026 - autonomous agents, real-time data integrations, multi-step workflow automation - can now replace entire categories of manual work. This is not incremental improvement. It is a step-change in what a small, well-equipped team can produce. The window to build a systematic internal advantage before competitors systemize it is open now, not in three years.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Do more with less is a real mandate</h3>
-      <p>AI enablement simultaneously increases output, reduces cost, and does not require additional headcount. A $450K investment in this role and tooling can demonstrably eliminate the need for 4–6 incremental FTE hires - a $600K–$900K annual saving that recurs indefinitely.</p>
+
+    <div class="why-panel" data-idx="1" style="--panel-bg: linear-gradient(145deg,#0D8C6B 0%,#097A5C 100%);">
+      <div class="why-tab">
+        <span class="why-tab-num">02</span>
+        <span class="why-tab-title">Do more with less is a real mandate</span>
+      </div>
+      <div class="why-content">
+        <div class="why-content-inner">
+          <div class="why-eyebrow">Reason 02</div>
+          <h3 class="why-heading">Do more with less is a real mandate</h3>
+          <p class="why-body">AI enablement simultaneously increases output, reduces cost, and does not require additional headcount. A $450K investment in this role and tooling can demonstrably eliminate the need for 4-6 incremental FTE hires - a $600K-$900K annual saving that recurs indefinitely. Every function does more. The org does not grow to match.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Algolia sells AI -it should run on it</h3>
-      <p>Every enterprise buyer asks some version of: "how AI-native is your organization?" The internal story is part of the external brand story. An AI-enabled Algolia is a more credible, more compelling vendor in every enterprise evaluation.</p>
+
+    <div class="why-panel" data-idx="2" style="--panel-bg: linear-gradient(145deg,#2D3050 0%,#1D1F2E 100%);">
+      <div class="why-tab">
+        <span class="why-tab-num">03</span>
+        <span class="why-tab-title">Algolia sells AI - it should run on it</span>
+      </div>
+      <div class="why-content">
+        <div class="why-content-inner">
+          <div class="why-eyebrow">Reason 03</div>
+          <h3 class="why-heading">Algolia sells AI - it should run on it</h3>
+          <p class="why-body">Every enterprise buyer asks some version of: "how AI-native is your organization?" The internal story is part of the external brand story. An AI-enabled Algolia is a more credible, more compelling vendor in every enterprise evaluation. This role makes Algolia the proof of concept for the very transformation it sells.</p>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <h2 class="section-head">The risk of inaction</h2>
@@ -2090,7 +2158,58 @@ function scrollToToc(e, id) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function initAnimatedGrid() {
+  var svg = document.getElementById('animated-grid');
+  if (!svg) return;
+  var W = window.innerWidth, H = window.innerHeight;
+  var S = 40;
+  var cols = Math.ceil(W / S) + 1;
+  var rows = Math.ceil(H / S) + 1;
+  var ns = 'http://www.w3.org/2000/svg';
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  // Grid lines
+  for (var c = 0; c <= cols; c++) {
+    var vl = document.createElementNS(ns, 'line');
+    vl.setAttribute('x1', c * S); vl.setAttribute('y1', 0);
+    vl.setAttribute('x2', c * S); vl.setAttribute('y2', H);
+    vl.setAttribute('stroke', 'rgba(0,61,255,0.07)'); vl.setAttribute('stroke-width', '1');
+    svg.appendChild(vl);
+  }
+  for (var r = 0; r <= rows; r++) {
+    var hl = document.createElementNS(ns, 'line');
+    hl.setAttribute('x1', 0); hl.setAttribute('y1', r * S);
+    hl.setAttribute('x2', W); hl.setAttribute('y2', r * S);
+    hl.setAttribute('stroke', 'rgba(0,61,255,0.07)'); hl.setAttribute('stroke-width', '1');
+    svg.appendChild(hl);
+  }
+  // Animated cells
+  var cells = [];
+  for (var ci = 0; ci < cols; ci++) {
+    for (var ri = 0; ri < rows; ri++) {
+      var rect = document.createElementNS(ns, 'rect');
+      rect.setAttribute('x', ci * S + 1); rect.setAttribute('y', ri * S + 1);
+      rect.setAttribute('width', S - 2); rect.setAttribute('height', S - 2);
+      rect.setAttribute('fill', 'rgba(0,61,255,0)'); rect.setAttribute('rx', '2');
+      svg.appendChild(rect);
+      cells.push(rect);
+    }
+  }
+  function pulse() {
+    var cell = cells[Math.floor(Math.random() * cells.length)];
+    var op = 0.04 + Math.random() * 0.08;
+    var dur = 700 + Math.random() * 1200;
+    if (cell.animate) {
+      cell.animate([
+        {fill:'rgba(0,61,255,0)'},{fill:'rgba(0,61,255,'+op+')'},{fill:'rgba(0,61,255,0)'}
+      ], {duration: dur, easing: 'ease-in-out'});
+    }
+    setTimeout(pulse, 20 + Math.random() * 80);
+  }
+  for (var i = 0; i < 10; i++) setTimeout(pulse, Math.random() * 1500);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initAnimatedGrid();
   const activePanel = document.querySelector('.panel.on') || document.querySelector('.panel');
   if (activePanel) {
     activePanel.classList.add('on');
@@ -2118,6 +2237,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Why accordion
+(function initWhyAccordion() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var acc = document.getElementById('whyAccordion');
+    if (!acc) return;
+    var panels = acc.querySelectorAll('.why-panel');
+    panels.forEach(function(panel) {
+      panel.addEventListener('click', function() {
+        panels.forEach(function(p) { p.classList.remove('why-panel--active'); });
+        panel.classList.add('why-panel--active');
+      });
+    });
+  });
+})();
 
 function openDswModal() { document.getElementById('dsw-modal').classList.add('open'); }
 function closeDswModal() { document.getElementById('dsw-modal').classList.remove('open'); }
