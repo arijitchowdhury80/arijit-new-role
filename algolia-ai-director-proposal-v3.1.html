@@ -21,11 +21,13 @@
 }
 /* Animated grid sits fixed behind all content */
 #animated-grid{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
-body{font-family:'Sora',sans-serif;font-size:15px;line-height:1.65;color:var(--text);background:#F8F9FB;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{font-family:'Sora',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:#F8F9FB;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
 /* HEADER */
-.site-header{background:var(--navy);padding:14px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.08)}
-.header-inner{max-width:960px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.site-header { background: #1C1E26; height: 50px; position: fixed; top: 0; left: 0; right: 0; z-index: 200; border-bottom: 2px solid rgba(0,61,255,0.1); }
+.site-header::after { content: ''; position: absolute; bottom: -2px; left: 0; height: 2px; background: var(--blue); width: 0; animation: loadProgress 1.5s ease-out forwards; }
+@keyframes loadProgress { 0% { width: 0%; } 100% { width: 100%; } }
+.header-inner { width: 100%; height: 100%; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
 .algolia-logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:32px;height:32px}
 .logo-wordmark{height:18px}
@@ -41,7 +43,7 @@ body{font-family:'Sora',sans-serif;font-size:15px;line-height:1.65;color:var(--t
 .hero .eyebrow::before{content:'';width:16px;height:1px;background:rgba(138,171,255,0.5)}
 .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#FFFFFF;margin-bottom:12px;max-width:600px}
 .hero h1 span{color:#8AABFF}
-.hero .sub{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:640px;margin-bottom:20px}
+.hero .sub{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:640px;margin-bottom:20px}
 .hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:20px}
 .hero-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:4px}
 .hero-metric-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.13);border-radius:10px;padding:14px 16px}
@@ -54,19 +56,19 @@ body{font-family:'Sora',sans-serif;font-size:15px;line-height:1.65;color:var(--t
 
 /* NAV — floating pill rail, matches Algolia Search Audit SPA */
 .nav-bar{position:sticky;top:54px;z-index:90;width:fit-content;margin:0 auto 10px;height:48px;background:#FFFFFF;border-radius:100px;border:1px solid rgba(0,0,0,0.10);display:flex;align-items:center;padding:4px;gap:2px;box-shadow:0 4px 20px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.06);white-space:nowrap}
-.nav-bar button{display:flex;align-items:center;padding:0 16px;height:40px;font-size:15px;font-weight:500;color:var(--text-muted);cursor:pointer;border:none;border-radius:100px;background:none;font-family:'Sora',sans-serif;transition:color .15s,background .15s;user-select:none;white-space:nowrap}
+.nav-bar button{display:flex;align-items:center;padding:0 16px;height:40px;font-size:16px;font-weight:500;color:var(--text-muted);cursor:pointer;border:none;border-radius:100px;background:none;font-family:'Sora',sans-serif;transition:color .15s,background .15s;user-select:none;white-space:nowrap}
 .nav-bar button.on{background:var(--navy);color:#FFFFFF;font-weight:600}
 .nav-bar button:hover:not(.on){background:var(--bg-surface);color:var(--text)}
 
-.panel{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:32px 36px;display:none}
-.panel.on{display:block}
+
+
 
 h2{font-size:16px;font-weight:700;color:var(--text);margin:26px 0 12px;letter-spacing:-.01em}
 h2:first-child{margin-top:0}
 h2.section-head{display:flex;align-items:center;gap:10px;font-size:15px}
 h2.section-head::after{content:'';flex:1;height:0.5px;background:var(--border)}
-h3{font-size:15px;font-weight:600;color:var(--text);margin:0 0 7px}
-p{font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:8px}
+h3{font-size:16px;font-weight:600;color:var(--text);margin:0 0 7px}
+p{font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:8px}
 p:last-child{margin-bottom:0}
 
 .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
@@ -83,12 +85,12 @@ p:last-child{margin-bottom:0}
 .stat .l{font-size:12px;color:var(--text-muted);line-height:1.45}
 
 ul.li{list-style:none}
-ul.li li{font-size:15px;color:var(--text-muted);padding:5px 0 5px 16px;position:relative;border-bottom:0.5px solid var(--border)}
+ul.li li{font-size:16px;color:var(--text-muted);padding:5px 0 5px 16px;position:relative;border-bottom:0.5px solid var(--border)}
 ul.li li:last-child{border:none}
 ul.li li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:12px;top:6px}
 
 .qbox{border-left:3px solid var(--blue);padding:14px 18px;margin:16px 0;background:var(--blue-light);border-radius:0 var(--r) var(--r) 0}
-.qbox p{font-size:15px;color:var(--blue-dark);font-style:italic;margin:0;line-height:1.75}
+.qbox p{font-size:16px;color:var(--blue-dark);font-style:italic;margin:0;line-height:1.75}
 .qbox .attr{font-size:12px;color:var(--blue-mid);margin-top:6px;font-style:normal;font-weight:600}
 
 .hbox{background:var(--teal-light);border-radius:var(--rl);padding:15px 18px;margin:13px 0}
@@ -151,8 +153,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .dc-container { display: flex; flex-direction: column; gap: 24px; }
 .dc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .dc-hero{grid-column:1/-1;background:var(--bg-surface);border-radius:var(--rl);padding:14px 18px;border-left:3px solid var(--blue)}
-.dc-hero h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
-.dc-hero p{font-size:15px;color:var(--text-muted);margin:0}
+.dc-hero h4{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.dc-hero p{font-size:16px;color:var(--text-muted);margin:0}
 
 /* SIGNAL GRID */
 .signal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:10px 0}
@@ -218,6 +220,126 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .proof-pill--amber{background:rgba(180,83,9,0.08);border:1px solid rgba(180,83,9,0.22)}
 .proof-pill--amber .proof-pill__badge{background:#B45309}
 .proof-pill--amber .proof-pill__label{color:#B45309}
+
+/* LAYOUT & SIDEBAR NAV */
+.layout-container { display: flex; gap: 40px; align-items: flex-start; margin-top: 24px; position:relative;}
+@media(max-width: 900px) { .layout-container { flex-direction: column; } }
+.sidebar-wrapper { position: sticky; top: 100px; width: 280px; flex-shrink: 0; z-index: 50;}
+@media(max-width: 900px) { .sidebar-wrapper { position: static; width: 100%; top: auto; } }
+
+.side-nav { background: var(--bg); border: 0.5px solid var(--border-med); border-radius: var(--rl); padding: 12px 0; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+.side-nav-header { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-hint); padding: 0 20px 10px; border-bottom: 0.5px solid var(--border-med); margin-bottom: 8px;}
+.menu-item { display: flex; align-items: center; gap: 14px; padding: 12px 20px; text-decoration: none; border-left: 3px solid transparent; transition: all 0.2s; cursor: pointer; }
+.menu-item:hover { background: var(--bg-surface); }
+.menu-item.on { background: var(--blue-light); border-left-color: var(--blue); }
+.menu-num { width: 24px; height: 24px; border-radius: 6px; background: var(--bg-surface); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.menu-item.on .menu-num { background: var(--blue); color: white; }
+.menu-text { display: flex; flex-direction: column; }
+.menu-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.2;}
+.menu-item.on .menu-title { color: var(--blue-mid); }
+.menu-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.3;}
+.content-area { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px;}
+
+.panel{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--rl);padding:32px 36px; display:block; scroll-margin-top: 100px;}
+.dc-container { display: flex; flex-direction: column; gap: 24px; }
+.dc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+
+.dt-row{display:none}
+
+/* UX Extensions */
+.panel p { max-width: 70ch; }
+.comp-table tr.clickable { cursor: pointer; transition: background 0.15s; }
+.comp-table tr.clickable:hover { background: var(--bg-surface); }
+
+
+/* Modal CSS */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 999; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal-content { background: #fff; width: 100%; max-width: 800px; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); overflow-y: auto; position: relative; padding: 40px; transform: translateY(20px); transition: transform 0.2s; }
+.modal-overlay.open .modal-content { transform: translateY(0); }
+.modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-hint); }
+.modal-close:hover { color: var(--text); }
+.brief-header { border-bottom: 2px solid var(--navy); padding-bottom: 16px; margin-bottom: 24px; }
+.brief-header h2 { font-size: 24px; margin: 0 0 8px; color: var(--navy); }
+.brief-header p { font-size: 14px; margin: 0; color: var(--text-muted); }
+.brief-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; }
+.brief-section h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue-mid); margin-bottom: 12px; border-bottom: 1px solid var(--border-med); padding-bottom: 4px; }
+.brief-ul { list-style: none; padding: 0; margin: 0; }
+.brief-ul li { font-size: 14px; padding-left: 16px; position: relative; margin-bottom: 10px; line-height: 1.5; }
+.brief-ul li::before { content: "•"; position: absolute; left: 0; color: var(--blue); }
+.brief-stat { background: var(--bg-surface); padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+.brief-stat .lbl { font-size: 11px; text-transform: uppercase; color: var(--text-hint); }
+.brief-stat .val { font-size: 18px; font-weight: 700; color: var(--navy); }
+
+
+/* Ledger Styling */
+.ledger { width: 100%; border-collapse: collapse; margin-top: 12px; font-family: 'Sora', sans-serif; }
+.ledger th { font-size: 11px; text-transform: uppercase; color: var(--text-hint); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border-med); }
+.ledger th.amt { text-align: right; }
+.ledger td { font-size: 14px; padding: 12px; border-bottom: 0.5px solid var(--border); color: var(--navy); vertical-align: top; }
+.ledger td.desc { color: var(--text-muted); font-size: 13px; line-height: 1.5; padding-top: 13px; }
+.ledger td.desc strong { color: var(--text); }
+.ledger td.amt { text-align: right; font-weight: 600; white-space: nowrap; }
+.ledger tr.total td { font-weight: 700; border-top: 1.5px solid var(--navy); border-bottom: none; background: rgba(0,0,0,0.02); }
+.ledger tr.total td.amt.positive { color: #059669; }
+.ledger tr.total td.amt.revenue { color: var(--blue); }
+
+
+/* NEW LAYOUT CSS */
+.shell { padding: 130px 14px 60px; max-width: 1200px; margin: 0 auto; position: relative; }
+.pill-nav-wrapper { position: fixed; top: 64px; left: 0; right: 0; display: flex; justify-content: center; z-index: 100; pointer-events: none; }
+.pill-nav { background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border: 1px solid var(--border-med); border-radius: 40px; padding: 4px; display: inline-flex; gap: 4px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); pointer-events: auto; }
+.pn-btn { font-size: 15px; font-weight: 600; padding: 10px 20px; border-radius: 30px; border: none; background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.15s; white-space: nowrap; font-family: 'Sora', sans-serif;}
+.pn-btn:hover { background: var(--bg-surface); color: var(--text); }
+.pn-btn.on { background: var(--navy); color: #fff; }
+
+.page-layout { display: flex; gap: 40px; align-items: flex-start; justify-content: center; margin-top:20px;}
+.page-content { flex: 1; min-width: 0; max-width:800px; }
+.panel { display: none !important; background: #fff; border: 0.5px solid var(--border-med); border-radius: var(--rl); padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-top:0;}
+.panel.on { display: block !important; animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.right-toc-wrapper { width: 240px; position: sticky; top: 120px; flex-shrink: 0; }
+@media(max-width: 1000px) { .right-toc-wrapper { display: none; } }
+.right-toc { background: #fff; border: 0.5px solid var(--border-med); border-radius: var(--rl); padding: 16px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.03); }
+.toc-header { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); padding: 0 20px 10px; border-bottom: 0.5px solid var(--border-med); margin-bottom: 6px; }
+.toc-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 20px; text-decoration: none; border-left: 2px solid transparent; transition: all 0.2s; cursor: pointer; color: var(--text-muted); font-size: 14px; font-weight: 500; line-height:1.4;}
+.toc-item:hover { background: var(--bg-surface); color: var(--text); }
+.toc-item.on { background: var(--blue-light); border-left-color: var(--blue); color: var(--blue-mid); }
+.toc-num { background: var(--bg-surface); color: var(--text-muted); border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 700; margin-top: 2px; }
+.toc-item.on .toc-num { background: var(--blue); color: #fff; }
+
+/* ── Overview Bento Grid (from Algolia Search Audit SPA) ── */
+.ov-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:28px;padding:4px 0;}
+.ov-tile-who{grid-column:1/4;}
+.ov-tile-score{grid-column:4/7;}
+.ov-tile-opp{grid-column:1/5;}
+.ov-tile-next{grid-column:5/7;}
+.ov-tile{position:relative;background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.85);border-radius:20px;padding:26px 28px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.18s ease,box-shadow 0.18s ease;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06),0 16px 36px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95);}
+.ov-tile::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(600px circle at var(--ov-x,50%) var(--ov-y,50%),rgba(var(--ov-spot,0,61,255),0.07) 0%,transparent 65%);opacity:0;transition:opacity 0.3s ease;pointer-events:none;z-index:0;}
+.ov-tile:hover::before{opacity:1;}
+.ov-tile::after{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);border-radius:50%;opacity:0;transition:opacity 0.3s ease;pointer-events:none;z-index:0;}
+.ov-tile:hover::after{opacity:1;}
+.ov-tile>*{position:relative;z-index:1;}
+.ov-q{font-size:10px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-hint);font-family:'Sora',sans-serif;margin-bottom:14px;}
+.ov-tile{font-family:'Sora',sans-serif;}
+.ov-tile-nav{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,0.07);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94A3B8;cursor:pointer;transition:color 0.2s;display:flex;align-items:center;justify-content:space-between;}
+.ov-tile-nav:hover{color:var(--blue);}
+@media(max-width:900px){.ov-bento{grid-template-columns:1fr 1fr;}.ov-tile-score{grid-column:1/3;}.ov-tile-next{grid-column:1/2;}.ov-tile-who{grid-column:2/3;}.ov-tile-opp{grid-column:1/3;}}
+@media(max-width:600px){.ov-bento{grid-template-columns:1fr;}.ov-tile-score,.ov-tile-next,.ov-tile-who,.ov-tile-opp{grid-column:1/2;}}
+
+/* ── Bounce Cards (proof row at bottom of Overview) ── */
+.bounce-card{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.bounce-card:hover{transform:translateY(-4px) rotate(-0.5deg);box-shadow:0 8px 24px rgba(0,0,0,0.14);}
+.bounce-card__content{padding:20px;flex:1;}
+.bounce-card__gradient{padding:20px;display:flex;flex-direction:column;align-items:flex-start;}
+.bounce-card__amount{font-size:40px;font-weight:700;color:white;letter-spacing:-1px;line-height:1;margin-bottom:4px;}
+.bounce-card__amount-sub{font-size:13px;color:rgba(255,255,255,0.85);font-weight:500;}
+.bounce-card--green{background:white;border:1px solid rgba(5,150,105,0.2);}
+.bounce-card--green .bounce-card__gradient{background:linear-gradient(160deg,#059669,#10B981);}
+.bounce-card--blue{background:white;border:1px solid rgba(0,61,255,0.2);}
+.bounce-card--blue .bounce-card__gradient{background:linear-gradient(160deg,#003DFF,#5468FF);}
+
 </style>
 </head>
 <body>
@@ -237,32 +359,181 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
 <div class="shell">
 
-<!-- HERO -->
-<div class="hero">
-  <div class="eyebrow">Strategic Initiative Proposal</div>
-  <h1>From Partnership Innovation to <span>AI Innovation</span>:<br>A New Role for a New Era:<br>Director of AI Innovation &amp; Enablement</h1>
-  <p class="sub">This proposal creates a net-new, company-wide function at Algolia. It makes the case for why this role should exist, what it delivers across every business function, why now is the right moment, and why I am uniquely positioned to build it — with two production AI systems and seven completed prospect intelligence audits already proving the concept.</p>
-  <div class="hero-metrics">
-    <div class="hero-metric-card"><div class="hm-n teal">$2.16M</div><div class="hm-l">Conservative year 1 value — productivity + revenue + ops efficiency</div></div>
-    <div class="hero-metric-card"><div class="hm-n orange">$450K</div><div class="hm-l">Total investment — $300K OTE + $150K AI tooling budget</div></div>
-    <div class="hero-metric-card"><div class="hm-n dark">7.2×</div><div class="hm-l">Conservative year 1 return on investment</div></div>
-    <div class="hero-metric-card"><div class="hm-n amber">4–6</div><div class="hm-l">Incremental FTE hires avoided — $600K–$900K/yr ongoing saving</div></div>
+<!-- FLOATING PILL NAV -->
+<div class="pill-nav-wrapper">
+  <nav class="pill-nav">
+    <button class="pn-btn on" onclick="switchTab('p-overview', this)">Overview</button>
+    <button class="pn-btn" onclick="switchTab('p-why', this)">Why this role</button>
+    <button class="pn-btn" onclick="switchTab('p-proof', this)">Why me</button>
+    <button class="pn-btn" onclick="switchTab('p-invest', this)">The Investment</button>
+    <button class="pn-btn" onclick="switchTab('p-plan', this)">Year 1 plan</button>
+    <button class="pn-btn" onclick="switchTab('p-what', this)">Full scope</button>
+    <button class="pn-btn" onclick="switchTab('p-qa', this)">Q&amp;A</button>
+  </nav>
+</div>
+
+
+<div class="page-layout">
+<div class="page-content">
+
+<!-- OVERVIEW -->
+<div id="p-overview" class="panel on">
+  <div class="ov-bento">
+
+    <!-- Tile 1: WHAT IS THIS? (col 1-3) -->
+    <div class="ov-tile ov-tile-who" data-spotlight-color="0,61,255">
+      <div class="ov-q">WHAT IS THIS?</div>
+      <div style="font-size:22px;font-weight:700;color:var(--navy);letter-spacing:-0.5px;margin-bottom:6px;line-height:1.2;">Director of AI Innovation<br>&amp; Enablement</div>
+      <div style="display:inline-block;background:rgba(232,56,13,0.10);color:var(--orange);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:16px;">Net-new role — does not exist today</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:28px;height:28px;border-radius:8px;background:rgba(0,61,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🏢</span>
+          <span style="font-size:14px;color:var(--text);">Company-wide mandate — all 8 functions</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:28px;height:28px;border-radius:8px;background:rgba(0,61,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">🎯</span>
+          <span style="font-size:14px;color:var(--text);">Dotted-line access to every functional VP</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:28px;height:28px;border-radius:8px;background:rgba(0,61,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">📋</span>
+          <span style="font-size:14px;color:var(--text);">Build, ship, and prove results — not advise</span>
+        </div>
+      </div>
+      <div class="ov-tile-nav" onclick="switchTab('p-why',null)">Why this role <span>→</span></div>
+    </div>
+
+    <!-- Tile 2: WHAT DOES IT RETURN? (col 4-6) -->
+    <div class="ov-tile ov-tile-score" data-spotlight-color="5,150,105">
+      <div class="ov-q">WHAT DOES IT RETURN?</div>
+      <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;">
+        <div style="font-size:64px;font-weight:700;line-height:1;letter-spacing:-2px;color:#059669;">7.2×</div>
+        <div style="padding-bottom:10px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:4px;">year 1 ROI</div>
+          <div style="display:inline-block;background:rgba(5,150,105,0.10);color:#059669;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;">Strong investment case</div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:var(--text-muted);">Value created — Year 1</span>
+          <span style="font-size:15px;font-weight:700;color:#059669;">$2.16M</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:13px;color:var(--text-muted);">Total investment</span>
+          <span style="font-size:15px;font-weight:700;color:var(--navy);">$450K</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid rgba(0,0,0,0.04);">
+          <span style="font-size:13px;color:var(--text-muted);">FTE hires avoided</span>
+          <span style="font-size:13px;font-weight:600;color:var(--navy);">4–6 ($600K–$900K/yr)</span>
+        </div>
+      </div>
+      <div class="ov-tile-nav" onclick="switchTab('p-invest',null)">The Investment <span>→</span></div>
+    </div>
+
+    <!-- Tile 3: WHY NOW? (col 1-4) -->
+    <div class="ov-tile ov-tile-opp" data-spotlight-color="232,56,13">
+      <div class="ov-q">WHY NOW?</div>
+      <div style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">3 strategic triggers — act this quarter, not next.</div>
+      <div style="flex:1;">
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 4px;border-bottom:1px solid rgba(0,0,0,0.05);">
+          <span style="font-size:15px;line-height:1;margin-top:2px;flex-shrink:0;">🔵</span>
+          <div style="min-width:0;flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;"></span>
+              <span style="font-size:13px;font-weight:700;color:var(--navy);">New CEO — Week One</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">AI-native transformation is the expected strategic direction. This is the first concrete move available.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 4px;border-bottom:1px solid rgba(0,0,0,0.05);">
+          <span style="font-size:15px;line-height:1;margin-top:2px;flex-shrink:0;">⚡</span>
+          <div style="min-width:0;flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>
+              <span style="font-size:13px;font-weight:700;color:var(--navy);">Zero Ramp Cost</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">Two production systems live. 7 audits completed. $0 budget. No other hire starts this way on day one.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 4px;">
+          <span style="font-size:15px;line-height:1;margin-top:2px;flex-shrink:0;">⏱️</span>
+          <div style="min-width:0;flex:1;">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+              <span style="width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;"></span>
+              <span style="font-size:13px;font-weight:700;color:var(--navy);">The Window</span>
+            </div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.5;">Every quarter without a systematic AI function is ad-hoc adoption that compounds and becomes harder to unwind.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ov-tile-nav" onclick="switchTab('p-why',null)">See the full case <span>→</span></div>
+    </div>
+
+    <!-- Tile 4: WHAT'S THE DECISION? (col 5-6) -->
+    <div class="ov-tile ov-tile-next" data-spotlight-color="0,61,255">
+      <div class="ov-q">WHAT'S THE DECISION?</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px rgba(5,150,105,0.25);flex-shrink:0;"></div>
+        <div style="font-size:13px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.04em;">High leverage</div>
+      </div>
+      <div style="font-size:15px;color:var(--navy);line-height:1.6;margin-bottom:16px;font-weight:500;">Approve Director of AI Innovation &amp; Enablement — net-new role, $450K year 1 investment.</div>
+      <div style="margin-top:auto;border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Owner</span>
+          <span style="font-size:13px;color:var(--navy);">CEO &amp; CFO</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Timeline</span>
+          <span style="font-size:13px;color:var(--navy);">Q1 2026</span>
+        </div>
+      </div>
+      <div class="ov-tile-nav" onclick="switchTab('p-invest',null)">The Investment <span>→</span></div>
+    </div>
+
+  </div>
+
+  <!-- Proof Cards Row -->
+  <div style="display:flex;gap:14px;flex-wrap:wrap;padding:4px 0 8px;">
+    <div class="bounce-card bounce-card--green" style="flex:1;min-width:180px;cursor:pointer;" onclick="switchTab('p-proof',null)">
+      <div class="bounce-card__content">
+        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Prospect Intelligence</div>
+        <div style="font-size:13px;color:var(--text-muted);">Production system. $0 budget.</div>
+      </div>
+      <div class="bounce-card__gradient">
+        <div class="bounce-card__amount">7</div>
+        <div class="bounce-card__amount-sub">audits completed</div>
+        <span style="margin-top:10px;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:white;text-transform:uppercase;">See proof →</span>
+      </div>
+    </div>
+    <div class="bounce-card bounce-card--green" style="flex:1;min-width:180px;cursor:pointer;" onclick="window.open('https://algoliacentral.lovable.app','_blank')">
+      <div class="bounce-card__content">
+        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Algolia Central</div>
+        <div style="font-size:13px;color:var(--text-muted);">24/7 AI demand-gen. Live today.</div>
+      </div>
+      <div class="bounce-card__gradient">
+        <div class="bounce-card__amount">Live</div>
+        <div class="bounce-card__amount-sub">in production now</div>
+        <span style="margin-top:10px;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:white;text-transform:uppercase;">See platform →</span>
+      </div>
+    </div>
+    <div class="bounce-card bounce-card--blue" style="flex:1;min-width:180px;cursor:pointer;" onclick="switchTab('p-invest',null)">
+      <div class="bounce-card__content">
+        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#003DFF;margin-bottom:6px;">THE INVESTMENT</div>
+        <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Year 1 Return</div>
+        <div style="font-size:13px;color:var(--text-muted);">3.6× even at 50% of estimates.</div>
+      </div>
+      <div class="bounce-card__gradient">
+        <div class="bounce-card__amount">$2.16M</div>
+        <div class="bounce-card__amount-sub">vs $450K invested</div>
+        <span style="margin-top:10px;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:white;text-transform:uppercase;">See numbers →</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- NAV PILL RAIL -->
-<nav class="nav-bar" id="nav">
-  <button class="on" onclick="go('why',this)">Why this role</button>
-  <button onclick="go('what',this)">What it does</button>
-  <button onclick="go('proof',this)">Why me</button>
-  <button onclick="go('plan',this)">Year 1 plan</button>
-  <button onclick="go('roi',this)">Business case</button>
-  <button onclick="go('ask',this)">The ask</button>
-  <button onclick="go('qa',this)">Q&amp;A</button>
-</nav>
-
 <!-- WHY -->
-<div id="p-why" class="panel on">
+<div id="p-why" class="panel">
   <h2>The gap that no one owns today</h2>
   <div class="g2">
     <div class="card">
@@ -465,7 +736,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <table class="comp-table" style="margin:6px 0">
       <thead><tr><th>Prospect</th><th>Vertical</th><th>Score</th><th>Key finding</th></tr></thead>
       <tbody>
-        <tr><td>DSW</td><td>Footwear Retail</td><td style="font-weight:700;color:var(--blue)">3.8/10</td><td style="font-size:12px">Shoe Carnival (competitor) uses Algolia — 3.5× conversion proof. SI partners Slalom + Epsilon mapped. <span class="badge teal" style="font-size:11px;padding:1px 6px">Fact-checked: 8.3 — PROCEED</span></td></tr>
+        <tr class="clickable" onclick="openDswModal()"><td>DSW <span style="font-size:10px; color:var(--blue); margin-left:4px;">(Click to view brief)</span></td><td>Footwear Retail</td><td style="font-weight:700;color:var(--blue)">3.8/10</td><td style="font-size:12px">Shoe Carnival (competitor) uses Algolia — 3.5× conversion proof. SI partners Slalom + Epsilon mapped. <span class="badge teal" style="font-size:11px;padding:1px 6px">Fact-checked: 8.3 — PROCEED</span></td></tr>
         <tr><td>Costco</td><td>Wholesale</td><td style="font-weight:700;color:var(--blue)">4.4/10</td><td style="font-size:12px">Zero PDP recommendations (RichRelevance removed). "best tv for gaming" returns insurance plans. 9 CEO/CFO quotes from earnings calls, 5 SEC risk factors surfaced.</td></tr>
         <tr><td>Tapestry (Coach)</td><td>Luxury Fashion</td><td style="font-weight:700;color:var(--blue)">4.2/10</td><td style="font-size:12px">"gift for mom under 300" → 1 result. First-mover opportunity: 0 of 5 competitors use Algolia.</td></tr>
         <tr><td>Oriental Trading</td><td>Party Supplies</td><td style="font-weight:700;color:var(--blue)">4.1/10</td><td style="font-size:12px">Private company (~$550M estimated). Good vertical baseline established.</td></tr>
@@ -597,8 +868,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
 </div>
 
-<!-- ROI -->
-<div id="p-roi" class="panel">
+<!-- INVEST -->
+<div id="p-invest" class="panel">
   <h2>The business case</h2>
   <div style="background:var(--amber-bg);border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin-bottom:16px">
     <p style="font-size:15px;color:#633806;margin:0;line-height:1.7"><strong style="color:#412402">A note on these figures.</strong> All numbers below are conservative industry-benchmark estimates. The pipeline size, ACV, and headcount figures are illustrative — based on publicly available SaaS benchmarks for companies at Algolia's scale — and should be replaced with actual Salesforce data before this proposal is finalized. The model's structure is sound; the inputs are the variable. Even at 50% of these estimates, the return on a $450K investment remains strongly positive.</p>
@@ -631,36 +902,53 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   <div class="roi-section">
     <div class="roi-section-label">Category A — Revenue impact</div>
     <p style="margin-bottom:12px;font-size:13px">When AEs enter discovery calls knowing the prospect's financial pressures, technology stack, strategic priorities, hiring signals, and exact search gaps — they close at a higher rate and cycle faster. Forrester and Gartner research consistently show a 15–20% improvement in conversion rates when reps use deep account intelligence versus generic manual research.</p>
-    <div class="rbar"><div class="lbl"><span class="desc">Win rate improvement — 3% absolute lift on <span style="background:rgba(0,61,255,0.08);border-radius:3px;padding:0 4px;font-weight:600;color:var(--blue)">[Algolia qualified pipeline $]</span> converts additional deals at <span style="background:rgba(0,61,255,0.08);border-radius:3px;padding:0 4px;font-weight:600;color:var(--blue)">[Algolia avg ACV $]</span> — illustrated at $30M pipeline / $45K ACV</span><span class="val blue">$540K new ARR/yr</span></div><div class="track"><div class="fill-blue" style="width:45%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">Sales cycle compression — 7 days faster average close × 60 deals × $4.5K/day revenue recognition value</span><span class="val blue">$189K/yr</span></div><div class="track"><div class="fill-blue" style="width:15.75%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">BDR pipeline creation — personalized outreach at 3× reply rate lifts pipeline creation by 20% on $6M BDR-sourced pipeline <em style="color:var(--text-hint)">(pipeline value, not closed revenue — converts at Algolia's blended win rate)</em></span><span class="val blue">$1.2M pipeline</span></div><div class="track"><div class="fill-blue" style="width:100%"></div></div></div>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Win Rate Improvement</strong></td><td class="desc">3% absolute lift on $30M qualified pipeline converts additional deals at $45K ACV</td><td class="amt" style="color:var(--blue)">$540K/yr</td></tr>
+        <tr><td><strong>Sales Cycle Compression</strong></td><td class="desc">7 days faster average close × 60 deals × $4.5K/day revenue recognition value</td><td class="amt" style="color:var(--blue)">$189K/yr</td></tr>
+        <tr><td><strong>BDR Pipeline Lift</strong></td><td class="desc">Personalized outreach at 3× reply rate lifts creation by 20% on $6M baseline</td><td class="amt" style="color:var(--blue); font-size:12px">($1.2M Pipeline)</td></tr>
+        <tr class="total"><td>Category A Total</td><td>Estimated hard revenue impact & accelerated cash</td><td class="amt revenue">$729K/yr</td></tr>
+      </tbody>
+    </table>
+
   </div>
 
   <div class="roi-section">
     <div class="roi-section-label">Category B — Productivity recaptured</div>
     <p style="margin-bottom:12px;font-size:13px">Every hour of manual work absorbed by AI is an hour redirected to revenue-generating activity. The figures below represent the value of that redirected time — using fully loaded cost rates per role. These are not hard cash savings; they are capacity gains. The assumption is that capacity freed is redeployed to selling, not eliminated. A CFO should read this as: <em>"we can grow pipeline without growing headcount."</em></p>
-    <div class="rbar"><div class="lbl"><span class="desc">AE research time — 40 AEs × 2.5 hours/week × 50 weeks × $115/hr fully loaded</span><span class="val teal">$575K/yr</span></div><div class="track"><div class="fill-teal" style="width:63.8%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">BDR outreach preparation — 20 BDRs × 3 hours/week × 50 weeks × $85/hr fully loaded</span><span class="val teal">$255K/yr</span></div><div class="track"><div class="fill-teal" style="width:28.3%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">Marketing content production — automated engine replaces approximately 1.5 FTEs of production work ($140K loaded × 1.5)</span><span class="val teal">$210K/yr</span></div><div class="track"><div class="fill-teal" style="width:23.3%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">Revenue Ops reporting — automated pipeline narratives, QBR preparation, board packs (0.75 FTE at $155K)</span><span class="val teal">$116K/yr</span></div><div class="track"><div class="fill-teal" style="width:12.8%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">Customer Success capacity — QBR automation, health scoring, churn detection (0.5 FTE capacity gain)</span><span class="val teal">$70K/yr</span></div><div class="track"><div class="fill-teal" style="width:7.7%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">ABX campaign creation — 4 hrs × $85/hr × 200 personalized account packages</span><span class="val teal">$68K/yr</span></div><div class="track"><div class="fill-teal" style="width:7.5%"></div></div></div>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Capacity Value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AE Research Time</strong></td><td class="desc">40 AEs × 2.5 hours/week × 50 weeks × $115/hr fully loaded</td><td class="amt">$575K/yr</td></tr>
+        <tr><td><strong>BDR Outreach Prep</strong></td><td class="desc">20 BDRs × 3 hours/week × 50 weeks × $85/hr fully loaded</td><td class="amt">$255K/yr</td></tr>
+        <tr><td><strong>Marketing Content</strong></td><td class="desc">Automated engine replaces ~1.5 FTEs of production bandwidth</td><td class="amt">$210K/yr</td></tr>
+        <tr><td><strong>RevOps Reporting</strong></td><td class="desc">Automated pipeline narratives, QBR prep, board packs (~0.75 FTE)</td><td class="amt">$116K/yr</td></tr>
+        <tr><td><strong>CS Intelligence</strong></td><td class="desc">QBR automation, health scoring, churn detection (~0.5 FTE)</td><td class="amt">$70K/yr</td></tr>
+        <tr><td><strong>ABX Campaign Creation</strong></td><td class="desc">4 hrs × $85/hr × 200 personalized account packages</td><td class="amt">$68K/yr</td></tr>
+        <tr class="total"><td>Category B Total</td><td>Total productivity recaptured for revenue-generating activities</td><td class="amt positive">$1,294,000/yr</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="roi-section">
     <div class="roi-section-label">Category C — Cost avoidance</div>
     <p style="margin-bottom:12px;font-size:13px">This category represents spend that is eliminated or prevented — outside counsel time, duplicated tool subscriptions, and the incremental FTE hires that AI capacity absorbs. These are hard savings, not productivity estimates.</p>
-    <div class="rbar"><div class="lbl"><span class="desc">Legal contract review — outside counsel offset and internal review time reduction on standard agreements</span><span class="val teal">$90K/yr</span></div><div class="track"><div class="fill-teal" style="width:10%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">AI tooling rationalization — consolidating and eliminating redundant, uncoordinated tool subscriptions across teams</span><span class="val teal">$45K/yr</span></div><div class="track"><div class="fill-teal" style="width:5%"></div></div></div>
-    <div class="rbar"><div class="lbl"><span class="desc">FTE hires avoided — AI capacity absorbs work that would otherwise require 4–6 new hires at $140K–$150K average loaded cost</span><span class="val teal">$600K–$900K/yr</span></div><div class="track"><div class="fill-teal" style="width:100%"></div></div></div>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Cost Avoided</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Legal Contract Review</strong></td><td class="desc">Outside counsel offset and internal review time reduction</td><td class="amt">$90K/yr</td></tr>
+        <tr><td><strong>Tooling Rationalization</strong></td><td class="desc">Consolidating redundant, uncoordinated tool subscriptions directly</td><td class="amt">$45K/yr</td></tr>
+        <tr><td><strong>FTE Hires Avoided</strong></td><td class="desc">AI absorbs work requiring 4–6 incremental hires</td><td class="amt">$600K-$900K/yr</td></tr>
+        <tr class="total"><td>Category C Total</td><td>Total hard operating expenses avoided or eliminated</td><td class="amt positive">~$885,000/yr</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="hbox"><h3>The comparison that matters most</h3><p>Hiring a Director of AI Innovation externally costs $350–480K in loaded comp, plus 3–6 months to ramp with zero productivity during that period, plus zero existing Algolia domain knowledge, zero cross-functional relationships, and zero working prototypes. I am already ramped, already building, already trusted across functions, and already producing assets the sales team can use today. The incremental cost of formalizing this role is a $50K comp adjustment and a $150K tooling budget against a $2.16M conservative return.</p></div>
-</div>
 
-<!-- ASK -->
-<div id="p-ask" class="panel">
-  <h2>What I am asking for</h2>
+  <hr style="margin:32px 0;border-color:rgba(0,0,0,0.08);">
+  <h2 style="margin-top:0;">What I am asking for</h2>
   <div class="g3" style="margin-bottom:18px">
     <div class="ask-card"><span class="big">Title</span><h3>Director of AI Innovation &amp; Enablement</h3><p style="font-size:13px;margin-top:7px;color:var(--text-muted)">A net-new role — not a rebranding of an existing position. Cross-functional authority with dotted-line access to every functional VP. Full scope described in this proposal.</p></div>
     <div class="ask-card"><span class="big">$300K OTE</span><h3>Market repricing for a new scope</h3><p style="font-size:13px;margin-top:7px;color:var(--text-muted)">$225K base / $75K variable. The 75/25 split is preserved. This is not a raise — it is the market rate for a materially different, company-wide role. Benchmarks are below.</p></div>
@@ -744,56 +1032,184 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 </div>
 
 
+
+
+
+
+</div><!-- END page-content -->
+<aside class="right-toc-wrapper">
+  <div class="right-toc" id="toc" style="display:none">
+    <!-- Populated by JS -->
+  </div>
+</aside>
+</div><!-- END page-layout -->
+
+<!-- DSW Modal -->
+<div class="modal-overlay" id="dsw-modal" onclick="if(event.target===this) closeDswModal()">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeDswModal()">&times;</button>
+    
+    <div class="brief-header">
+      <div style="display:flex; justify-content:space-between; align-items: flex-end;">
+        <div>
+          <h2>DSW (Designer Brands Inc.)</h2>
+          <p>AE Pre-Call Brief · Validated: Mar 24, 2026 · Confidence: 8.3/10</p>
+        </div>
+        <div><span class="badge blue">Score: 3.8/10</span></div>
+      </div>
+    </div>
+    
+    <div class="brief-grid">
+      <div class="brief-section">
+        <h3>Primary Golden Angle</h3>
+        <p style="font-size: 15px; font-weight: 600; line-height: 1.5; margin-bottom: 16px;">Shoe Carnival (direct competitor) switched to Algolia and saw a 3.5× conversion lift. DSW's current search is leaving revenue on the table by failing on edge cases.</p>
+        
+        <h3>Revenue at Risk / Pain Points</h3>
+        <ul class="brief-ul">
+          <li><strong>Current Provider:</strong> Suspected internally built / legacy Solr structure.</li>
+          <li><strong>Search Failure:</strong> "red high heels under 50" returns unstructured accessories mixed with shoes. Missing semantic understanding.</li>
+          <li><strong>Personalization Gap:</strong> Zero persistent personalization detected for returning unauthenticated traffic.</li>
+        </ul>
+        
+        <h3 style="margin-top: 24px;">Recommended Talk Track</h3>
+        <ul class="brief-ul">
+          <li>"I noticed Shoe Carnival recently modernized their stack and saw a massive jump—how are you currently tracking search zero-result rates?"</li>
+          <li>"Our data shows a 15% drop-off in the footwear category when query refinements aren't instant. Is that something the e-commerce team is currently fighting?"</li>
+        </ul>
+      </div>
+      
+      <div class="brief-section">
+        <h3>Fast Facts</h3>
+        <div class="brief-stat">
+          <div class="lbl">Est. Web Traffic Traffic</div>
+          <div class="val">~18M / month</div>
+        </div>
+        <div class="brief-stat">
+          <div class="lbl">Key Initiative (Q1 Earnings)</div>
+          <div class="val">"Digital Acceleration"</div>
+        </div>
+        <div class="brief-stat">
+          <div class="lbl">Tech Stack overlap</div>
+          <div class="val">Salesforce Commerce Cloud, Contentful</div>
+        </div>
+        <div class="brief-stat" style="background:var(--teal-light)">
+          <div class="lbl" style="color:var(--teal)">Partner Angle</div>
+          <div class="val" style="color:var(--teal-deep); font-size:14px;">Slalom holds the SI relationship here. Run this through channel.</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
 <script>
-function go(id, btn){
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
-  document.getElementById('p-' + id).classList.add('on');
-  document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  window.scrollTo({top: 0, behavior: 'smooth'});
+const panels = document.querySelectorAll('.panel');
+const pnBtns = document.querySelectorAll('.pn-btn');
+const tocContainer = document.getElementById('toc');
+let observer = null;
+
+function switchTab(panelId, btn) {
+  panels.forEach(p => p.classList.remove('on'));
+  pnBtns.forEach(b => b.classList.remove('on'));
+  const target = document.getElementById(panelId);
+  if (target) {
+    target.classList.add('on');
+    const matchBtn = btn || document.querySelector(`.pn-btn[onclick*="'${panelId}'"]`);
+    if(matchBtn) matchBtn.classList.add('on');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    buildTOC(target);
+  }
 }
 
-/* ── Animated Grid Background — magicui/animated-grid-pattern ── */
-function initAnimatedGrid(){
-  if(typeof document.createElementNS!=='function'||!document.body)return;
-  const GRID=44,NUM=45,MAX_OP=0.55,MIN_OP=0.12;
-  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.id='animated-grid';
-  svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
-  const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
-  defs.innerHTML=`<pattern id="agp" x="0" y="0" width="${GRID}" height="${GRID}" patternUnits="userSpaceOnUse"><path d="M${GRID} 0 L 0 0 0 ${GRID}" fill="none" stroke="rgba(0,61,255,0.07)" stroke-width="0.8"/></pattern>`;
-  svg.appendChild(defs);
-  const bg=document.createElementNS('http://www.w3.org/2000/svg','rect');
-  bg.setAttribute('width','100%');bg.setAttribute('height','100%');
-  bg.setAttribute('fill','url(#agp)');
-  svg.appendChild(bg);
-  const squares=Array.from({length:NUM},()=>{
-    const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
-    r.setAttribute('width',GRID-1);r.setAttribute('height',GRID-1);
-    r.style.opacity='0';r.style.fill='rgba(0,61,255,0.10)';
-    svg.appendChild(r);return r;
+function buildTOC(panel) {
+  // Select all important headings in this specific panel
+  let headings = Array.from(panel.querySelectorAll('h2, .dc-hero h4, h3'));
+  
+  // Filter out some junk ones
+  headings = headings.filter(h => {
+    const text = h.innerText.toLowerCase();
+    if(text.includes('charter in plain language')) return false;
+    if(text.includes('reporting structure')) return false;
+    if(h.closest('.roi-summary')) return false;
+    if(h.innerText.length < 3) return false;
+    return true;
   });
-  document.body.insertBefore(svg,document.body.firstChild);
-  function reposition(r){
-    const cols=Math.ceil(window.innerWidth/GRID)+1;
-    const rows=Math.ceil(window.innerHeight/GRID)+1;
-    r.setAttribute('x',Math.floor(Math.random()*cols)*GRID);
-    r.setAttribute('y',Math.floor(Math.random()*rows)*GRID);
+
+  if (headings.length === 0 || headings.length === 1) {
+    tocContainer.style.display = 'none';
+    return;
+  } else {
+    tocContainer.style.display = 'block';
   }
-  function pulse(r,delay){
-    setTimeout(()=>{
-      reposition(r);
-      r.style.transition='opacity 1.8s ease';
-      r.style.opacity=String(MIN_OP+Math.random()*(MAX_OP-MIN_OP));
-      setTimeout(()=>{
-        r.style.opacity='0';
-        setTimeout(()=>pulse(r,0),2000+Math.random()*1500);
-      },1800+Math.random()*800);
-    },delay);
-  }
-  squares.forEach((r,i)=>pulse(r,i*200+Math.random()*300));
+  
+  let html = `<div class="toc-header">Contents</div>`;
+  
+  headings.forEach((h, i) => {
+    if (!h.id) { h.id = 'toc-sec-' + Math.random().toString(36).substr(2, 9); }
+    h.style.scrollMarginTop = "90px";
+    
+    // Shorten title if needed
+    let title = h.innerText;
+    if(title.includes('—')) title = title.split('—')[0].trim();
+    if(title.length > 35) title = title.substring(0,35) + '...';
+
+    html += `<a href="#${h.id}" class="toc-item ${i===0?'on':''}" onclick="scrollToToc(event, '${h.id}')">
+              <span class="toc-num">${i+1}</span>
+              <span>${title}</span>
+             </a>`;
+  });
+  
+  tocContainer.innerHTML = html;
+  
+  // Setup intersection observer
+  if(observer) observer.disconnect();
+  observer = new IntersectionObserver((entries) => {
+    let activeId = null;
+    entries.forEach(entry => {
+      // Find the first intersecting heading
+      if(entry.isIntersecting) { activeId = entry.target.id; }
+    });
+    if (activeId) {
+      document.querySelectorAll('.toc-item').forEach(item => {
+        item.classList.remove('on');
+        if (item.getAttribute('href') === '#' + activeId) item.classList.add('on');
+      });
+    }
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  
+  headings.forEach(h => observer.observe(h));
 }
-initAnimatedGrid();
+
+function scrollToToc(e, id) {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const activePanel = document.querySelector('.panel.on') || document.querySelector('.panel');
+  if (activePanel) {
+    activePanel.classList.add('on');
+    buildTOC(activePanel);
+  }
+  // Spotlight mouse tracking for bento tiles
+  document.querySelectorAll('.ov-tile').forEach(tile => {
+    tile.addEventListener('mousemove', (e) => {
+      const rect = tile.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+      tile.style.setProperty('--ov-x', x + '%');
+      tile.style.setProperty('--ov-y', y + '%');
+      tile.style.setProperty('--ov-spot', tile.dataset.spotlightColor || '0,61,255');
+    });
+  });
+});
+
+function openDswModal() { document.getElementById('dsw-modal').classList.add('open'); }
+function closeDswModal() { document.getElementById('dsw-modal').classList.remove('open'); }
 </script>
+
 </body>
 </html>
