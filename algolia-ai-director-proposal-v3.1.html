@@ -199,14 +199,14 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .why-panel--active{flex:1 1 0;}
 .why-tab{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:20px 0;gap:10px;opacity:1;transition:opacity 0.25s;}
 .why-panel--active .why-tab{opacity:0;pointer-events:none;}
-.why-tab-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--text-hint);writing-mode:vertical-rl;text-transform:uppercase;}
-.why-tab-title{font-size:13px;font-weight:600;color:var(--text-muted);gba(255,255,255,0.9);writing-mode:vertical-rl;transform:rotate(180deg);line-height:1.3;max-height:200px;overflow:hidden;}
+.why-tab-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--panel-accent,var(--text-hint));writing-mode:vertical-rl;text-transform:uppercase;}
+.why-tab-title{font-size:13px;font-weight:600;color:var(--panel-accent,var(--text-muted));writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;overflow:hidden;}
 .why-content{position:absolute;inset:0;display:flex;align-items:center;padding:40px 44px;opacity:0;transition:opacity 0.3s 0.15s;}
 .why-panel--active .why-content{opacity:1;}
 .why-content-inner{max-width:520px;}
-.why-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;}
-.why-heading{font-size:22px;font-weight:600;color:var(--navy);line-height:1.3;margin:0 0 14px;font-family:'Sora',sans-serif;}
-.why-body{font-size:15px;color:rgba(255,255,255,0.82);line-height:1.75;margin:0;font-family:'Sora',sans-serif;}
+.why-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--panel-accent,var(--text-hint));margin-bottom:12px;}
+.why-heading{font-size:22px;font-weight:600;color:var(--panel-accent,var(--navy));line-height:1.3;margin:0 0 14px;font-family:'Sora',sans-serif;}
+.why-body{font-size:15px;color:var(--text-muted);line-height:1.75;margin:0;font-family:'Sora',sans-serif;}
 .risk-row{display:flex;gap:10px;padding:10px 14px;background:var(--orange-light);border-radius:var(--r);margin:6px 0;align-items:flex-start}
 .risk-row .ri{flex-shrink:0;font-size:15px;margin-top:1px}
 .risk-row p{margin:0;font-size:15px;color:#7A1E08;line-height:1.75;}
@@ -844,10 +844,10 @@ a.bfc-panel{display:block;color:inherit;}
   <h2 class="section-head">Three reasons this is the right moment</h2>
   <div class="why-accordion" id="whyAccordion">
 
-    <div class="why-panel why-panel--active" data-idx="0" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#f0f4ff 100%);">
+    <div class="why-panel why-panel--active" data-idx="0" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#EEF3FF 100%);--panel-accent:#003DFF;">
       <div class="why-tab">
         <span class="why-tab-num">01</span>
-        <span class="why-tab-title">Algolia sells AI - it should run on it</span>
+        <span class="why-tab-title">Algolia sells AI. Run on it.</span>
       </div>
       <div class="why-content">
         <div class="why-content-inner">
@@ -858,10 +858,10 @@ a.bfc-panel{display:block;color:inherit;}
       </div>
     </div>
 
-    <div class="why-panel" data-idx="1" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#f0fdf8 100%);">
+    <div class="why-panel" data-idx="1" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#ECFDF5 100%);--panel-accent:#0D8C6B;">
       <div class="why-tab">
         <span class="why-tab-num">02</span>
-        <span class="why-tab-title">Do more with less is a real mandate</span>
+        <span class="why-tab-title">Do more with less</span>
       </div>
       <div class="why-content">
         <div class="why-content-inner">
@@ -872,10 +872,10 @@ a.bfc-panel{display:block;color:inherit;}
       </div>
     </div>
 
-    <div class="why-panel" data-idx="2" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#eef2ff 100%);">
+    <div class="why-panel" data-idx="2" style="--panel-bg: linear-gradient(145deg,#ffffff 0%,#FFFBEB 100%);--panel-accent:#B45309;">
       <div class="why-tab">
         <span class="why-tab-num">03</span>
-        <span class="why-tab-title">AI has crossed the productivity threshold</span>
+        <span class="why-tab-title">AI crossed the threshold</span>
       </div>
       <div class="why-content">
         <div class="why-content-inner">
@@ -890,7 +890,7 @@ a.bfc-panel{display:block;color:inherit;}
 
   <!-- Industry proof points - moved above risk of inaction -->
   <h2 class="section-head">Industry proof points</h2>
-  <div style="background:#F7F7F9;border-radius:var(--r);padding:24px 28px;box-shadow:0 4px 24px rgba(0,0,0,0.06);margin-bottom:24px;">
+  <div style="background:rgba(255,255,255,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.9);border-radius:var(--rxl);padding:28px 32px;box-shadow:0 8px 40px rgba(0,61,255,0.08),0 2px 12px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.95);margin-bottom:24px;">
     <div class="g2" style="gap:28px;">
 
       <div style="padding-right:24px;border-right:1px solid var(--border);">
