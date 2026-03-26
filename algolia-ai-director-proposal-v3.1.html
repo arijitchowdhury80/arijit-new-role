@@ -362,6 +362,49 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 @media(max-width:900px){.ov-bento{grid-template-columns:1fr 1fr;}.ov-tile-score{grid-column:1/3;}.ov-tile-next{grid-column:1/2;}.ov-tile-who{grid-column:2/3;}.ov-tile-opp{grid-column:1/3;}}
 @media(max-width:600px){.ov-bento{grid-template-columns:1fr;}.ov-tile-score,.ov-tile-next,.ov-tile-who,.ov-tile-opp{grid-column:1/2;}}
 
+/* ── Modern Timeline — Year 1 Plan ─────────────────────────────────────────
+   Vertical animated line + glassmorphism cards + scroll-reveal stagger.
+   All classes prefixed tl- to avoid conflicts.
+   Font sizes: .tl-title 18px · .tl-desc 15px · .tl-period 12px (eyebrow)
+   ──────────────────────────────────────────────────────────────────────── */
+.tl-wrap{position:relative;padding:4px 0 40px 68px;}
+/* Static background line */
+.tl-wrap::before{content:'';position:absolute;left:22px;top:0;bottom:0;width:2px;background:rgba(0,61,255,0.10);border-radius:2px;}
+/* Animated progress line — JS adds .tl-line-on to trigger */
+.tl-line{position:absolute;left:22px;top:0;width:2px;height:0;background:linear-gradient(180deg,#003DFF 0%,rgba(0,61,255,0.25) 100%);border-radius:2px;transition:height 1.6s cubic-bezier(0.16,1,0.3,1);z-index:1;}
+.tl-line.tl-line-on{height:100%;}
+/* Item — hidden until intersection observer fires .tl-visible */
+.tl-item{display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;opacity:0;transform:translateY(28px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.tl-item.tl-visible{opacity:1;transform:translateY(0);}
+/* Node circle — sits over the vertical line */
+.tl-node{position:absolute;left:0;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:'Sora',sans-serif;color:white;z-index:2;flex-shrink:0;margin-top:16px;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.tl-node--current{background:var(--blue);box-shadow:0 0 0 5px rgba(0,61,255,0.12),0 2px 10px rgba(0,61,255,0.3);}
+.tl-node--upcoming{background:#94A3B8;}
+.tl-node--horizon{background:var(--teal);}
+/* Card */
+.tl-card{flex:1;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.92);border-radius:18px;padding:24px 28px;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06),0 14px 30px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.95);transition:transform 0.22s ease,box-shadow 0.22s ease;}
+.tl-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.04),0 14px 32px rgba(0,0,0,0.09),0 24px 44px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95);}
+.tl-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px;}
+.tl-period{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:5px;}
+.tl-title{font-size:18px;font-weight:600;color:var(--navy);margin:0;letter-spacing:-0.01em;line-height:1.35;}
+.tl-title--hover:hover{color:var(--blue);}
+.tl-badge{flex-shrink:0;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;white-space:nowrap;margin-top:3px;border:1px solid transparent;}
+.tl-badge--current{background:rgba(0,61,255,0.09);color:var(--blue);border-color:rgba(0,61,255,0.2);}
+.tl-badge--upcoming{background:rgba(148,163,184,0.14);color:#64748B;border-color:rgba(148,163,184,0.28);}
+.tl-badge--horizon{background:rgba(13,140,107,0.08);color:var(--teal);border-color:rgba(13,140,107,0.2);}
+.tl-desc{font-size:15px;color:var(--text-muted);line-height:1.75;margin:0 0 12px;}
+.tl-note{font-size:14px;color:var(--text-muted);font-style:italic;margin:8px 0 12px;line-height:1.6;}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.tl-tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(0,61,255,0.07);color:var(--blue);border:1px solid rgba(0,61,255,0.14);}
+.tl-tag--gray{background:rgba(148,163,184,0.12);color:#64748B;border-color:rgba(148,163,184,0.24);}
+.tl-tag--teal{background:rgba(13,140,107,0.08);color:var(--teal);border-color:rgba(13,140,107,0.2);}
+/* Progress bar */
+.tl-progress-wrap{height:4px;background:rgba(0,0,0,0.07);border-radius:4px;overflow:hidden;}
+.tl-progress-fill{height:100%;width:0;border-radius:4px;transition:width 1.2s cubic-bezier(0.16,1,0.3,1);}
+.tl-progress-fill--current{background:linear-gradient(90deg,var(--blue),#5468FF);}
+.tl-progress-fill--upcoming{background:#94A3B8;}
+.tl-progress-fill--horizon{background:var(--teal);}
+
 /* ── Bounce Cards (proof row at bottom of Overview) ── */
 .bounce-card{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
 .bounce-card:hover{transform:translateY(-4px) rotate(-0.5deg);box-shadow:0 8px 24px rgba(0,0,0,0.14);}
@@ -835,51 +878,127 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 </div>
 
 <!-- PLAN -->
-<div id="p-plan" class="panel">
-  <h2>Year 1 -committed deliverables with a mandate</h2>
-  <div class="info-box"><h3>Operating principle</h3><p>Go deep in the two highest-ROI functions in the first 90 days. Prove measurable value. Use that credibility and data to expand systematically across the company. Every quarter, something ships. Every quarter, results are measured and reported to leadership. No multi-year strategy horizon without near-term, tangible outcomes.</p></div>
+<div id="p-plan" class="panel panel--bare">
+  <div style="max-width:820px;margin:0 auto;padding:0 0 8px;">
+    <h2 style="font-size:28px;font-weight:300;letter-spacing:-0.03em;margin-bottom:8px;">Year 1 - committed deliverables with a mandate</h2>
+    <p style="font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:28px;max-width:640px;">Go deep in the highest-ROI functions first. Prove measurable value. Expand systematically each quarter. Every quarter, something ships. Every quarter, results are reported to leadership.</p>
 
-  <div class="phase-row" style="margin-top:16px">
-    <div class="phase-dot pd-blue">Q1</div>
-    <div class="phase-body">
-      <h4>Prospect intelligence at scale + automated content creation engine</h4>
-      <p>Productize the Prospect Intelligence Platform for shared AE use - self-serve hub, publishing workflow, audit scheduler. Onboard 10 AEs. Run 30+ prospect intelligence audits. Simultaneously launch the automated content creation engine for Marketing - blog brief to draft pipeline, case study generation from customer calls, email sequence automation. Establish the measurement baseline: research hours saved, pipeline influenced, content volume increase.</p>
-      <p style="font-size:15px;color:var(--text-muted);margin-top:6px;font-style:italic">Q1 success is defined by shipping two of these four items with measurable results - not all four. The targets are ambitious by design; the commitment is to prove direction and velocity, not perfection.</p>
-      <div style="margin-top:8px"><span class="tag t">30 audits shipped</span><span class="tag t">10 AEs enabled</span><span class="tag t">Content engine live</span><span class="tag t">Baseline metrics set</span></div>
+  <!-- Modern Timeline -->
+  <div class="tl-wrap" id="tl-container">
+    <div class="tl-line" id="tl-line"></div>
+
+    <!-- Q1 -->
+    <div class="tl-item" style="position:relative;">
+      <div class="tl-node tl-node--current">Q1</div>
+      <div class="tl-card" style="margin-left:28px;">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-period">Q1 2026 · Sales &amp; Marketing</div>
+            <h3 class="tl-title">Prospect intelligence at scale + content creation engine</h3>
+          </div>
+          <span class="tl-badge tl-badge--current">Current</span>
+        </div>
+        <p class="tl-desc">Productize the Prospect Intelligence Platform for shared AE use - self-serve hub, publishing workflow, audit scheduler. Onboard 10 AEs. Run 30+ prospect intelligence audits. Launch the automated content creation engine for Marketing - blog brief to draft pipeline, case study generation from customer calls, email sequence automation. Establish the measurement baseline: research hours saved, pipeline influenced, content volume increase.</p>
+        <p class="tl-note">Q1 success is two of these four items shipped with measurable results. The targets are ambitious by design; the commitment is to prove direction and velocity, not perfection.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">30 audits shipped</span>
+          <span class="tl-tag">10 AEs enabled</span>
+          <span class="tl-tag">Content engine live</span>
+          <span class="tl-tag">Baseline metrics set</span>
+        </div>
+        <div class="tl-progress-wrap"><div class="tl-progress-fill tl-progress-fill--current" data-progress="65"></div></div>
+      </div>
     </div>
-  </div>
-  <div class="phase-row">
-    <div class="phase-dot pd-blue">Q2</div>
-    <div class="phase-body">
-      <h4>Automated social content engine + BDR intelligence layer + Algolia Central external launch</h4>
-      <p>Deploy the social content engine - LinkedIn, X, and executive thought leadership content generated continuously from existing marketing assets. Extend Prospect Intelligence to BDR workflows - outreach triggers, account scoring, ABX package generation per account. Launch Algolia Central publicly as a 24/7 demand-generation and lead qualification asset. Formalize GTM engineering AI workflows already in progress. Q1 ROI report delivered to leadership.</p>
-      <div style="margin-top:8px"><span class="tag t">Social engine live</span><span class="tag t">BDR intelligence</span><span class="tag t">Algolia Central public</span><span class="tag t">Q1 ROI reported</span></div>
+
+    <!-- Q2 -->
+    <div class="tl-item" style="position:relative;">
+      <div class="tl-node tl-node--upcoming">Q2</div>
+      <div class="tl-card" style="margin-left:28px;">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-period">Q2 2026 · Marketing, Sales &amp; GTM</div>
+            <h3 class="tl-title">Social content engine + BDR intelligence + Algolia Central public launch</h3>
+          </div>
+          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
+        </div>
+        <p class="tl-desc">Deploy the social content engine - LinkedIn, X, and executive thought leadership generated continuously from existing assets. Extend Prospect Intelligence to BDR workflows with outreach triggers, account scoring, and ABX packages per account. Launch Algolia Central publicly as a 24/7 demand-generation asset. Deliver Q1 ROI report to leadership.</p>
+        <div class="tl-tags">
+          <span class="tl-tag tl-tag--gray">Social engine live</span>
+          <span class="tl-tag tl-tag--gray">BDR intelligence</span>
+          <span class="tl-tag tl-tag--gray">Algolia Central public</span>
+          <span class="tl-tag tl-tag--gray">Q1 ROI reported</span>
+        </div>
+        <div class="tl-progress-wrap"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="25"></div></div>
+      </div>
     </div>
-  </div>
-  <div class="phase-row">
-    <div class="phase-dot pd-teal">Q3</div>
-    <div class="phase-body">
-      <h4>Customer Success intelligence + harness workflows + Revenue Ops automation</h4>
-      <p>Deploy churn signal detection, automated QBR preparation, and success plan generation for Customer Success. Complete Revenue Ops reporting automation - pipeline narratives, forecast commentary, board pack generation. Deploy harness workflows across Sales and Marketing - trigger-based automations firing on funding rounds, leadership changes, hiring signals, and intent data. Launch competitor monitoring agent with weekly field digest to Sales and Product teams.</p>
-      <div style="margin-top:8px"><span class="tag t">CS intelligence live</span><span class="tag t">Harness workflows</span><span class="tag t">RevOps automated</span><span class="tag t">Competitor monitor</span></div>
+
+    <!-- Q3 -->
+    <div class="tl-item" style="position:relative;">
+      <div class="tl-node tl-node--upcoming">Q3</div>
+      <div class="tl-card" style="margin-left:28px;">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-period">Q3 2026 · CS, RevOps &amp; Sales</div>
+            <h3 class="tl-title">Customer Success intelligence + harness workflows + Revenue Ops automation</h3>
+          </div>
+          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
+        </div>
+        <p class="tl-desc">Deploy churn signal detection, automated QBR preparation, and success plan generation for Customer Success. Complete Revenue Ops reporting automation - pipeline narratives, forecast commentary, board pack generation. Deploy trigger-based harness workflows across Sales and Marketing firing on funding rounds, leadership changes, and intent signals.</p>
+        <div class="tl-tags">
+          <span class="tl-tag tl-tag--gray">CS intelligence live</span>
+          <span class="tl-tag tl-tag--gray">Harness workflows</span>
+          <span class="tl-tag tl-tag--gray">RevOps automated</span>
+          <span class="tl-tag tl-tag--gray">Competitor monitor</span>
+        </div>
+        <div class="tl-progress-wrap"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="15"></div></div>
+      </div>
     </div>
-  </div>
-  <div class="phase-row">
-    <div class="phase-dot pd-teal">Q4</div>
-    <div class="phase-body">
-      <h4>Enhanced legal contract review + Finance automation + AI Champions network</h4>
-      <p>Deploy legal contract review enhancement - first-pass review, risk flagging, and standard agreement generation. Launch Finance reporting automation - close narratives, variance commentary, board pack generation. Establish the AI Champions network - one designated champion per department responsible for adoption and feedback. Deliver the Year 1 board narrative: full quantified impact, ROI, and the Year 2 team expansion business case.</p>
-      <div style="margin-top:8px"><span class="tag t">Legal enhanced</span><span class="tag t">Finance automated</span><span class="tag t">AI Champions live</span><span class="tag t">Year 1 board narrative</span></div>
+
+    <!-- Q4 -->
+    <div class="tl-item" style="position:relative;">
+      <div class="tl-node tl-node--upcoming">Q4</div>
+      <div class="tl-card" style="margin-left:28px;">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-period">Q4 2026 · Legal, Finance &amp; Company-wide</div>
+            <h3 class="tl-title">Legal + Finance automation + AI Champions network + Year 1 board narrative</h3>
+          </div>
+          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
+        </div>
+        <p class="tl-desc">Deploy legal contract review enhancement and Finance reporting automation. Establish the AI Champions network - one designated champion per department. Deliver the Year 1 board narrative: full quantified impact, ROI, and the Year 2 team expansion business case.</p>
+        <div class="tl-tags">
+          <span class="tl-tag tl-tag--gray">Legal enhanced</span>
+          <span class="tl-tag tl-tag--gray">Finance automated</span>
+          <span class="tl-tag tl-tag--gray">AI Champions live</span>
+          <span class="tl-tag tl-tag--gray">Year 1 board narrative</span>
+        </div>
+        <div class="tl-progress-wrap"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="10"></div></div>
+      </div>
     </div>
-  </div>
-  <div class="phase-row">
-    <div class="phase-dot pd-gray">Y2+</div>
-    <div class="phase-body">
-      <h4>The department scales -3–4 person team, external story, platform commercialization</h4>
-      <p>Year 1 ROI justifies 2–3 additional hires - an AI engineer and function-specific specialists. The internal operational playbook becomes an external competitive narrative, reinforcing Algolia's AI-native brand in every enterprise sales conversation. The Prospect Intelligence Platform, validated on 100+ audits, is evaluated for commercial product potential or as a partner-delivered offering through the SI ecosystem.</p>
-      <div style="margin-top:8px"><span class="tag">Team of 3–4</span><span class="tag">External AI narrative</span><span class="tag">Platform commercialization</span></div>
+
+    <!-- Y2+ -->
+    <div class="tl-item" style="position:relative;">
+      <div class="tl-node tl-node--horizon">Y2+</div>
+      <div class="tl-card" style="margin-left:28px;">
+        <div class="tl-card-top">
+          <div>
+            <div class="tl-period">Year 2 and beyond · Company &amp; Market</div>
+            <h3 class="tl-title">Team of 3-4, external AI story, platform commercialisation</h3>
+          </div>
+          <span class="tl-badge tl-badge--horizon">Horizon</span>
+        </div>
+        <p class="tl-desc">Year 1 ROI justifies 2-3 additional hires - an AI engineer and function-specific specialists. The internal operational playbook becomes an external competitive narrative. The Prospect Intelligence Platform, validated on 100+ audits, is evaluated for commercial product potential or as a partner-delivered offering through the SI ecosystem.</p>
+        <div class="tl-tags">
+          <span class="tl-tag tl-tag--teal">Team of 3-4</span>
+          <span class="tl-tag tl-tag--teal">External AI narrative</span>
+          <span class="tl-tag tl-tag--teal">Platform commercialisation</span>
+        </div>
+        <div class="tl-progress-wrap"><div class="tl-progress-fill tl-progress-fill--horizon" data-progress="5"></div></div>
+      </div>
     </div>
-  </div>
+
+  </div><!-- end tl-wrap -->
+  </div><!-- end max-width wrapper -->
 
   <div style="margin-top:24px;background:var(--navy);border-radius:var(--rl);padding:22px 26px">
     <div style="font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">The Algolia AI Flywheel - how this compounds beyond Year 1</div>
@@ -1151,6 +1270,41 @@ const panels = document.querySelectorAll('.panel');
 const pnBtns = document.querySelectorAll('.pn-btn');
 const tocContainer = document.getElementById('toc');
 let observer = null;
+
+/* ── Timeline scroll-reveal + progress animation ── */
+(function initTimeline() {
+  const items = document.querySelectorAll('.tl-item');
+  const line  = document.getElementById('tl-line');
+  if (!items.length) return;
+
+  const revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var item = entry.target;
+      item.classList.add('tl-visible');
+      var fill = item.querySelector('.tl-progress-fill');
+      if (fill && fill.dataset.progress) {
+        setTimeout(function() { fill.style.width = fill.dataset.progress + '%'; }, 350);
+      }
+      revealObs.unobserve(item);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  items.forEach(function(item, i) {
+    item.style.transitionDelay = (i * 0.10) + 's';
+    revealObs.observe(item);
+  });
+
+  if (line) {
+    var lineObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        line.classList.add('tl-line-on');
+        lineObs.unobserve(entries[0].target);
+      }
+    }, { threshold: 0.05 });
+    lineObs.observe(line.parentElement);
+  }
+})();
 
 function switchTab(panelId, btn) {
   panels.forEach(p => p.classList.remove('on'));
