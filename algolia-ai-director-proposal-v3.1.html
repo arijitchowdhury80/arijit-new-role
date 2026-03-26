@@ -1471,40 +1471,36 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
         <p class="tl-desc">Monthly close narratives, budget vs actuals commentary, and board pack preparation generated from ledger data. Practical, measurable time savings - not a transformation programme.</p>
 
-        <table class="invest-table" id="tbl-finance">
-          <thead>
-            <tr>
-              <th>Role</th>
-              <th>Median total comp &amp; companies</th>
-              <th class="r">$/hr loaded</th>
-              <th class="r team-col"><div class="calc-label">Team size</div></th>
-              <th class="r">Hrs/wk saved</th>
-              <th class="r">Annual saving</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="row-fm" data-rate="75" data-hrs="6">
-              <td>Finance Manager / Sr Analyst</td>
-              <td class="src">$155K median · Glassdoor avg $131K · BLS national $162K · SaaS benchmark $143K</td>
-              <td class="rate-val">$75</td>
-              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('fm',-1)">−</button><input class="team-input" id="inp-fm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('fm')"><button class="team-spin" onclick="spinTeam('fm',1)">+</button></div></td>
-              <td class="r">6 hrs</td>
-              <td class="r calc-saving" id="save-fm">$22,500</td>
-            </tr>
-            <tr id="row-vpf" data-rate="144" data-hrs="3">
-              <td>VP Finance / Head of FP&amp;A</td>
-              <td class="src">$300K median · Salesforce $430K top reported · B2B SaaS FP&amp;A benchmark $300K · Datarails 2026</td>
-              <td class="rate-val">$144</td>
-              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpf',-1)">−</button><input class="team-input" id="inp-vpf" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpf')"><button class="team-spin" onclick="spinTeam('vpf',1)">+</button></div></td>
-              <td class="r">3 hrs</td>
-              <td class="r calc-saving" id="save-vpf">$21,600</td>
-            </tr>
-            <tr class="invest-total">
-              <td colspan="5">Annual cost savings — Finance Automation</td>
-              <td class="r calc-saving" id="totalval-finance">$44,100</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="irc-wrap" id="tbl-finance">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-fm" data-rate="75" data-hrs="6">
+            <div class="irc-cell irc-cell--role">Finance Manager / Sr Analyst</div>
+            <div class="irc-cell irc-cell--src">$155K median · Glassdoor avg $131K · BLS national $162K · SaaS benchmark $143K</div>
+            <div class="irc-cell irc-cell--rate">$75</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('fm',-1)">−</button><input class="team-input" id="inp-fm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('fm')"><button class="team-spin" onclick="spinTeam('fm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">6 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-fm">$22,500</div>
+          </div>
+          <div class="irc-row" id="row-vpf" data-rate="144" data-hrs="3">
+            <div class="irc-cell irc-cell--role">VP Finance / Head of FP&amp;A</div>
+            <div class="irc-cell irc-cell--src">$300K median · Salesforce $430K top reported · B2B SaaS FP&amp;A benchmark $300K · Datarails 2026</div>
+            <div class="irc-cell irc-cell--rate">$144</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpf',-1)">−</button><input class="team-input" id="inp-vpf" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpf')"><button class="team-spin" onclick="spinTeam('vpf',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">3 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-vpf">$21,600</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings — Finance Automation</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-finance">$44,100</div>
+          </div>
+        </div>
 
         <div class="src-pills" style="margin-bottom:16px;">
           <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/how-finance-teams-are-putting-ai-to-work-today" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">McKinsey</span><span class="proof-pill__label">Finance AI Nov 2025 →</span></a>
