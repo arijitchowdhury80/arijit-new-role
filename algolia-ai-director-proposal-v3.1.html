@@ -314,6 +314,35 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .toc-num { background: var(--bg-surface); color: var(--text-muted); border-radius: 4px; padding: 2px 6px; font-size: 11px; font-weight: 700; margin-top: 2px; }
 .toc-item.on .toc-num { background: var(--blue); color: #fff; }
 
+/* ════════════════════════════════════════════════════════════════════════
+   OV-TILE TYPOGRAPHY SYSTEM — ALGOLIA BRAND COMPLIANT
+   Base: 15px body · 12px eyebrow labels · 11px stat-labels (below big #s)
+   RULE: Never write font-size below 12px inside .ov-tile content.
+   RULE: Never write inline font-size on .ov-tile body text — use classes.
+   Exception: .ov-q (10px uppercase eyebrow) is intentional.
+   ════════════════════════════════════════════════════════════════════════ */
+/* Base floor — any content without explicit size inherits 15px */
+.ov-tile { font-size: 15px; line-height: 1.6; color: var(--text-muted); }
+/* Section category labels (Strategic / Evidential / Market Urgency) */
+.ov-cat { font-size: 12px !important; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+/* Body prose inside tiles */
+.ov-body { font-size: 15px !important; color: var(--text-muted); line-height: 1.6; }
+/* Bold/strong statements */
+.ov-strong { font-size: 15px !important; font-weight: 600; color: var(--navy); line-height: 1.45; }
+/* Bullet line items */
+.ov-bullet { font-size: 15px !important; color: var(--text); line-height: 1.55; }
+/* Metadata key (Owner / Timeline — uppercase label) */
+.ov-meta-key { font-size: 11px !important; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); }
+/* Metadata value */
+.ov-meta-val { font-size: 15px !important; color: var(--navy); }
+/* Small stat labels that sit below a large number */
+.ov-stat-sub { font-size: 11px !important; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-hint); }
+/* Row descriptor / value pairs */
+.ov-row-desc { font-size: 15px !important; color: var(--text-muted); }
+.ov-row-val  { font-size: 15px !important; font-weight: 700; }
+/* Badge/pill labels inside tiles */
+.ov-badge { font-size: 12px !important; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+
 /* ── Overview Bento Grid (from Algolia Search Audit SPA) ── */
 .ov-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:28px;padding:4px 0;}
 .ov-tile-who{grid-column:1/4;}
@@ -389,23 +418,23 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <div class="ov-tile ov-tile-who" data-spotlight-color="0,61,255">
       <div class="ov-q">WHAT IS THE ASK?</div>
       <div style="font-size:17px;font-weight:600;color:var(--navy);letter-spacing:-0.3px;margin-bottom:10px;line-height:1.35;">Create a companywide AI Innovation &amp; Enablement focus and workstream</div>
-      <div style="display:inline-block;background:rgba(232,56,13,0.10);color:var(--orange);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:18px;">Net-new role - does not exist today</div>
+      <div style="display:inline-block;background:rgba(232,56,13,0.10);color:var(--orange);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:18px;">Net-new role - does not exist today</div>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);">
           <span style="width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:7px;"></span>
-          <span style="font-size:14px;color:var(--text);line-height:1.5;">Director of AI Innovation &amp; Enablement</span>
+          <span style="font-size:15px;color:var(--text);line-height:1.6;">Director of AI Innovation &amp; Enablement</span>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);">
           <span style="width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:7px;"></span>
-          <span style="font-size:14px;color:var(--text);line-height:1.5;">Company-wide mandate - all 8 functions</span>
+          <span style="font-size:15px;color:var(--text);line-height:1.6;">Company-wide mandate - all 8 functions</span>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);">
           <span style="width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:7px;"></span>
-          <span style="font-size:14px;color:var(--text);line-height:1.5;">Dotted-line access to every functional VP</span>
+          <span style="font-size:15px;color:var(--text);line-height:1.6;">Dotted-line access to every functional VP</span>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;">
           <span style="width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:7px;"></span>
-          <span style="font-size:14px;color:var(--text);line-height:1.5;">Build, ship, and prove results - not advise</span>
+          <span style="font-size:15px;color:var(--text);line-height:1.6;">Build, ship, and prove results - not advise</span>
         </div>
       </div>
       <div class="ov-tile-nav" onclick="switchTab('p-why',null)">Why this role <span>→</span></div>
@@ -417,22 +446,22 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       <div style="display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;">
         <div style="font-size:64px;font-weight:700;line-height:1;letter-spacing:-2px;color:#059669;">7.2×</div>
         <div style="padding-bottom:10px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:4px;">year 1 ROI</div>
-          <div style="display:inline-block;background:rgba(5,150,105,0.10);color:#059669;font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;">Strong investment case</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:4px;">year 1 ROI</div>
+          <div style="display:inline-block;background:rgba(5,150,105,0.10);color:#059669;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;">Strong investment case</div>
         </div>
       </div>
       <div style="border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:8px;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;color:var(--text-muted);">Value created - Year 1</span>
+          <span style="font-size:15px;color:var(--text-muted);">Value created - Year 1</span>
           <span style="font-size:15px;font-weight:700;color:#059669;">$2.16M</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;color:var(--text-muted);">Total investment</span>
+          <span style="font-size:15px;color:var(--text-muted);">Total investment</span>
           <span style="font-size:15px;font-weight:700;color:var(--navy);">$450K</span>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid rgba(0,0,0,0.04);">
-          <span style="font-size:13px;color:var(--text-muted);">FTE hires avoided</span>
-          <span style="font-size:13px;font-weight:600;color:var(--navy);">4–6 ($600K–$900K/yr)</span>
+          <span style="font-size:15px;color:var(--text-muted);">FTE hires avoided</span>
+          <span style="font-size:15px;font-weight:600;color:var(--navy);">4–6 ($600K–$900K/yr)</span>
         </div>
       </div>
       <div class="ov-tile-nav" onclick="switchTab('p-invest',null)">The Investment <span>→</span></div>
@@ -447,30 +476,30 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <div style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);">
           <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
             <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;"></span>
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);">Strategic</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);">Strategic</span>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.55;">Algolia sells AI-native search. Every enterprise buyer now asks: "How AI-native are you internally?" This function is the answer - Algolia becomes Customer Zero for the transformation it sells.</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.6;">Algolia sells AI-native search. Every enterprise buyer now asks: "How AI-native are you internally?" This function is the answer - Algolia becomes Customer Zero for the transformation it sells.</div>
         </div>
 
         <!-- Evidential -->
         <div style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);">
           <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
             <span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">Evidential</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);">Evidential</span>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.55;margin-bottom:6px;">Two POCs already in use:</div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.55;padding-left:10px;border-left:2px solid rgba(13,140,107,0.25);margin-bottom:5px;">Prospect Intelligence System - delivering rich audit research, saving AE/BDR 3-5 hrs per prospect.</div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.55;padding-left:10px;border-left:2px solid rgba(13,140,107,0.25);margin-bottom:6px;">Unified Content Engagement Knowledge System - expanding Algolia outside of core eCommerce into content-heavy use cases.</div>
-          <div style="font-size:13px;font-weight:600;color:var(--navy);line-height:1.4;">The concept is not a proposal. It is already working.</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:6px;">Two POCs already in use:</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.6;padding-left:10px;border-left:2px solid rgba(13,140,107,0.25);margin-bottom:5px;">Prospect Intelligence System - delivering rich audit research, saving AE/BDR 3-5 hrs per prospect.</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.6;padding-left:10px;border-left:2px solid rgba(13,140,107,0.25);margin-bottom:6px;">Unified Content Engagement Knowledge System - expanding Algolia outside of core eCommerce into content-heavy use cases.</div>
+          <div style="font-size:15px;font-weight:600;color:var(--navy);line-height:1.45;">The concept is not a proposal. It is already working.</div>
         </div>
 
         <!-- Market Urgency -->
         <div style="padding:10px 0;">
           <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
             <span style="width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;"></span>
-            <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);">Market Urgency</span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);">Market Urgency</span>
           </div>
-          <div style="font-size:13px;color:var(--text-muted);line-height:1.55;margin-bottom:8px;">Bain 2025: fewer than 20% of enterprises have scaled AI beyond pilots. Those that achieved 10-25% EBITDA gains had one thing in common: a single owner.</div>
+          <div style="font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:8px;">Bain 2025: fewer than 20% of enterprises have scaled AI beyond pilots. Those that achieved 10-25% EBITDA gains had one thing in common: a single owner.</div>
           <div style="display:flex;flex-wrap:wrap;gap:5px;">
             <a href="https://www.bain.com/insights/state-of-the-art-of-agentic-ai-transformation-technology-report-2025/" target="_blank" class="proof-pill proof-pill--amber"><span class="proof-pill__badge">Bain</span><span class="proof-pill__label">Technology Report 2025 →</span></a>
             <a href="https://openai.com/index/moderna/" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">OpenAI</span><span class="proof-pill__label">Moderna case study →</span></a>
@@ -486,17 +515,17 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       <div class="ov-q">WHAT'S THE DECISION?</div>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
         <div style="width:10px;height:10px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px rgba(5,150,105,0.25);flex-shrink:0;"></div>
-        <div style="font-size:13px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.04em;">High leverage</div>
+        <div style="font-size:15px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.04em;">High leverage</div>
       </div>
       <div style="font-size:15px;color:var(--navy);line-height:1.6;margin-bottom:16px;font-weight:500;">Approve Director of AI Innovation &amp; Enablement - net-new role, $450K year 1 investment.</div>
       <div style="margin-top:auto;border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:6px;">
         <div style="display:flex;align-items:center;gap:8px;">
-          <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Owner</span>
-          <span style="font-size:13px;color:var(--navy);">CEO &amp; CFO</span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Owner</span>
+          <span style="font-size:15px;color:var(--navy);">CEO &amp; CFO</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;">
-          <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Timeline</span>
-          <span style="font-size:13px;color:var(--navy);">Q1 2026</span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Timeline</span>
+          <span style="font-size:15px;color:var(--navy);">Q1 2026</span>
         </div>
       </div>
       <div class="ov-tile-nav" onclick="switchTab('p-invest',null)">The Investment <span>→</span></div>
@@ -508,9 +537,9 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   <div style="display:flex;gap:14px;flex-wrap:wrap;padding:4px 0 8px;">
     <div class="bounce-card bounce-card--green" style="flex:1;min-width:180px;cursor:pointer;" onclick="switchTab('p-proof',null)">
       <div class="bounce-card__content">
-        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Prospect Intelligence</div>
-        <div style="font-size:13px;color:var(--text-muted);">Production system. $0 budget.</div>
+        <div style="font-size:15px;color:var(--text-muted);">Production system. $0 budget.</div>
       </div>
       <div class="bounce-card__gradient">
         <div class="bounce-card__amount">7</div>
@@ -520,9 +549,9 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
     <div class="bounce-card bounce-card--green" style="flex:1;min-width:180px;cursor:pointer;" onclick="window.open('https://algoliacentral.lovable.app','_blank')">
       <div class="bounce-card__content">
-        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#059669;margin-bottom:6px;">PROOF OF CONCEPT</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Algolia Central</div>
-        <div style="font-size:13px;color:var(--text-muted);">24/7 AI demand-gen. Live today.</div>
+        <div style="font-size:15px;color:var(--text-muted);">24/7 AI demand-gen. Live today.</div>
       </div>
       <div class="bounce-card__gradient">
         <div class="bounce-card__amount">Live</div>
@@ -532,9 +561,9 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
     <div class="bounce-card bounce-card--blue" style="flex:1;min-width:180px;cursor:pointer;" onclick="switchTab('p-invest',null)">
       <div class="bounce-card__content">
-        <div style="font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#003DFF;margin-bottom:6px;">THE INVESTMENT</div>
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#003DFF;margin-bottom:6px;">THE INVESTMENT</div>
         <div style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:4px;">Year 1 Return</div>
-        <div style="font-size:13px;color:var(--text-muted);">3.6× even at 50% of estimates.</div>
+        <div style="font-size:15px;color:var(--text-muted);">3.6× even at 50% of estimates.</div>
       </div>
       <div class="bounce-card__gradient">
         <div class="bounce-card__amount">$2.16M</div>
@@ -794,7 +823,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   <div class="hbox"><h3>What these systems actually prove</h3><p>Both were built with no budget, no dedicated time, and no mandate - as a side initiative alongside a full-time role. Together they prove three things: I understand what AI can actually do in production, not just in demos. I build and ship systems, not slide decks. And my instinct for which use cases are high-value is already validated by completed audits that the field team can use today. Now consider what gets built with an actual mandate, an actual budget, and this as the full-time focus.</p></div>
 
   <div style="background:var(--bg-surface);border:0.5px solid var(--border);border-radius:var(--r);padding:13px 16px;margin:12px 0">
-    <p style="font-size:13px;color:var(--text-muted);margin:0;line-height:1.7"><strong style="color:var(--text);font-size:13px">On risk and accountability.</strong> If the 90-day baseline shows the model is not delivering, the role reverts to its current scope with no structural damage to the organization - no additional headcount, no new team, no dependency built on a failed experiment. The downside is a $37.5K quarter of tooling spend. The upside is $2M+ in annualized value creation. This is one of the most asymmetric bets on the table.</p>
+    <p style="font-size:15px;color:var(--text-muted);margin:0;line-height:1.7"><strong style="color:var(--text);font-size:13px">On risk and accountability.</strong> If the 90-day baseline shows the model is not delivering, the role reverts to its current scope with no structural damage to the organization - no additional headcount, no new team, no dependency built on a failed experiment. The downside is a $37.5K quarter of tooling spend. The upside is $2M+ in annualized value creation. This is one of the most asymmetric bets on the table.</p>
   </div>
 
   <h2 class="section-head" style="margin-top:22px">Five things no external hire can replicate</h2>
@@ -815,7 +844,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <div class="phase-body">
       <h4>Prospect intelligence at scale + automated content creation engine</h4>
       <p>Productize the Prospect Intelligence Platform for shared AE use - self-serve hub, publishing workflow, audit scheduler. Onboard 10 AEs. Run 30+ prospect intelligence audits. Simultaneously launch the automated content creation engine for Marketing - blog brief to draft pipeline, case study generation from customer calls, email sequence automation. Establish the measurement baseline: research hours saved, pipeline influenced, content volume increase.</p>
-      <p style="font-size:13px;color:var(--text-muted);margin-top:6px;font-style:italic">Q1 success is defined by shipping two of these four items with measurable results - not all four. The targets are ambitious by design; the commitment is to prove direction and velocity, not perfection.</p>
+      <p style="font-size:15px;color:var(--text-muted);margin-top:6px;font-style:italic">Q1 success is defined by shipping two of these four items with measurable results - not all four. The targets are ambitious by design; the commitment is to prove direction and velocity, not perfection.</p>
       <div style="margin-top:8px"><span class="tag t">30 audits shipped</span><span class="tag t">10 AEs enabled</span><span class="tag t">Content engine live</span><span class="tag t">Baseline metrics set</span></div>
     </div>
   </div>
