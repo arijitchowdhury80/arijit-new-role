@@ -362,6 +362,48 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 @media(max-width:900px){.ov-bento{grid-template-columns:1fr 1fr;}.ov-tile-score{grid-column:1/3;}.ov-tile-next{grid-column:1/2;}.ov-tile-who{grid-column:2/3;}.ov-tile-opp{grid-column:1/3;}}
 @media(max-width:600px){.ov-bento{grid-template-columns:1fr;}.ov-tile-score,.ov-tile-next,.ov-tile-who,.ov-tile-opp{grid-column:1/2;}}
 
+/* ── Invest Row Card — server-management-table inspired, vanilla CSS ───────
+   Replaces flat <table> rows with individual rounded cards.
+   Each role = one card. Savings column gets green right-gradient.
+   CLASSES: .irc-wrap (container) · .irc-header (col labels) · .irc-row (card)
+   · .irc-cell (data cell) · .irc-cell--role · .irc-cell--src · .irc-cell--rate
+   · .irc-cell--team · .irc-cell--hrs · .irc-cell--saving · .irc-total
+   ──────────────────────────────────────────────────────────────────────── */
+.irc-wrap{width:100%;margin:0 0 14px;font-family:'Sora',sans-serif;}
+
+/* Column header row */
+.irc-header{display:grid;grid-template-columns:2fr 3fr 80px 90px 80px 100px;gap:0;padding:6px 16px 8px;margin-bottom:2px;}
+.irc-header-cell{font-size:11px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text-hint);}
+.irc-header-cell.r{text-align:right;}
+.irc-header-cell.c{text-align:center;}
+
+/* Individual role row — standalone card */
+.irc-row{position:relative;display:grid;grid-template-columns:2fr 3fr 80px 90px 80px 100px;gap:0;align-items:center;background:rgba(255,255,255,0.82);border:1px solid rgba(0,0,0,0.07);border-radius:12px;padding:12px 16px;margin-bottom:6px;overflow:hidden;transition:transform 0.18s ease,box-shadow 0.18s ease;opacity:0;transform:translateX(-20px) scale(0.98);filter:blur(2px);}
+.irc-row.irc-visible{opacity:1;transform:translateX(0) scale(1);filter:blur(0);}
+.irc-row:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);}
+
+/* Right-side green gradient — the savings "reveal" */
+.irc-row::after{content:'';position:absolute;top:0;right:0;bottom:0;width:35%;background:linear-gradient(to left,rgba(5,150,105,0.06) 0%,transparent 100%);pointer-events:none;border-radius:0 12px 12px 0;}
+
+/* Total row — darker, no hover lift */
+.irc-total{background:rgba(0,0,0,0.025);border:1.5px solid rgba(29,31,46,0.15);}
+.irc-total:hover{transform:none;box-shadow:none;}
+.irc-total::after{background:linear-gradient(to left,rgba(0,61,255,0.07) 0%,transparent 100%);}
+
+/* Individual cells */
+.irc-cell{font-size:14px;color:var(--navy);line-height:1.4;padding:0 6px 0 0;}
+.irc-cell--role{font-size:15px;font-weight:600;color:var(--navy);}
+.irc-cell--src{font-size:12px;color:var(--text-muted);line-height:1.35;padding-right:12px;}
+.irc-cell--rate{font-size:14px;font-weight:700;color:var(--blue);text-align:right;}
+.irc-cell--team{text-align:center;}
+.irc-cell--hrs{font-size:14px;color:var(--text-muted);text-align:right;}
+.irc-cell--saving{font-size:15px;font-weight:700;color:#059669;text-align:right;}
+.irc-total .irc-cell--role{font-size:14px;font-weight:700;color:var(--navy);}
+.irc-total .irc-cell--saving{font-size:16px;color:var(--blue);}
+
+/* Stagger reveal — JS adds .irc-visible with delay */
+@keyframes ircIn{from{opacity:0;transform:translateX(-20px) scale(0.98);filter:blur(2px);}to{opacity:1;transform:none;filter:blur(0);}}
+
 /* ── Year 1 Investment: salary tables, productivity boxes, workstream headers ──
    All classes prefixed invest- or ws- or prod- to avoid conflicts.
    FONT RULE: invest-table body = 14px · headers = 11px uppercase · totals = 15px
@@ -2160,7 +2202,7 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var tbl = document.getElementById(tblId);
     var t = fixedAmt||0;
     if(!tbl) return t;
-    tbl.querySelectorAll('tr[data-rate]').forEach(function(r){ t += parseFloat(r.dataset.current||0); });
+    tbl.querySelectorAll('[data-rate]').forEach(function(r){ t += parseFloat(r.dataset.current||0); });
     return t;
   }
 
@@ -2261,7 +2303,7 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
 
     /* Overview tile — breakdown rows */
     var totalHrs = 0;
-    document.querySelectorAll('tr[data-rate]').forEach(function(row){
+    document.querySelectorAll('[data-rate]').forEach(function(row){
       var rate = parseFloat(row.dataset.rate)||0;
       var curr = parseFloat(row.dataset.current||0);
       if(rate > 0) totalHrs += Math.round(curr / rate);
@@ -2283,7 +2325,7 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
 
   /* Init on load */
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('tr[data-rate]').forEach(function(row){
+    document.querySelectorAll('[data-rate]').forEach(function(row){
       var rate = parseFloat(row.dataset.rate)||0;
       var hrs  = parseFloat(row.dataset.hrs)||0;
       var inp2 = row.querySelector('.team-input');
@@ -2292,6 +2334,26 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     });
     rebuild();
   });
+
+  /* ── IRC stagger reveal — runs once when Business Case tab becomes visible ── */
+  function initIrcRows(){
+    var rows = document.querySelectorAll('.irc-row');
+    if(!rows.length) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        var row = entry.target;
+        var delay = parseFloat(row.dataset.ircDelay||0);
+        setTimeout(function(){ row.classList.add('irc-visible'); }, delay);
+        obs.unobserve(row);
+      });
+    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    rows.forEach(function(row,i){
+      row.dataset.ircDelay = i * 70;
+      obs.observe(row);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){ initIrcRows(); });
 
   window.calcInvestRow = calcRow;
   window.spinTeam = spinTeam;
