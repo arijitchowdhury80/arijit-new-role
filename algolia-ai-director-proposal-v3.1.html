@@ -194,8 +194,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
 /* RISK BOX */
 /* Why accordion */
-.why-accordion{display:flex;gap:0;border-radius:16px;overflow:hidden;height:320px;margin:0 0 28px;}
-.why-panel{flex:0 0 64px;background:var(--panel-bg);cursor:pointer;transition:flex 0.55s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;}
+.why-accordion{display:flex;gap:3px;border-radius:16px;overflow:hidden;height:340px;margin:0 0 28px;box-shadow:0 20px 60px rgba(0,61,255,0.10),0 4px 20px rgba(0,0,0,0.06);}
+.why-panel{flex:0 0 64px;background:var(--panel-bg);cursor:pointer;transition:flex 0.7s ease-in-out;position:relative;overflow:hidden;}
 .why-panel--active{flex:1 1 0;}
 .why-tab{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:20px 0;gap:10px;opacity:1;transition:opacity 0.25s;}
 .why-panel--active .why-tab{opacity:0;pointer-events:none;}
@@ -1114,13 +1114,6 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       <div class="yr1-card">
         <div class="yr1-period">Q1 2026 · Sales &amp; GTM Engineering</div>
         <h3 class="yr1-card-title">GTM Engineering &amp; Prospect Intelligence</h3>
-        <PLACEHOLDER_Q1_REST>
-
-        <!-- Workstream 1: GTM -->
-        <div class="ws-header">
-          <span class="ws-dot" style="background:var(--blue);"></span>
-          <span class="ws-label" style="color:var(--blue);">GTM Engineering &amp; Prospect Intelligence</span>
-        </div>
         <p class="tl-desc">Productize the Prospect Intelligence Platform for shared AE and BDR use across Algolia's target account list - self-serve hub, audit scheduler, pre-call briefs delivered the night before every discovery call. Account scoring, ABX packages per account, and personalized outreach sequences.</p>
 
         <div class="irc-wrap" id="tbl-gtm">
@@ -1188,12 +1181,12 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             <a href="https://www.outreach.io/resources/blog/sales-2025-data-analysis" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Outreach</span><span class="proof-pill__label">Sales Data 2025 →</span></a>
           </div>
         </div>
+      </div>
 
-        <!-- Workstream 2: Marketing -->
-        <div class="ws-header">
-          <span class="ws-dot" style="background:var(--teal);"></span>
-          <span class="ws-label" style="color:var(--teal);">Automated Marketing Content Engine</span>
-        </div>
+      <!-- Project 2: Marketing Content -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Marketing</div>
+        <h3 class="yr1-card-title">Automated Marketing Content Engine</h3>
         <p class="tl-desc">Blog briefs to draft pipeline, case study generation from customer calls, email nurture sequences per persona, social content calendar automation, and executive thought leadership drafts. Content strategy informed by competitive and audience intelligence.</p>
 
         <div class="irc-wrap" id="tbl-mkt">
@@ -1269,12 +1262,12 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             <a href="https://www.jasper.ai/blog/ai-insights-hubspot-report" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">HubSpot</span><span class="proof-pill__label">12.5 hrs/wk saved →</span></a>
           </div>
         </div>
+      </div>
 
-        <!-- Workstream 3: CI -->
-        <div class="ws-header">
-          <span class="ws-dot" style="background:var(--orange);"></span>
-          <span class="ws-label" style="color:var(--orange);">Competitive Intelligence System</span>
-        </div>
+      <!-- Project 3: Competitive Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Sales &amp; Marketing Intelligence</div>
+        <h3 class="yr1-card-title">Competitive Intelligence System</h3>
         <p class="tl-desc">Always-on listeners monitoring everything Algolia's competitors do - press releases, product launches, analyst reviews, blog posts, social media, Hacker News, Stack Exchange, YouTube, and customer or partner communities. Signals feed automatically into sales battle cards, content response briefs, and product roadmap inputs.</p>
 
         <div class="irc-wrap" id="tbl-ci">
@@ -1320,35 +1313,28 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             <a href="https://www.crayon.co/state-of-competitive-intelligence" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Crayon</span><span class="proof-pill__label">State of CI 2025 →</span></a>
           </div>
         </div>
+      </div>
 
-        <!-- Q1 Total -->
-        <div class="q-total-box">
-          <div class="q-total-item">
-            <span class="q-total-lbl">Q1 Cost Savings</span>
-            <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q1-cost">$732,750<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-          </div>
-          <div class="q-total-item">
-            <span class="q-total-lbl">Q1 Productivity &amp; Pipeline Gain</span>
-            <span class="q-total-val q-total-val--blue calc-saving" id="qtotal-q1-prod">$2,770,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-          </div>
+      <div class="q-total-box">
+        <div class="q-total-item">
+          <span class="q-total-lbl">Q1 Cost Savings</span>
+          <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q1-cost">$732,750<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
         </div>
-
-        <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--current" data-progress="65"></div></div>
+        <div class="q-total-item">
+          <span class="q-total-lbl">Q1 Productivity &amp; Pipeline Gain</span>
+          <span class="q-total-val q-total-val--blue calc-saving" id="qtotal-q1-prod">$2,770,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
+        </div>
       </div>
     </div>
 
-    <!-- Q2 -->
-    <div class="tl-item" style="position:relative;">
-      <div class="tl-node tl-node--upcoming">Q2</div>
-      <div class="tl-card" style="margin-left:28px;">
-        <div class="tl-card-top">
-          <div>
-            <div class="tl-period">Q2 2026 · Product, R&amp;D &amp; Revenue Operations</div>
-            <h3 class="tl-title">Product Intelligence signals + Pipeline reporting automation</h3>
-          </div>
-          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
-        </div>
+    <!-- ═══ Q2 2026 ═══ -->
+    <div class="yr1-quarter yr1-q2">
+      <div class="yr1-qlabel">Q2 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
 
+      <!-- Project 1: Product Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q2 2026 · Product &amp; R&amp;D</div>
+        <h3 class="yr1-card-title">Product Intelligence for R&amp;D and Product Management</h3>
         <div class="ws-header">
           <span class="ws-dot" style="background:var(--blue);"></span>
           <span class="ws-label" style="color:var(--blue);">Product Intelligence for R&amp;D and Product Management</span>
@@ -1397,23 +1383,18 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
 
         <p class="tl-desc" style="margin-top:8px;font-style:italic;font-size:14px;">Pipeline reporting automation (Gartner: 30% faster financial close with AI by 2028; McKinsey: 30% less time on data crunching) is deployed in parallel as part of the RevOps expansion — covered in Category B cost savings.</p>
-
-        <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="25"></div></div>
       </div>
+
     </div>
 
-    <!-- Q3 -->
-    <div class="tl-item" style="position:relative;">
-      <div class="tl-node tl-node--upcoming">Q3</div>
-      <div class="tl-card" style="margin-left:28px;">
-        <div class="tl-card-top">
-          <div>
-            <div class="tl-period">Q3 2026 · Customer Success &amp; Sales</div>
-            <h3 class="tl-title">Customer Success intelligence + trigger-based harness workflows</h3>
-          </div>
-          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
-        </div>
+    <!-- ═══ Q3 2026 ═══ -->
+    <div class="yr1-quarter yr1-q3">
+      <div class="yr1-qlabel">Q3 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
 
+      <!-- Project 1: Customer Success Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q3 2026 · Customer Success</div>
+        <h3 class="yr1-card-title">Customer Success Intelligence</h3>
         <div class="ws-header">
           <span class="ws-dot" style="background:var(--teal);"></span>
           <span class="ws-label" style="color:var(--teal);">Customer Success Intelligence</span>
@@ -1470,23 +1451,25 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
             <a href="https://www.clari.com/press/clari-revenue-ai-delivered-96-million-in-value-to-enterprise-customers/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Clari + Forrester</span><span class="proof-pill__label">+20pt renewal rate →</span></a>
           </div>
         </div>
-
-        <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="15"></div></div>
       </div>
+
+      <!-- Project 2: Harness Workflows -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q3 2026 · Sales &amp; Marketing</div>
+        <h3 class="yr1-card-title">Trigger-Based Harness Workflows</h3>
+        <p class="tl-desc">Deploy trigger-based harness workflows across Sales and Marketing - automated sequences that activate on defined signals (funding events, leadership changes, product launches, competitor news) to ensure the right message reaches the right account at exactly the right moment.</p>
+      </div>
+
     </div>
 
-    <!-- Q4 -->
-    <div class="tl-item" style="position:relative;">
-      <div class="tl-node tl-node--upcoming">Q4</div>
-      <div class="tl-card" style="margin-left:28px;">
-        <div class="tl-card-top">
-          <div>
-            <div class="tl-period">Q4 2026 · Legal, Finance &amp; Company-wide</div>
-            <h3 class="tl-title">Contract review workflow + Finance automation + AI Champions + Year 1 board narrative</h3>
-          </div>
-          <span class="tl-badge tl-badge--upcoming">Upcoming</span>
-        </div>
+    <!-- ═══ Q4 2026 ═══ -->
+    <div class="yr1-quarter yr1-q4">
+      <div class="yr1-qlabel">Q4 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
 
+      <!-- Project 1: Contract Review -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Legal</div>
+        <h3 class="yr1-card-title">AI-Assisted Contract Review Workflow</h3>
         <div class="ws-header">
           <span class="ws-dot" style="background:var(--blue);"></span>
           <span class="ws-label" style="color:var(--blue);">AI-Assisted Contract Review Workflow</span>
@@ -1528,7 +1511,12 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
           <a href="https://blog.insightfulaccountant.com/thomson-reuters-reveals-new-agentic-ai-in-cocounsel-legal" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Thomson Reuters</span><span class="proof-pill__label">63% review time reduction →</span></a>
           <a href="https://jolt.richmond.edu/2024/10/22/ai-in-contract-drafting-transforming-legal-practice/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Richmond JOLT</span><span class="proof-pill__label">AI in contract drafting →</span></a>
         </div>
+      </div>
 
+      <!-- Project 2: Finance Automation -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Finance</div>
+        <h3 class="yr1-card-title">Finance Reporting Automation</h3>
         <div class="ws-header">
           <span class="ws-dot" style="background:var(--teal);"></span>
           <span class="ws-label" style="color:var(--teal);">Finance Reporting Automation</span>
@@ -1570,40 +1558,40 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
           <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/how-finance-teams-are-putting-ai-to-work-today" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">McKinsey</span><span class="proof-pill__label">Finance AI Nov 2025 →</span></a>
           <a href="https://www.gartner.com/en/newsroom/press-releases/2026-02-24-gartner-predicts-embedded-ai-in-cloud-erp-applications-will-drive-a-30-percent-faster-financial-close-by-2028" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Gartner</span><span class="proof-pill__label">30% faster close by 2028 →</span></a>
         </div>
+      </div>
 
-        <!-- Q4 Total -->
-        <div class="q-total-box">
-          <div class="q-total-item">
-            <span class="q-total-lbl">Q4 Cost Savings</span>
-            <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q4-cost">$159,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-          </div>
-          <div class="q-total-item">
-            <span class="q-total-lbl">Deal velocity + executive time reclaimed</span>
-            <span class="q-total-val" style="color:rgba(255,255,255,0.7);font-size:16px;">Faster close · Better forecast visibility</span>
-          </div>
+      <!-- Project 3: AI Champions + Board Narrative -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Company-wide</div>
+        <h3 class="yr1-card-title">AI Champions Network &amp; Year 1 Board Narrative</h3>
+        <p class="tl-desc">Establish the AI Champions network - one designated champion per department responsible for adoption feedback and surfacing workflow improvement opportunities. Deliver the Year 1 board narrative: quantified impact, ROI, and the Year 2 team expansion case.</p>
+      </div>
+
+      <div class="q-total-box">
+        <div class="q-total-item">
+          <span class="q-total-lbl">Q4 Cost Savings</span>
+          <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q4-cost">$159,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
         </div>
-
-        <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="10"></div></div>
+        <div class="q-total-item">
+          <span class="q-total-lbl">Deal velocity + executive time reclaimed</span>
+          <span class="q-total-val" style="color:rgba(255,255,255,0.7);font-size:16px;">Faster close · Better forecast visibility</span>
+        </div>
       </div>
     </div>
 
-    <!-- Y2+ -->
-    <div class="tl-item" style="position:relative;">
-      <div class="tl-node tl-node--horizon">Y2+</div>
-      <div class="tl-card" style="margin-left:28px;">
-        <div class="tl-card-top">
-          <div>
-            <div class="tl-period">Year 2 and beyond · Company &amp; Market</div>
-            <h3 class="tl-title">Team of 3-4, external AI story, platform commercialisation</h3>
-          </div>
-          <span class="tl-badge tl-badge--horizon">Horizon</span>
-        </div>
+    <!-- ═══ Year 2+ ═══ -->
+    <div class="yr1-quarter yr1-y2">
+      <div class="yr1-qlabel">Year 2+ <span class="yr1-status yr1-status--horizon">Horizon</span></div>
+
+      <div class="yr1-card">
+        <div class="yr1-period">Year 2 and beyond · Company &amp; Market</div>
+        <h3 class="yr1-card-title">Team expansion, external AI story &amp; platform commercialisation</h3>
         <p class="tl-desc">Year 1 ROI justifies adding 1 additional headcount to expand into further business areas. The internal operational playbook becomes an external competitive narrative. The Prospect Intelligence Platform, validated on 100+ audits, is evaluated for commercial product potential or as a partner-delivered offering through the SI ecosystem.</p>
-        <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--horizon" data-progress="5"></div></div>
       </div>
+
     </div>
 
-  </div><!-- end tl-wrap -->
+  </div><!-- end yr1-timeline -->
 
   <!-- Year-end summary -->
   <div class="year-summary">
@@ -2228,14 +2216,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Why accordion
+// Why accordion - hover triggered, matching template
 (function initWhyAccordion() {
   document.addEventListener('DOMContentLoaded', function() {
     var acc = document.getElementById('whyAccordion');
     if (!acc) return;
     var panels = acc.querySelectorAll('.why-panel');
     panels.forEach(function(panel) {
-      panel.addEventListener('click', function() {
+      panel.addEventListener('mouseenter', function() {
         panels.forEach(function(p) { p.classList.remove('why-panel--active'); });
         panel.classList.add('why-panel--active');
       });
