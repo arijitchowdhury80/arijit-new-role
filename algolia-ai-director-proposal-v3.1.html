@@ -382,7 +382,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
    on hover. Card itself shrinks slightly + tilts. Vanilla CSS, no deps.
    Dynamic: bfc-cost / bfc-prod / bfc-roi / bfc-total updated by rebuild()
    ─────────────────────────────────────────────────────────────────────── */
-.bfc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.bfc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;width:100%;}
 .bfc-card{position:relative;min-height:210px;overflow:hidden;border-radius:20px;padding:28px 28px 0;transition:transform 250ms ease,box-shadow 250ms ease;cursor:default;}
 .bfc-card:hover{transform:scale(0.97) rotate(-0.6deg);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
 .bfc-card--green{background:#F0FDF4;border:1px solid rgba(5,150,105,0.18);}
@@ -482,7 +482,7 @@ a.bfc-panel{display:block;color:inherit;}
 /* ── Business Case tables, productivity boxes, workstream headers ── */
 
 .method-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
-.salary-footnote{display:block;padding:16px 0 32px;border-top:1px solid var(--border);width:100%;}.sf-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.salary-footnote{display:block;padding:16px 0 32px;border-top:1px solid var(--border);width:100%;max-width:none;}.sf-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
 .sf-check{font-size:13px;font-weight:700;color:#059669;flex-shrink:0;}
 .sf-text{font-size:12px;color:var(--text-hint);white-space:nowrap;}
 .method-chip{font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;background:white;border:0.5px solid var(--border-med);color:var(--text-muted);text-decoration:none;}
@@ -1125,7 +1125,7 @@ a.bfc-panel{display:block;color:inherit;}
 
 <!-- PLAN -->
 <div id="p-plan" class="panel panel--bare">
-  <div style="max-width:900px;margin:0 auto;padding:0 0 8px;">
+  <div style="width:100%;padding:0 0 8px;">
 
     <!-- Methodology note -->
 <!-- Bounce Card Financial Summary — top of Business Case -->
@@ -1164,9 +1164,10 @@ a.bfc-panel{display:block;color:inherit;}
       <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://harrisonfinch.com/comparing-chief-revenue-officer-salaries-in-us-saas-firms-2024-data/" target="_blank" class="bfc-src-pill">Harrison Finch CRO Salaries →</a><a href="https://www.vendr.com/marketplace/crayon" target="_blank" class="bfc-src-pill">Vendr CI Tool Pricing →</a></div></div>
     </div>
 
+  </div><!-- end bfc-grid -->
 
     <!-- Floating business case text -->
-  <div style="padding:36px 0 10px;">
+  <div style="padding:36px 0 10px;width:100%;">
     <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-hint);margin-bottom:14px;">Business Case</div>
     <p style="font-size:18px;color:var(--text-muted);line-height:1.85;margin:0;">Every initiative below is quantified against verified salary data. Each table shows the median total compensation and loaded hourly rate - so every number can be traced back to its source.</p>
   </div>
