@@ -175,8 +175,12 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .phase-body p{margin:0}
 
 /* ASK */
-.ask-card{border:0.5px solid var(--border);border-radius:var(--rl);padding:16px 18px}
-.ask-card .big{font-size:32px;font-weight:300;color:var(--blue);display:block;margin-bottom:8px;letter-spacing:-.04em;}
+.ask-card{border:0.5px solid var(--border);border-radius:var(--rl);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07),0 1px 4px rgba(0,0,0,0.04);}
+.ask-card-top{padding:22px 24px 20px;}
+.ask-card-label{font-size:38px;font-weight:700;color:#fff;letter-spacing:-.04em;line-height:1;font-family:'Sora',sans-serif;display:block;}
+.ask-card-body{padding:20px 24px 22px;background:#fff;}
+.ask-card-body h3{font-size:17px;font-weight:600;color:var(--text);margin:0 0 10px;letter-spacing:-.01em;line-height:1.3;}
+.ask-card-body p{font-size:13px;color:var(--text-muted);line-height:1.65;margin:0;}
 .raise-box{border:1.5px solid var(--teal);border-radius:var(--rl);padding:20px 24px;margin:16px 0}
 .raise-box h3{color:var(--teal);margin-bottom:10px;font-size:18px;font-weight:600;}
 
@@ -1913,9 +1917,33 @@ a.bfc-panel{display:block;color:inherit;}
   <!-- 2. THE ASK - three cards -->
   <h2 style="margin-top:0;">What I am asking for</h2>
   <div class="g3" style="margin-bottom:36px">
-    <div class="ask-card"><span class="big">Title</span><h3>Director of AI Innovation &amp; Enablement</h3><p style="font-size:13px;margin-top:7px;color:var(--text-muted)">A net-new role - not a rebranding of an existing position. Cross-functional authority with dotted-line access to every functional VP.</p></div>
-    <div class="ask-card"><span class="big">$300K OTE</span><h3>Market repricing for a new scope</h3><p style="font-size:13px;margin-top:7px;color:var(--text-muted)">$225K base / $75K variable. The 75/25 split is preserved. This is not a raise. It is the market rate for a company-wide mandate. Benchmarks below.</p></div>
-    <div class="ask-card"><span class="big">$150K</span><h3>Annual AI tooling budget</h3><p style="font-size:13px;margin-top:7px;color:var(--text-muted)">API subscriptions, automation stack, intelligence platforms. Every dollar tracked against demonstrated ROI and reported quarterly.</p></div>
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#003DFF 0%,#2B5FFF 100%);">
+        <span class="ask-card-label">Title</span>
+      </div>
+      <div class="ask-card-body">
+        <h3>Director of AI Innovation &amp; Enablement</h3>
+        <p>A net-new role - not a rebranding of an existing position. Cross-functional authority with dotted-line access to every functional VP.</p>
+      </div>
+    </div>
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#0D8C6B 0%,#18B887 100%);">
+        <span class="ask-card-label">$300K OTE</span>
+      </div>
+      <div class="ask-card-body">
+        <h3>Market repricing for a new scope</h3>
+        <p>$225K base / $75K variable. The 75/25 split is preserved. This is not a raise. It is the market rate for a company-wide mandate. Benchmarks below.</p>
+      </div>
+    </div>
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#D97706 0%,#F59E0B 100%);">
+        <span class="ask-card-label">$150K</span>
+      </div>
+      <div class="ask-card-body">
+        <h3>Annual AI tooling budget</h3>
+        <p>API subscriptions, automation stack, intelligence platforms. Every dollar tracked against demonstrated ROI and reported quarterly.</p>
+      </div>
+    </div>
   </div>
 
   <!-- 3. NON-DISRUPTIVE BY DESIGN -->
