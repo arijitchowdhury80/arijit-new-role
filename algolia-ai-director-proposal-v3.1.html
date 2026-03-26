@@ -309,7 +309,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .pn-btn:hover { background: var(--bg-surface); color: var(--text); }
 .pn-btn.on { background: var(--navy); color: #fff; }
 
-.page-layout { display: block; max-width: 820px; margin: 20px auto 0; }
+.page-layout { display: block; max-width: 900px; margin: 20px auto 0; }
 .page-content { width: 100%; }
 .panel { display: none !important; background: #fff; border: 0.5px solid var(--border-med); border-radius: var(--rl); padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-top:0;}
 .panel.on { display: block !important; animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -380,19 +380,19 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
    Structure: .yr1-timeline > .yr1-quarter > .yr1-card (project)
    Each quarter has a gradient bg. Each project has its own glassmorphism card.
    ───────────────────────────────────────────────────────────────────────── */
-.yr1-timeline{display:flex;flex-direction:column;gap:28px;}
-.yr1-quarter{border-radius:24px;padding:32px 32px;position:relative;}
-.yr1-q1{background:rgba(0,61,255,0.03);border:1px solid rgba(0,61,255,0.10);}
-.yr1-q2{background:rgba(84,104,255,0.03);border:1px solid rgba(84,104,255,0.10);}
-.yr1-q3{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
-.yr1-q4{background:rgba(217,119,6,0.03);border:1px solid rgba(217,119,6,0.12);}
-.yr1-y2{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
+.yr1-timeline{display:flex;flex-direction:column;gap:32px;}
+.yr1-quarter{border-radius:24px;padding:32px 44px;position:relative;}
+.yr1-q1{background:rgba(0,61,255,0.07);border:1.5px solid rgba(0,61,255,0.15);}
+.yr1-q2{background:rgba(84,104,255,0.07);border:1.5px solid rgba(84,104,255,0.15);}
+.yr1-q3{background:rgba(13,140,107,0.07);border:1.5px solid rgba(13,140,107,0.16);}
+.yr1-q4{background:rgba(217,119,6,0.07);border:1.5px solid rgba(217,119,6,0.16);}
+.yr1-y2{background:rgba(13,140,107,0.07);border:1.5px solid rgba(13,140,107,0.16);}
 .yr1-qlabel{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .yr1-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;}
 .yr1-status--current{background:rgba(0,61,255,0.09);color:var(--blue);border:1px solid rgba(0,61,255,0.2);}
 .yr1-status--upcoming{background:rgba(148,163,184,0.14);color:#64748B;border:1px solid rgba(148,163,184,0.28);}
 .yr1-status--horizon{background:rgba(13,140,107,0.08);color:var(--teal);border:1px solid rgba(13,140,107,0.2);}
-.yr1-card{background:#ffffff;border:1px solid rgba(29,31,46,0.08);border-radius:16px;padding:28px 32px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 6px 16px rgba(0,0,0,0.07),0 16px 36px rgba(0,0,0,0.06);transition:transform 0.22s ease,box-shadow 0.22s ease;}
+.yr1-card{background:#ffffff;border:1px solid rgba(29,31,46,0.08);border-radius:16px;padding:28px 36px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 6px 16px rgba(0,0,0,0.07),0 16px 36px rgba(0,0,0,0.06);transition:transform 0.22s ease,box-shadow 0.22s ease;}
 .yr1-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.05),0 14px 32px rgba(0,0,0,0.10),0 28px 52px rgba(0,0,0,0.08);}
 .yr1-card:last-child{margin-bottom:0;}
 .yr1-period{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:6px;}
@@ -778,10 +778,10 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
 <!-- WHY -->
 <div id="p-why" class="panel">
-  <h2>The gap that no one owns today</h2>
+  <h2>The gap</h2>
   <div class="g2">
     <div class="card">
-      <h3>What is happening right now - organically</h3>
+      <h3 data-no-toc>What is happening right now - organically</h3>
       <ul class="li">
         <li>Teams adopt AI tools individually, with no strategy or coordination</li>
         <li>Every department solves the same problems in isolation</li>
@@ -793,7 +793,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
     <div class="card blue-hi">
       <div class="badge blue" style="margin-bottom:10px">What this role changes</div>
-      <h3>One owner. Company-wide mandate. Measurable returns.</h3>
+      <h3 data-no-toc>One owner. Company-wide mandate. Measurable returns.</h3>
       <ul class="li">
         <li>A single person accountable for identifying and deploying AI across all functions</li>
         <li>Shared playbooks built once - compounding in value across every team</li>
@@ -853,15 +853,15 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   </div>
 
   <h2 class="section-head">The risk of inaction</h2>
-  <div class="risk-row"><div class="ri">&#9650;</div><div><h4>The market is moving - internal AI maturity is becoming a differentiator</h4><p>Across the SaaS landscape, AI-native internal operations are increasingly part of how companies position themselves to enterprise buyers. The question prospects ask -"how do you use AI internally?" -is one Algolia should be able to answer with substance. Right now, the honest answer is: ad-hoc. Every quarter that continues, a competitor who can answer it convincingly gains ground.</p></div></div>
-  <div class="risk-row"><div class="ri">&#9650;</div><div><h4>Ad-hoc adoption is not free - it has a hidden cost</h4><p>Uncoordinated AI adoption means duplicated tool spend, inconsistent quality, no measurement, and no institutional knowledge. The cost is paid in wasted time, missed opportunity, and the eventual need for a more expensive, slower external transformation program.</p></div></div>
-  <div class="risk-row"><div class="ri">&#9650;</div><div><h4>The flywheel only starts turning when someone owns it</h4><p>Internal AI maturity creates external credibility. External credibility feeds the sales narrative. The sales narrative feeds product direction. But none of this compounds without a single owner responsible for the full cycle. Today, no one at Algolia owns this loop. The Prospect Intelligence Platform and Algolia Central are early proof that the flywheel works - but they exist despite the org structure, not because of it.</p></div></div>
+  <div class="risk-row"><div class="ri">&#9650;</div><div><h4 data-no-toc>The market is moving - internal AI maturity is becoming a differentiator</h4><p>Across the SaaS landscape, AI-native internal operations are increasingly part of how companies position themselves to enterprise buyers. The question prospects ask -"how do you use AI internally?" -is one Algolia should be able to answer with substance. Right now, the honest answer is: ad-hoc. Every quarter that continues, a competitor who can answer it convincingly gains ground.</p></div></div>
+  <div class="risk-row"><div class="ri">&#9650;</div><div><h4 data-no-toc>Ad-hoc adoption is not free - it has a hidden cost</h4><p>Uncoordinated AI adoption means duplicated tool spend, inconsistent quality, no measurement, and no institutional knowledge. The cost is paid in wasted time, missed opportunity, and the eventual need for a more expensive, slower external transformation program.</p></div></div>
+  <div class="risk-row"><div class="ri">&#9650;</div><div><h4 data-no-toc>The flywheel only starts turning when someone owns it</h4><p>Internal AI maturity creates external credibility. External credibility feeds the sales narrative. The sales narrative feeds product direction. But none of this compounds without a single owner responsible for the full cycle. Today, no one at Algolia owns this loop. The Prospect Intelligence Platform and Algolia Central are early proof that the flywheel works - but they exist despite the org structure, not because of it.</p></div></div>
 
 
   <h2 class="section-head" style="margin-top:24px">Industry proof points - this is not theoretical</h2>
 
   <div class="info-box" style="margin-bottom:10px">
-    <h3>The Moderna benchmark - what systematic AI actually looks like</h3>
+    <h3 data-no-toc>The Moderna benchmark - what systematic AI actually looks like</h3>
     <p>Moderna deployed ChatGPT Enterprise company-wide with a single mandate: redesign every business process with AI. Within two months their employees had created 750 custom AI tools spanning legal, research, manufacturing, and commercial functions. By 2025 that number exceeded 3,000. Their CEO's summary of the outcome: <em>"With just a few thousand people, technology and AI allow us to perform like a team of 100,000."</em></p>
     <p style="margin-top:8px">This was not an IT project. It was a CEO-mandated business transformation with a dedicated team, a governance model, and a systematic playbook. The results were not from individuals experimenting - they were from an organization that decided to own it.</p>
     <div class="src-pills">
@@ -872,7 +872,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   </div>
 
   <div class="warn-box" style="margin-bottom:10px">
-    <h3>The Bain warning - why ad-hoc AI fails, every time</h3>
+    <h3 data-no-toc>The Bain warning - why ad-hoc AI fails, every time</h3>
     <p>Bain &amp; Company's 2025 Technology Report found that <strong>fewer than 20% of enterprises have scaled AI in any meaningful way</strong>. The rest remain trapped in experimentation mode. Their diagnosis: bottom-up adoption creates what Bain calls "microproductivity" -small time savings that never compound into business impact. The companies that achieved 10–25% EBITDA gains took a fundamentally different path: centralized ownership, top-down diagnostics, redesigned workflows - not more pilots.</p>
     <p style="margin-top:8px">This is Algolia today. Sales, Marketing, R&amp;D, Customer Success - every department running independent AI experiments. Custom GPTs built in isolation. Individual tool subscriptions with no governance. No centralized strategy, no measurement framework, no owner. Bain's research predicts the outcome: micro-productivity at best, wasted investment at worst. This role is the structural fix.</p>
     <div class="src-pills">
@@ -882,7 +882,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
   </div>
 
-  <div class="risk-row"><div class="ri">&#9650;</div><div><h4>The Shadow AI financial risk - already on the CFO's desk</h4><p>Over 80% of employees now use unapproved AI tools, and IBM's 2025 data shows one in five organizations has already experienced a breach linked to unsanctioned AI. The financial premium is measurable: a data breach in an environment with unmanaged AI tools costs an average of $670,000 more than a breach without it. This is not a future risk - it is a present one. A centralized AI enablement function with proper governance eliminates this exposure while simultaneously accelerating productivity.</p>
+  <div class="risk-row"><div class="ri">&#9650;</div><div><h4 data-no-toc>The Shadow AI financial risk - already on the CFO's desk</h4><p>Over 80% of employees now use unapproved AI tools, and IBM's 2025 data shows one in five organizations has already experienced a breach linked to unsanctioned AI. The financial premium is measurable: a data breach in an environment with unmanaged AI tools costs an average of $670,000 more than a breach without it. This is not a future risk - it is a present one. A centralized AI enablement function with proper governance eliminates this exposure while simultaneously accelerating productivity.</p>
     <div class="src-pills">
       <a href="https://the-cfo.io/2025/10/28/why-shadow-ai-is-the-cfos-newest-and-most-expensive-crisis/" target="_blank" class="proof-pill proof-pill--amber"><span class="proof-pill__badge">The CFO</span><span class="proof-pill__label">Shadow AI financial risk, Oct 2025 →</span></a>
       <a href="https://petri.com/shadow-ai-enterprise-threat-2030/" target="_blank" class="proof-pill proof-pill--amber"><span class="proof-pill__badge">Gartner</span><span class="proof-pill__label">via Petri.com, Nov 2025 →</span></a>
@@ -2087,6 +2087,7 @@ function buildTOC(panel) {
     if(text.includes('charter in plain language')) return false;
     if(text.includes('reporting structure')) return false;
     if(h.closest('.roi-summary')) return false;
+    if(h.hasAttribute('data-no-toc')) return false;
     if(h.innerText.length < 3) return false;
     return true;
   });
