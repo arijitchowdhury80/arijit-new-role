@@ -410,6 +410,9 @@ a.bfc-panel{display:block;color:inherit;}
 .bfc-card--sm .bfc-eyebrow{font-size:10px;}
 .bfc-card--sm .bfc-sub{font-size:12px;}
 .bfc-card--sm .bfc-panel{height:55%;}
+.bfc-panel-links{display:flex;flex-wrap:wrap;gap:6px;}
+.bfc-src-pill{color:rgba(255,255,255,0.95);font-size:12px;font-weight:600;background:rgba(255,255,255,0.18);padding:4px 10px;border-radius:20px;text-decoration:none;border:1px solid rgba(255,255,255,0.28);transition:background 0.15s;white-space:nowrap;}
+.bfc-src-pill:hover{background:rgba(255,255,255,0.32);text-decoration:none;}
 .bfc-panel-text{color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;line-height:1.5;}
 
 /* ── Year 1 Quarter Containers + Project Cards ──────────────────────────────
@@ -1133,9 +1136,7 @@ a.bfc-panel{display:block;color:inherit;}
       <div class="bfc-eyebrow">Direct Cost Savings</div>
       <div class="bfc-value calc-saving" id="bfc-cost">$1,228,250</div>
       <div class="bfc-sub">2.1× on cost savings alone<br>16 roles · 7 companies benchmarked</div>
-      <div class="bfc-panel">
-        <div class="bfc-panel-text">Hours freed across all teams × verified loaded rates · salary data from Algolia, Elastic, Adobe, Salesforce, Nvidia &amp; peers</div>
-      </div>
+      <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.glassdoor.com/Salary/Algolia-Salaries-E998983.htm" target="_blank" class="bfc-src-pill">Glassdoor / Algolia →</a><a href="https://www.levels.fyi/companies/elastic/salaries" target="_blank" class="bfc-src-pill">Levels.fyi / Elastic →</a><a href="https://www.glassdoor.com/Salary/NVIDIA-Salaries-E7633.htm" target="_blank" class="bfc-src-pill">Glassdoor / Nvidia →</a></div></div>
     </div>
 
     <!-- Card 2: Productivity & Pipeline -->
@@ -1143,9 +1144,16 @@ a.bfc-panel{display:block;color:inherit;}
       <div class="bfc-eyebrow">Productivity &amp; Pipeline Gains</div>
       <div class="bfc-value calc-saving" id="bfc-prod">$3,010,938</div>
       <div class="bfc-sub">Sourced research · conservative estimates</div>
-      <a href="https://www.salesforce.com/news/stories/state-of-sales-report-announcement-2026/" target="_blank" class="bfc-panel" style="text-decoration:none;display:block;cursor:pointer;">
-        <div class="bfc-panel-text">Salesforce 2026 · Klue Win-Loss · Bloomreach · McKinsey · Gainsight · Bain 2025 ↗</div>
-      </a>
+      <div class="bfc-panel">
+        <div class="bfc-panel-links">
+          <a href="https://www.salesforce.com/news/stories/state-of-sales-report-announcement-2026/" target="_blank" class="bfc-src-pill">Salesforce State of Sales 2026 →</a>
+          <a href="https://klue.com/win-loss-trends-report" target="_blank" class="bfc-src-pill">Klue Win-Loss 2025 →</a>
+          <a href="https://www.jasper.ai/case-studies/bloomreach" target="_blank" class="bfc-src-pill">Bloomreach +113% →</a>
+          <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/how-finance-teams-are-putting-ai-to-work-today" target="_blank" class="bfc-src-pill">McKinsey Nov 2025 →</a>
+          <a href="https://www.gainsight.com/blog/quantifying-the-impact-of-human-first-ai/" target="_blank" class="bfc-src-pill">Gainsight CS Index →</a>
+          <a href="https://www.bain.com/insights/state-of-the-art-of-agentic-ai-transformation-technology-report-2025/" target="_blank" class="bfc-src-pill">Bain 2025 →</a>
+        </div>
+      </div>
     </div>
 
     <!-- Card 3: Combined ROI -->
@@ -1153,9 +1161,7 @@ a.bfc-panel{display:block;color:inherit;}
       <div class="bfc-eyebrow">Combined Year 1 Return</div>
       <div class="bfc-value calc-saving" id="bfc-roi">9.4×</div>
       <div class="bfc-sub" id="bfc-total">$4,239,188 total return</div>
-      <div class="bfc-panel">
-        <div class="bfc-panel-text">vs $450K investment · 3.6× even at 50% of estimates</div>
-      </div>
+      <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://harrisonfinch.com/comparing-chief-revenue-officer-salaries-in-us-saas-firms-2024-data/" target="_blank" class="bfc-src-pill">Harrison Finch CRO Salaries →</a><a href="https://www.vendr.com/marketplace/crayon" target="_blank" class="bfc-src-pill">Vendr CI Tool Pricing →</a></div></div>
     </div>
 
 
@@ -1170,13 +1176,13 @@ a.bfc-panel{display:block;color:inherit;}
     <div class="sf-row">
       <span class="sf-check">✓</span>
       <span class="sf-text">Salary benchmarks verified March 2026 &middot; researched across</span>
-      <span class="method-chip">Algolia</span>
-      <span class="method-chip">Coveo</span>
-      <span class="method-chip">Constructor.io</span>
-      <span class="method-chip">Elastic</span>
-      <span class="method-chip">Adobe</span>
-      <span class="method-chip">Salesforce</span>
-      <span class="method-chip">Nvidia</span>
+      <a href="https://www.glassdoor.com/Salary/Algolia-Salaries-E998983.htm" target="_blank" class="method-chip method-chip--src" title="Algolia salaries on Glassdoor">Algolia</a>
+      <a href="https://www.glassdoor.com/Salary/Coveo-Solutions-Salaries-E434622.htm" target="_blank" class="method-chip method-chip--src" title="Coveo salaries on Glassdoor">Coveo</a>
+      <a href="https://www.repvue.com/companies/Constructorio/salaries" target="_blank" class="method-chip method-chip--src" title="Constructor.io salaries on RepVue">Constructor.io</a>
+      <a href="https://www.glassdoor.com/Salary/Elastic-Salaries-E751551.htm" target="_blank" class="method-chip method-chip--src" title="Elastic salaries on Glassdoor">Elastic</a>
+      <a href="https://www.glassdoor.com/Salary/Adobe-Salaries-E1090.htm" target="_blank" class="method-chip method-chip--src" title="Adobe salaries on Glassdoor">Adobe</a>
+      <a href="https://www.glassdoor.com/Salary/Salesforce-Salaries-E11159.htm" target="_blank" class="method-chip method-chip--src" title="Salesforce salaries on Glassdoor">Salesforce</a>
+      <a href="https://www.glassdoor.com/Salary/NVIDIA-Salaries-E7633.htm" target="_blank" class="method-chip method-chip--src" title="Nvidia salaries on Glassdoor">Nvidia</a>
     </div>
     <div class="sf-row" style="margin-top:8px;">
       <span class="sf-text">Sources</span>
@@ -1190,7 +1196,542 @@ a.bfc-panel{display:block;color:inherit;}
     </div>
   </div>
 
-  </div><!-- end max-width wrapper -->
+
+
+  <!-- Year 1 Timeline — quarter containers -->
+  </div>
+
+  <div class="yr1-timeline">
+
+    <!-- ═══ Q1 2026 ═══ -->
+    <div class="yr1-quarter yr1-q1">
+      <div class="yr1-qlabel">Q1 2026 <span class="yr1-status yr1-status--current">Current</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q1 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q1-cost">$732,750</div>
+          <div class="bfc-sub">GTM &middot; Marketing &middot; CI</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.glassdoor.com/Salary/Algolia-Account-Executive-Salaries-E998983_D_KO8,25.htm" target="_blank" class="bfc-src-pill">Glassdoor / Algolia AE →</a><a href="https://www.repvue.com/companies/Elastic/salaries/enterprise-account-executive" target="_blank" class="bfc-src-pill">RepVue / Elastic AE →</a><a href="https://www.levels.fyi/companies/salesforce/salaries/sales-engineer" target="_blank" class="bfc-src-pill">Levels.fyi / Salesforce SE →</a></div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q1 Productivity &amp; Pipeline</div>
+          <div class="bfc-value calc-saving" id="qtotal-q1-prod">$2,770,000</div>
+          <div class="bfc-sub">AE pipeline &middot; output &middot; win rate</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.salesforce.com/news/stories/state-of-sales-report-announcement-2026/" target="_blank" class="bfc-src-pill">Salesforce 2026 →</a><a href="https://www.jasper.ai/case-studies/bloomreach" target="_blank" class="bfc-src-pill">Bloomreach +113% →</a><a href="https://klue.com/win-loss-trends-report" target="_blank" class="bfc-src-pill">Klue Win-Loss 2025 →</a></div></div>
+        </div>
+      </div>
+
+
+      <!-- Project 1: GTM Engineering -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Sales &amp; GTM Engineering</div>
+        <h3 class="yr1-card-title">GTM Engineering &amp; Prospect Intelligence</h3>
+        <p class="tl-desc">Productize the Prospect Intelligence Platform for shared AE and BDR use across Algolia's target account list - self-serve hub, audit scheduler, pre-call briefs delivered the night before every discovery call. Account scoring, ABX packages per account, and personalized outreach sequences.</p>
+
+        <div class="irc-wrap" id="tbl-gtm">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-ae" data-rate="138" data-hrs="4">
+            <div class="irc-cell irc-cell--role">Senior Account Executive</div>
+            <div class="irc-cell irc-cell--src">$285K OTE median · Algolia $287K · Adobe $320K · Salesforce $290K · Elastic $287K · Coveo $292K</div>
+            <div class="irc-cell irc-cell--rate">$138</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('ae',-1)">−</button><input class="team-input" id="inp-ae" type="number" min="0" max="999" value="10" oninput="calcInvestRow('ae')"><button class="team-spin" onclick="spinTeam('ae',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">4 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-ae">$276,000</div>
+          </div>
+          <div class="irc-row" id="row-bdr" data-rate="46" data-hrs="4">
+            <div class="irc-cell irc-cell--role">BDR / SDR</div>
+            <div class="irc-cell irc-cell--src">$96K OTE median · Algolia $97K · Coveo $112K · market $85-90K</div>
+            <div class="irc-cell irc-cell--rate">$46</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('bdr',-1)">−</button><input class="team-input" id="inp-bdr" type="number" min="0" max="999" value="5" oninput="calcInvestRow('bdr')"><button class="team-spin" onclick="spinTeam('bdr',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">4 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-bdr">$46,000</div>
+          </div>
+          <div class="irc-row" id="row-se" data-rate="119" data-hrs="2">
+            <div class="irc-cell irc-cell--role">Senior Sales Engineer</div>
+            <div class="irc-cell irc-cell--src">$248K median · Salesforce $230K · Adobe $311K · Elastic $288K · Algolia $190K · Nvidia $383K</div>
+            <div class="irc-cell irc-cell--rate">$119</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('se',-1)">−</button><input class="team-input" id="inp-se" type="number" min="0" max="999" value="5" oninput="calcInvestRow('se')"><button class="team-spin" onclick="spinTeam('se',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">2 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-se">$59,500</div>
+          </div>
+          <div class="irc-row" id="row-sa" data-rate="118" data-hrs="2">
+            <div class="irc-cell irc-cell--role">Senior Solutions Architect</div>
+            <div class="irc-cell irc-cell--src">$245K median · Salesforce $230K · Elastic $260K · Adobe ~$311K · Nvidia $383K</div>
+            <div class="irc-cell irc-cell--rate">$118</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('sa',-1)">−</button><input class="team-input" id="inp-sa" type="number" min="0" max="999" value="3" oninput="calcInvestRow('sa')"><button class="team-spin" onclick="spinTeam('sa',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">2 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-sa">$35,400</div>
+          </div>
+          <div class="irc-row" id="row-vps" data-rate="161" data-hrs="3">
+            <div class="irc-cell irc-cell--role">VP Sales</div>
+            <div class="irc-cell irc-cell--src">$334K median · Elastic $306K · Salesforce $280K · Coveo ~$362K · market avg $334K</div>
+            <div class="irc-cell irc-cell--rate">$161</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vps',-1)">−</button><input class="team-input" id="inp-vps" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vps')"><button class="team-spin" onclick="spinTeam('vps',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">3 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-vps">$24,150</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings — GTM Engineering</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-gtm">$441,050</div>
+          </div>
+        </div>
+
+        <div class="prod-box prod-box--blue">
+          <div class="prod-eyebrow" style="color:var(--blue);">↗ Productivity Gain</div>
+          <div class="prod-headline"><span id="prod-hrs-gtm">3,950</span> hours/year redirected to active selling</div>
+          <div class="prod-value prod-value--blue"><span id="prod-val-gtm">$1,500,000</span> additional ARR pipeline</div>
+          <p class="prod-desc">Salesforce State of Sales 2026: AI-enabled teams are 1.3× more likely to grow revenue. Conservative application: 15% quota uplift on a $10M combined team target.</p>
+          <div class="src-pills">
+            <a href="https://www.salesforce.com/news/stories/state-of-sales-report-announcement-2026/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Salesforce</span><span class="proof-pill__label">State of Sales 2026 →</span></a>
+            <a href="https://www.outreach.io/resources/blog/sales-2025-data-analysis" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Outreach</span><span class="proof-pill__label">Sales Data 2025 →</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Marketing Content -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Marketing</div>
+        <h3 class="yr1-card-title">Automated Marketing Content Engine</h3>
+        <p class="tl-desc">Blog briefs to draft pipeline, case study generation from customer calls, email nurture sequences per persona, social content calendar automation, and executive thought leadership drafts. Content strategy informed by competitive and audience intelligence.</p>
+
+        <div class="irc-wrap" id="tbl-mkt">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-cmm" data-rate="72" data-hrs="10">
+            <div class="irc-cell irc-cell--role">Content Marketing Manager</div>
+            <div class="irc-cell irc-cell--src">$135K median · Adobe $136K · Salesforce ~$152K · Nvidia ~$177K · B2B SaaS benchmark</div>
+            <div class="irc-cell irc-cell--rate">$72</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('cmm',-1)">−</button><input class="team-input" id="inp-cmm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('cmm')"><button class="team-spin" onclick="spinTeam('cmm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">10 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-cmm">$36,000</div>
+          </div>
+          <div class="irc-row" id="row-smm" data-rate="43" data-hrs="8">
+            <div class="irc-cell irc-cell--role">Social Media Manager</div>
+            <div class="irc-cell irc-cell--src">$90K median · Glassdoor avg $80K · Indeed $64K · B2B SaaS benchmark</div>
+            <div class="irc-cell irc-cell--rate">$43</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('smm',-1)">−</button><input class="team-input" id="inp-smm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('smm')"><button class="team-spin" onclick="spinTeam('smm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">8 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-smm">$17,200</div>
+          </div>
+          <div class="irc-row" id="row-mm" data-rate="70" data-hrs="6">
+            <div class="irc-cell irc-cell--role">Marketing Manager (demand gen / paid / organic)</div>
+            <div class="irc-cell irc-cell--src">$145K median · Adobe $136K · Salesforce ~$152K · Glassdoor demand gen avg $120K</div>
+            <div class="irc-cell irc-cell--rate">$70</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('mm',-1)">−</button><input class="team-input" id="inp-mm" type="number" min="0" max="999" value="2" oninput="calcInvestRow('mm')"><button class="team-spin" onclick="spinTeam('mm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">6 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-mm">$42,000</div>
+          </div>
+          <div class="irc-row" id="row-dre" data-rate="85" data-hrs="5">
+            <div class="irc-cell irc-cell--role">Developer Relations Engineer</div>
+            <div class="irc-cell irc-cell--src">$177K median · Nvidia $161-$265K · Glassdoor avg $139K · Levels.fyi median $150K</div>
+            <div class="irc-cell irc-cell--rate">$85</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('dre',-1)">−</button><input class="team-input" id="inp-dre" type="number" min="0" max="999" value="1" oninput="calcInvestRow('dre')"><button class="team-spin" onclick="spinTeam('dre',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">5 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-dre">$21,250</div>
+          </div>
+          <div class="irc-row" id="row-vpm" data-rate="185" data-hrs="3">
+            <div class="irc-cell irc-cell--role">VP Marketing</div>
+            <div class="irc-cell irc-cell--src">$384K median · Adobe $284K · Salesforce $502K · Nvidia ~$400K · market avg $384K</div>
+            <div class="irc-cell irc-cell--rate">$185</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpm',-1)">−</button><input class="team-input" id="inp-vpm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpm')"><button class="team-spin" onclick="spinTeam('vpm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">3 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-vpm">$27,750</div>
+          </div>
+          <div class="irc-row" data-fixed="80000">
+            <div class="irc-cell irc-cell--role">Agency fees offset</div>
+            <div class="irc-cell irc-cell--src">B2B SaaS content agency: $25K per campaign series · 2 series/quarter displaced · 40% in-house</div>
+            <div class="irc-cell irc-cell--rate">—</div>
+            <div class="irc-cell irc-cell--team">—</div>
+            <div class="irc-cell irc-cell--hrs">—</div>
+            <div class="irc-cell irc-cell--saving">$80,000</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings — Marketing Content Engine</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-mkt">$224,200</div>
+          </div>
+        </div>
+
+        <div class="prod-box prod-box--green">
+          <div class="prod-eyebrow" style="color:#059669;">↗ Productivity Gain</div>
+          <div class="prod-headline">Same team. Double the output.</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-mkt">$520,000</span> equiv. additional headcount value</div>
+          <p class="prod-desc">Bloomreach increased blog output 113% with the same 4-person content team using AI. Applied here: equivalent of 4 additional content headcount at $130K average — at zero hiring cost. What takes 2 marketers a full week (storyboard, blog, press release, social set, outreach email sequence) is completed in under 2 days.</p>
+          <div class="src-pills">
+            <a href="https://www.jasper.ai/case-studies/bloomreach" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Bloomreach</span><span class="proof-pill__label">+113% content output →</span></a>
+            <a href="https://www.jasper.ai/blog/ai-insights-hubspot-report" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">HubSpot</span><span class="proof-pill__label">12.5 hrs/wk saved →</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Competitive Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q1 2026 · Sales &amp; Marketing Intelligence</div>
+        <h3 class="yr1-card-title">Competitive Intelligence System</h3>
+        <p class="tl-desc">Always-on listeners monitoring everything Algolia's competitors do - press releases, product launches, analyst reviews, blog posts, social media, Hacker News, Stack Exchange, YouTube, and customer or partner communities. Signals feed automatically into sales battle cards, content response briefs, and product roadmap inputs.</p>
+
+        <div class="irc-wrap" id="tbl-ci">
+          <div class="irc-header" style="grid-template-columns:5fr 120px;">
+            <div class="irc-header-cell">Cost element &amp; basis</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-pmm" data-rate="70" data-hrs="9" style="grid-template-columns:5fr 120px;">
+            <div class="irc-cell irc-cell--role" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+              <span>PMM / Competitive Analyst time</span>
+              <span style="font-size:12px;color:var(--text-muted);">9 hrs/wk · $70/hr · Manual CI = 12 hrs/wk → automated = 2-3 hrs/wk</span>
+              <div class="team-input-wrap" style="margin-left:auto;"><button class="team-spin" onclick="spinTeam('pmm',-1)">−</button><input class="team-input" id="inp-pmm" type="number" min="0" max="99" value="1" oninput="calcInvestRow('pmm')"><button class="team-spin" onclick="spinTeam('pmm',1)">+</button></div>
+            </div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-pmm">$31,500</div>
+          </div>
+          <div class="irc-row" data-fixed="35000" style="grid-template-columns:5fr 120px;">
+            <div class="irc-cell irc-cell--role">
+              <span style="font-weight:600;">Crayon or Klue subscription displaced</span>
+              <span class="irc-cell--src" style="display:block;margin-top:3px;">Vendr median contract $30K-$46K/yr · Algolia confirmed active CI program</span>
+            </div>
+            <div class="irc-cell irc-cell--saving">$35,000</div>
+          </div>
+          <div class="irc-row" data-fixed="1000" style="grid-template-columns:5fr 120px;">
+            <div class="irc-cell irc-cell--role">
+              <span style="font-weight:600;">Owler Pro subscription displaced</span>
+              <span class="irc-cell--src" style="display:block;margin-top:3px;">$468/user/yr · news and alert monitoring replaced</span>
+            </div>
+            <div class="irc-cell irc-cell--saving">$1,000</div>
+          </div>
+          <div class="irc-row irc-total" style="grid-template-columns:5fr 120px;">
+            <div class="irc-cell irc-cell--role" style="font-weight:700;">Annual cost savings — Competitive Intelligence</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-ci">$67,500</div>
+          </div>
+        </div>
+
+        <div class="prod-box prod-box--blue">
+          <div class="prod-eyebrow" style="color:var(--blue);">↗ Pipeline Gain</div>
+          <div class="prod-headline">Win rate improvement across competitive deals</div>
+          <div class="prod-value prod-value--blue"><span id="prod-val-ci">$750,000</span> additional ARR won/year</div>
+          <p class="prod-desc">Klue 2025 Win-Loss Trends Report (300+ leaders): 56% of VP and C-level executives confirm CI analysis has increased win rates. Wunderkind + Crayon: 7 percentage point win rate improvement. Conservative application: 5% win rate lift on $15M competitive pipeline.</p>
+          <div class="src-pills">
+            <a href="https://klue.com/win-loss-trends-report" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Klue</span><span class="proof-pill__label">Win-Loss Trends 2025 →</span></a>
+            <a href="https://www.crayon.co/state-of-competitive-intelligence" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Crayon</span><span class="proof-pill__label">State of CI 2025 →</span></a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- ═══ Q2 2026 ═══ -->
+    <div class="yr1-quarter yr1-q2">
+      <div class="yr1-qlabel">Q2 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q2 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q2-cost">$67,600</div>
+          <div class="bfc-sub">PM capacity freed</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.levels.fyi/t/product-manager/levels/senior/locations/united-states" target="_blank" class="bfc-src-pill">Levels.fyi Senior PM US →</a><a href="https://www.glassdoor.com/Salary/Adobe-Sr-Product-Manager-Salaries-E1090_D_KO6,24.htm" target="_blank" class="bfc-src-pill">Glassdoor / Adobe SPM →</a></div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q2 Productivity Gain</div>
+          <div class="bfc-value calc-saving" id="qtotal-q2-prod">$208,000</div>
+          <div class="bfc-sub">2-week faster feature delivery</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-generative-ai-could-accelerate-software-product-time-to-market" target="_blank" class="bfc-src-pill">McKinsey GenAI PM 2024 →</a></div></div>
+        </div>
+      </div>
+
+
+      <!-- Project 1: Product Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q2 2026 · Product &amp; R&amp;D</div>
+        <h3 class="yr1-card-title">Product Intelligence for R&amp;D and Product Management</h3>
+        <div class="ws-header">
+          <span class="ws-dot" style="background:var(--blue);"></span>
+          <span class="ws-label" style="color:var(--blue);">Product Intelligence for R&amp;D and Product Management</span>
+        </div>
+        <p class="tl-desc">Systematically analyze user feedback from support tickets, G2 and Capterra reviews, community forums, and customer calls. Build structured weekly signal digests for R&amp;D and Product teams covering what users are asking for, what they are reporting as friction, what competitors are shipping, and where the industry is heading.</p>
+
+        <div class="irc-wrap" id="tbl-prod">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-spm" data-rate="127" data-hrs="4">
+            <div class="irc-cell irc-cell--role">Senior Product Manager</div>
+            <div class="irc-cell irc-cell--src">$264K median · Levels.fyi US median 3,898 data pts · Adobe $310K · Salesforce $279K · Algolia $147K · Elastic $247K</div>
+            <div class="irc-cell irc-cell--rate">$127</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('spm',-1)">−</button><input class="team-input" id="inp-spm" type="number" min="0" max="999" value="2" oninput="calcInvestRow('spm')"><button class="team-spin" onclick="spinTeam('spm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">4 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-spm">$50,800</div>
+          </div>
+          <div class="irc-row" id="row-vpc" data-rate="168" data-hrs="2">
+            <div class="irc-cell irc-cell--role">VP Product</div>
+            <div class="irc-cell irc-cell--src">$350K median · Salesforce $718K · Adobe ~$406K · Nvidia ~$550K · market avg $273K</div>
+            <div class="irc-cell irc-cell--rate">$168</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpc',-1)">−</button><input class="team-input" id="inp-vpc" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpc')"><button class="team-spin" onclick="spinTeam('vpc',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">2 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-vpc">$16,800</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings - Product Intelligence</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-prod">$67,600</div>
+          </div>
+        </div>
+
+        <div class="prod-box prod-box--green">
+          <div class="prod-eyebrow" style="color:#059669;">↗ Productivity Gain</div>
+          <div class="prod-headline"><span id="prod-hrs-prod">500</span> PM-hours/year redirected to strategic roadmap</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-prod">$208,000</span> accelerated ARR</div>
+          <p class="prod-desc">McKinsey: AI has 2× impact on content-heavy PM tasks (user research synthesis, PRDs, backlogs). P&amp;G Harvard study (776 employees): 12% faster product development. Conservative estimate: 2-week acceleration in average feature delivery at $5M monthly ARR run rate.</p>
+          <div class="src-pills">
+            <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-generative-ai-could-accelerate-software-product-time-to-market" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">McKinsey</span><span class="proof-pill__label">GenAI PM time to market →</span></a>
+          </div>
+        </div>
+
+        <p class="tl-desc" style="margin-top:8px;font-style:italic;font-size:14px;">Pipeline reporting automation (Gartner: 30% faster financial close with AI by 2028; McKinsey: 30% less time on data crunching) is deployed in parallel as part of the RevOps expansion — covered in Category B cost savings.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══ Q3 2026 ═══ -->
+    <div class="yr1-quarter yr1-q3">
+      <div class="yr1-qlabel">Q3 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q3 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q3-cost">$268,900</div>
+          <div class="bfc-sub">CS intelligence &middot; 15-person team</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.glassdoor.com/Salary/Salesforce-Customer-Success-Manager-Salaries-E11159_D_KO11,35.htm" target="_blank" class="bfc-src-pill">Glassdoor / Salesforce CSM →</a><a href="https://www.glassdoor.com/Salary/Salesforce-Renewals-Manager-Salaries-E11159_D_KO11,27.htm" target="_blank" class="bfc-src-pill">Glassdoor / Renewals Mgr →</a></div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q3 Retention &amp; Productivity</div>
+          <div class="bfc-value calc-saving" id="qtotal-q3-prod">$300,000</div>
+          <div class="bfc-sub">Churn reduction &middot; renewal uplift</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.gainsight.com/blog/quantifying-the-impact-of-human-first-ai/" target="_blank" class="bfc-src-pill">Gainsight 2025 →</a><a href="https://www.bain.com/insights/customer-success-at-a-crossroads-evolve-with-ai-or-fade-away/" target="_blank" class="bfc-src-pill">Bain Aug 2025 →</a><a href="https://www.clari.com/press/clari-revenue-ai-delivered-96-million-in-value-to-enterprise-customers/" target="_blank" class="bfc-src-pill">Clari / Forrester TEI →</a></div></div>
+        </div>
+      </div>
+
+
+      <!-- Project 1: Customer Success Intelligence -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q3 2026 · Customer Success</div>
+        <h3 class="yr1-card-title">Customer Success Intelligence</h3>
+        <div class="ws-header">
+          <span class="ws-dot" style="background:var(--teal);"></span>
+          <span class="ws-label" style="color:var(--teal);">Customer Success Intelligence</span>
+        </div>
+        <p class="tl-desc">Deploy churn signal detection from product usage and engagement data - early warning alerts with recommended plays delivered to CSMs. Automate QBR preparation (agenda, deck, account data assembled without manual CSM prep). Generate success plan drafts personalized to each account. Surface expansion opportunities before they appear in the CRM.</p>
+
+        <div class="irc-wrap" id="tbl-cs">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-csm" data-rate="73" data-hrs="5">
+            <div class="irc-cell irc-cell--role">Customer Success Manager</div>
+            <div class="irc-cell irc-cell--src">$151K median · Algolia ~$165K · Elastic $188K · Adobe $154K · Salesforce $143K · Coveo $143K</div>
+            <div class="irc-cell irc-cell--rate">$73</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('csm',-1)">−</button><input class="team-input" id="inp-csm" type="number" min="0" max="999" value="10" oninput="calcInvestRow('csm')"><button class="team-spin" onclick="spinTeam('csm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">5 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-csm">$182,500</div>
+          </div>
+          <div class="irc-row" id="row-rae" data-rate="93" data-hrs="4">
+            <div class="irc-cell irc-cell--role">Renewal Account Executive</div>
+            <div class="irc-cell irc-cell--src">$194K median · Salesforce Renewals Mgr $211K · Adobe AM $225K · Coveo AM $143K · Elastic AE proxy $193K</div>
+            <div class="irc-cell irc-cell--rate">$93</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('rae',-1)">−</button><input class="team-input" id="inp-rae" type="number" min="0" max="999" value="3" oninput="calcInvestRow('rae')"><button class="team-spin" onclick="spinTeam('rae',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">4 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-rae">$55,800</div>
+          </div>
+          <div class="irc-row" id="row-csmgr" data-rate="102" data-hrs="3">
+            <div class="irc-cell irc-cell--role">Director / Manager, Customer Success</div>
+            <div class="irc-cell irc-cell--src">$212K median · Salesforce CS Director $226K · Elastic Director $220K · Glassdoor market $225K</div>
+            <div class="irc-cell irc-cell--rate">$102</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('csmgr',-1)">−</button><input class="team-input" id="inp-csmgr" type="number" min="0" max="999" value="2" oninput="calcInvestRow('csmgr')"><button class="team-spin" onclick="spinTeam('csmgr',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">3 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-csmgr">$30,600</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings - Customer Success Intelligence</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-cs">$268,900</div>
+          </div>
+        </div>
+
+        <div class="prod-box prod-box--green">
+          <div class="prod-eyebrow" style="color:#059669;">↗ Productivity &amp; Retention Gain</div>
+          <div class="prod-headline"><span id="prod-hrs-cs">25,000</span> CSM-hours/year redirected to proactive account management</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-cs">$300,000</span> annual capacity value + churn reduction</div>
+          <p class="prod-desc">Gainsight 2025: AI automation saves 10+ hours/week per CSM. Their direct calculation: $300K+ annual value for a 10-CSM team. Bain Aug 2025 (n=235): 65% of CSM time currently spent on automatable low-value tasks. Clari Forrester TEI: +20 percentage point renewal rate improvement with AI-governed CS data.</p>
+          <div class="src-pills">
+            <a href="https://www.gainsight.com/blog/quantifying-the-impact-of-human-first-ai/" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Gainsight</span><span class="proof-pill__label">$300K+ for 10-CSM team →</span></a>
+            <a href="https://www.bain.com/insights/customer-success-at-a-crossroads-evolve-with-ai-or-fade-away/" target="_blank" class="proof-pill proof-pill--amber"><span class="proof-pill__badge">Bain</span><span class="proof-pill__label">65% CSM time automatable →</span></a>
+            <a href="https://www.clari.com/press/clari-revenue-ai-delivered-96-million-in-value-to-enterprise-customers/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Clari + Forrester</span><span class="proof-pill__label">+20pt renewal rate →</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Harness Workflows -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q3 2026 · Sales &amp; Marketing</div>
+        <h3 class="yr1-card-title">Trigger-Based Harness Workflows</h3>
+        <p class="tl-desc">Deploy trigger-based harness workflows across Sales and Marketing - automated sequences that activate on defined signals (funding events, leadership changes, product launches, competitor news) to ensure the right message reaches the right account at exactly the right moment.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══ Q4 2026 ═══ -->
+    <div class="yr1-quarter yr1-q4">
+      <div class="yr1-qlabel">Q4 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q4 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q4-cost">$159,000</div>
+          <div class="bfc-sub">Legal &middot; Finance automation</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://blog.insightfulaccountant.com/thomson-reuters-reveals-new-agentic-ai-in-cocounsel-legal" target="_blank" class="bfc-src-pill">Thomson Reuters CoCounsel →</a><a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/how-finance-teams-are-putting-ai-to-work-today" target="_blank" class="bfc-src-pill">McKinsey Finance AI →</a></div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm" style="background:#EEF2FF;">
+          <div class="bfc-eyebrow">Q4 Deal Velocity</div>
+          <div class="bfc-value" style="font-size:20px;color:var(--blue);font-weight:700;">Faster close</div>
+          <div class="bfc-sub">$60K outside counsel offset &middot; board pack automation</div>
+          <div class="bfc-panel"><div class="bfc-panel-links"><a href="https://www.gartner.com/en/newsroom/press-releases/2026-02-24-gartner-predicts-embedded-ai-in-cloud-erp-applications-will-drive-a-30-percent-faster-financial-close-by-2028" target="_blank" class="bfc-src-pill">Gartner Feb 2026 →</a></div></div>
+        </div>
+      </div>
+
+
+      <!-- Project 1: Contract Review -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Legal</div>
+        <h3 class="yr1-card-title">AI-Assisted Contract Review Workflow</h3>
+        <div class="ws-header">
+          <span class="ws-dot" style="background:var(--blue);"></span>
+          <span class="ws-label" style="color:var(--blue);">AI-Assisted Contract Review Workflow</span>
+        </div>
+        <p class="tl-desc">AI-assisted first-pass review for complex enterprise agreements, NDAs, MSAs, and compliance audits. Flags non-standard clauses against approved positions and summarizes risk before legal counsel opens a document. Measurable outcomes: reduced outside counsel spend, faster turnaround, improved deal velocity.</p>
+
+        <div class="irc-wrap" id="tbl-legal">
+          <div class="irc-header">
+            <div class="irc-header-cell">Cost element</div>
+            <div class="irc-header-cell">Median comp &amp; basis</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-counsel" data-rate="122" data-hrs="9">
+            <div class="irc-cell irc-cell--role">In-House Corporate Counsel</div>
+            <div class="irc-cell irc-cell--src">$253K median · Adobe $233K · Salesforce $351K · Nvidia $275K · InhouseBlog 2026</div>
+            <div class="irc-cell irc-cell--rate">$122</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('counsel',-1)">−</button><input class="team-input" id="inp-counsel" type="number" min="0" max="999" value="1" oninput="calcInvestRow('counsel')"><button class="team-spin" onclick="spinTeam('counsel',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">9 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-counsel">$54,900</div>
+          </div>
+          <div class="irc-row" data-fixed="60000">
+            <div class="irc-cell irc-cell--role">Outside counsel fees offset</div>
+            <div class="irc-cell irc-cell--src">Thomson Reuters: 63% review time reduction. 40% of $150K/yr outside counsel spend displaced. Outside counsel avg $400/hr.</div>
+            <div class="irc-cell irc-cell--rate">$400</div>
+            <div class="irc-cell irc-cell--team">—</div>
+            <div class="irc-cell irc-cell--hrs">—</div>
+            <div class="irc-cell irc-cell--saving">$60,000</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings — Contract Review</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-legal">$114,900</div>
+          </div>
+        </div>
+
+        <div class="src-pills" style="margin-bottom:16px;">
+          <a href="https://blog.insightfulaccountant.com/thomson-reuters-reveals-new-agentic-ai-in-cocounsel-legal" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Thomson Reuters</span><span class="proof-pill__label">63% review time reduction →</span></a>
+          <a href="https://jolt.richmond.edu/2024/10/22/ai-in-contract-drafting-transforming-legal-practice/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Richmond JOLT</span><span class="proof-pill__label">AI in contract drafting →</span></a>
+        </div>
+      </div>
+
+      <!-- Project 2: Finance Automation -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Finance</div>
+        <h3 class="yr1-card-title">Finance Reporting Automation</h3>
+        <div class="ws-header">
+          <span class="ws-dot" style="background:var(--teal);"></span>
+          <span class="ws-label" style="color:var(--teal);">Finance Reporting Automation</span>
+        </div>
+        <p class="tl-desc">Monthly close narratives, budget vs actuals commentary, and board pack preparation generated from ledger data. Practical, measurable time savings - not a transformation programme.</p>
+
+        <div class="irc-wrap" id="tbl-finance">
+          <div class="irc-header">
+            <div class="irc-header-cell">Role</div>
+            <div class="irc-header-cell">Median total comp &amp; companies</div>
+            <div class="irc-header-cell r">$/hr</div>
+            <div class="irc-header-cell c"><div class="calc-label">Team size</div></div>
+            <div class="irc-header-cell r">Hrs/wk</div>
+            <div class="irc-header-cell r">Annual saving</div>
+          </div>
+          <div class="irc-row" id="row-fm" data-rate="75" data-hrs="6">
+            <div class="irc-cell irc-cell--role">Finance Manager / Sr Analyst</div>
+            <div class="irc-cell irc-cell--src">$155K median · Glassdoor avg $131K · BLS national $162K · SaaS benchmark $143K</div>
+            <div class="irc-cell irc-cell--rate">$75</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('fm',-1)">−</button><input class="team-input" id="inp-fm" type="number" min="0" max="999" value="1" oninput="calcInvestRow('fm')"><button class="team-spin" onclick="spinTeam('fm',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">6 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-fm">$22,500</div>
+          </div>
+          <div class="irc-row" id="row-vpf" data-rate="144" data-hrs="3">
+            <div class="irc-cell irc-cell--role">VP Finance / Head of FP&amp;A</div>
+            <div class="irc-cell irc-cell--src">$300K median · Salesforce $430K top reported · B2B SaaS FP&amp;A benchmark $300K · Datarails 2026</div>
+            <div class="irc-cell irc-cell--rate">$144</div>
+            <div class="irc-cell irc-cell--team"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('vpf',-1)">−</button><input class="team-input" id="inp-vpf" type="number" min="0" max="999" value="1" oninput="calcInvestRow('vpf')"><button class="team-spin" onclick="spinTeam('vpf',1)">+</button></div></div>
+            <div class="irc-cell irc-cell--hrs">3 hrs</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="save-vpf">$21,600</div>
+          </div>
+          <div class="irc-row irc-total">
+            <div class="irc-cell irc-cell--role" style="grid-column:1/6;font-weight:700;">Annual cost savings — Finance Automation</div>
+            <div class="irc-cell irc-cell--saving calc-saving" id="totalval-finance">$44,100</div>
+          </div>
+        </div>
+
+        <div class="src-pills" style="margin-bottom:16px;">
+          <a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/how-finance-teams-are-putting-ai-to-work-today" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">McKinsey</span><span class="proof-pill__label">Finance AI Nov 2025 →</span></a>
+          <a href="https://www.gartner.com/en/newsroom/press-releases/2026-02-24-gartner-predicts-embedded-ai-in-cloud-erp-applications-will-drive-a-30-percent-faster-financial-close-by-2028" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Gartner</span><span class="proof-pill__label">30% faster close by 2028 →</span></a>
+        </div>
+      </div>
+
+      <!-- Project 3: AI Champions + Board Narrative -->
+      <div class="yr1-card">
+        <div class="yr1-period">Q4 2026 · Company-wide</div>
+        <h3 class="yr1-card-title">AI Champions Network &amp; Year 1 Board Narrative</h3>
+        <p class="tl-desc">Establish the AI Champions network - one designated champion per department responsible for adoption feedback and surfacing workflow improvement opportunities. Deliver the Year 1 board narrative: quantified impact, ROI, and the Year 2 team expansion case.</p>
+      </div>
+
+      <div class="yr1-card">
+        <div class="yr1-period">Year 2 and beyond · Company &amp; Market</div>
+        <h3 class="yr1-card-title">Team expansion, external AI story &amp; platform commercialisation</h3>
+        <p class="tl-desc">Year 1 ROI justifies adding 1 additional headcount to expand into further business areas. The internal operational playbook becomes an external competitive narrative. The Prospect Intelligence Platform, validated on 100+ audits, is evaluated for commercial product potential or as a partner-delivered offering through the SI ecosystem.</p>
+      </div>
+
+    </div>
+
+  </div><!-- end yr1-timeline -->
+
+
+
+    </div><!-- end max-width wrapper -->
 
 
 </div>
