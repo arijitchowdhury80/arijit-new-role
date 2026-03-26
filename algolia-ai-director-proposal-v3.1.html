@@ -1318,8 +1318,68 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
           </div>
           <span class="tl-badge tl-badge--upcoming">Upcoming</span>
         </div>
-        <p class="tl-desc">Deploy churn signal detection from product usage patterns and engagement data - early warning alerts with recommended intervention plays delivered directly to CSMs. Automate QBR preparation: agenda, deck, and account data assembled without manual CSM prep time. Generate success plan drafts personalized to each account's stated goals. Surface expansion opportunities from usage patterns before they are visible in the CRM.</p>
-        <p class="tl-desc">Deploy trigger-based harness workflows across Sales and Marketing - automations firing on tech stack changes, leadership changes, hiring signals, news events, and intent data.</p>
+
+        <div class="ws-header">
+          <span class="ws-dot" style="background:var(--teal);"></span>
+          <span class="ws-label" style="color:var(--teal);">Customer Success Intelligence</span>
+        </div>
+        <p class="tl-desc">Deploy churn signal detection from product usage and engagement data - early warning alerts with recommended plays delivered to CSMs. Automate QBR preparation (agenda, deck, account data assembled without manual CSM prep). Generate success plan drafts personalized to each account. Surface expansion opportunities before they appear in the CRM.</p>
+
+        <table class="invest-table" id="tbl-cs">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Median total comp &amp; companies</th>
+              <th class="r">$/hr loaded</th>
+              <th class="r team-col"><div class="calc-label">Team size</div></th>
+              <th class="r">Hrs/wk saved</th>
+              <th class="r">Annual saving</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-csm" data-rate="73" data-hrs="5">
+              <td>Customer Success Manager</td>
+              <td class="src">$151K median · Algolia ~$165K · Elastic $188K · Adobe $154K · Salesforce $143K · Coveo $143K</td>
+              <td class="rate-val">$73</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('csm',-1)">−</button><input class="team-input" id="inp-csm" type="number" min="0" max="999" value="10" oninput="calcInvestRow('csm')"><button class="team-spin" onclick="spinTeam('csm',1)">+</button></div></td>
+              <td class="r">5 hrs</td>
+              <td class="r calc-saving" id="save-csm">$182,500</td>
+            </tr>
+            <tr id="row-rae" data-rate="93" data-hrs="4">
+              <td>Renewal Account Executive</td>
+              <td class="src">$194K median · Salesforce Renewals Mgr $211K · Adobe AM $225K · Coveo AM $143K · Elastic AE proxy $193K</td>
+              <td class="rate-val">$93</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('rae',-1)">−</button><input class="team-input" id="inp-rae" type="number" min="0" max="999" value="3" oninput="calcInvestRow('rae')"><button class="team-spin" onclick="spinTeam('rae',1)">+</button></div></td>
+              <td class="r">4 hrs</td>
+              <td class="r calc-saving" id="save-rae">$55,800</td>
+            </tr>
+            <tr id="row-csmgr" data-rate="102" data-hrs="3">
+              <td>Director / Manager, Customer Success</td>
+              <td class="src">$212K median · Salesforce CS Director $226K · Elastic Director $220K · Glassdoor market $225K</td>
+              <td class="rate-val">$102</td>
+              <td class="r team-col"><div class="team-input-wrap"><button class="team-spin" onclick="spinTeam('csmgr',-1)">−</button><input class="team-input" id="inp-csmgr" type="number" min="0" max="999" value="2" oninput="calcInvestRow('csmgr')"><button class="team-spin" onclick="spinTeam('csmgr',1)">+</button></div></td>
+              <td class="r">3 hrs</td>
+              <td class="r calc-saving" id="save-csmgr">$30,600</td>
+            </tr>
+            <tr class="invest-total">
+              <td colspan="5">Annual cost savings — Customer Success Intelligence</td>
+              <td class="r calc-saving" id="totalval-cs">$268,900</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="prod-box prod-box--green">
+          <div class="prod-eyebrow" style="color:#059669;">↗ Productivity &amp; Retention Gain</div>
+          <div class="prod-headline"><span id="prod-hrs-cs">25,000</span> CSM-hours/year redirected to proactive account management</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-cs">$300,000</span> annual capacity value + churn reduction</div>
+          <p class="prod-desc">Gainsight 2025: AI automation saves 10+ hours/week per CSM. Their direct calculation: $300K+ annual value for a 10-CSM team. Bain Aug 2025 (n=235): 65% of CSM time currently spent on automatable low-value tasks. Clari Forrester TEI: +20 percentage point renewal rate improvement with AI-governed CS data.</p>
+          <div class="src-pills">
+            <a href="https://www.gainsight.com/blog/quantifying-the-impact-of-human-first-ai/" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Gainsight</span><span class="proof-pill__label">$300K+ for 10-CSM team →</span></a>
+            <a href="https://www.bain.com/insights/customer-success-at-a-crossroads-evolve-with-ai-or-fade-away/" target="_blank" class="proof-pill proof-pill--amber"><span class="proof-pill__badge">Bain</span><span class="proof-pill__label">65% CSM time automatable →</span></a>
+            <a href="https://www.clari.com/press/clari-revenue-ai-delivered-96-million-in-value-to-enterprise-customers/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Clari + Forrester</span><span class="proof-pill__label">+20pt renewal rate →</span></a>
+          </div>
+        </div>
+
         <div class="tl-progress-wrap" style="margin-top:14px;"><div class="tl-progress-fill tl-progress-fill--upcoming" data-progress="15"></div></div>
       </div>
     </div>
@@ -2125,6 +2185,13 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var pm_freed = (spm*4) * 50;
     var prod_prod = spm * PM_ACCEL_VALUE;         // $104K per PM
 
+    /* CS — proactive account mgmt + churn prevention
+       Gainsight 2025: $300K+ annual value per 10-CSM team = $30K per CSM
+       Source: gainsight.com/blog/quantifying-the-impact-of-human-first-ai */
+    var csm     = inp('csm');
+    var cs_hrs  = csm * 5 * 50;  // freed hours redirected to proactive work
+    var cs_prod = csm * 30000;   // $30K per CSM (Gainsight benchmark)
+
     /* Update productivity display elements */
     setFlash('prod-hrs-gtm', gtm_hrs.toLocaleString('en-US'));
     setFlash('prod-val-gtm', fmt(gtm_prod));
@@ -2132,9 +2199,11 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     setFlash('prod-val-ci',  fmt(ci_prod));
     setFlash('prod-hrs-prod', pm_freed.toLocaleString('en-US'));
     setFlash('prod-val-prod', fmt(prod_prod));
+    setFlash('prod-hrs-cs',  cs_hrs.toLocaleString('en-US'));
+    setFlash('prod-val-cs',  fmt(cs_prod));
 
-    return { gtm: gtm_prod, mkt: mkt_prod, ci: ci_prod, pm: prod_prod,
-             gtm_hrs: gtm_hrs, total: gtm_prod + mkt_prod + ci_prod + prod_prod };
+    return { gtm: gtm_prod, mkt: mkt_prod, ci: ci_prod, pm: prod_prod, cs: cs_prod,
+             gtm_hrs: gtm_hrs, total: gtm_prod + mkt_prod + ci_prod + prod_prod + cs_prod };
   }
 
   function rebuild(){
@@ -2143,12 +2212,13 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var mkt   = sumTable('tbl-mkt', FIXED_AGENCY);
     var ci    = sumTable('tbl-ci',  FIXED_CI_SUBS);
     var prod  = sumTable('tbl-prod', 0);
+    var cs    = sumTable('tbl-cs',  0);
     var legal = sumTable('tbl-legal', FIXED_OUTSIDE_COUNSEL);
     var fin   = sumTable('tbl-finance', 0);
 
     /* Update table totals */
-    ['gtm','mkt','ci','prod','legal','finance'].forEach(function(k){
-      var val = {gtm:gtm,mkt:mkt,ci:ci,prod:prod,legal:legal,finance:fin}[k];
+    ['gtm','mkt','ci','prod','cs','legal','finance'].forEach(function(k){
+      var val = {gtm:gtm,mkt:mkt,ci:ci,prod:prod,cs:cs,legal:legal,finance:fin}[k];
       var el = document.getElementById('totalval-'+k);
       if(el){ el.textContent = fmt(val); flash('totalval-'+k); }
     });
@@ -2169,7 +2239,7 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     if(q1el2){ q1el2.innerHTML = fmt(q1prod)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q1-prod'); }
 
     /* Year summary */
-    var totalCost = q1cost + prod + q4cost;
+    var totalCost = q1cost + prod + cs + q4cost;
     var totalProd = P.total;
     var combined  = totalCost + totalProd;
     var roi       = (combined / INVESTMENT).toFixed(1);
@@ -2202,9 +2272,9 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var ovCost = document.getElementById('ov-cost');
     if(ovCost){ ovCost.textContent = fmt(totalCost); flash('ov-cost'); }
 
-    /* Productivity split: output (mkt + product) vs revenue pipeline (gtm + ci) */
-    var prodOutput = P.mkt + P.pm;    /* marketing output value + PM acceleration */
-    var prodRevenue = P.gtm + P.ci;   /* AE pipeline + CI win rate */
+    /* Productivity split: output (mkt + product + cs) vs revenue pipeline (gtm + ci) */
+    var prodOutput = P.mkt + P.pm + P.cs;  /* marketing output + PM acceleration + CS retention */
+    var prodRevenue = P.gtm + P.ci;        /* AE pipeline + CI win rate */
     var ovProd = document.getElementById('ov-prod');
     if(ovProd){ ovProd.textContent = fmt(prodOutput); flash('ov-prod'); }
     var ovRev = document.getElementById('ov-revenue');
