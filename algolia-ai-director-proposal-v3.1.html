@@ -507,6 +507,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <button class="pn-btn" onclick="switchTab('p-why', this)">Why this role</button>
     <button class="pn-btn" onclick="switchTab('p-proof', this)">Why me</button>
     <button class="pn-btn" onclick="switchTab('p-invest', this)">The Investment</button>
+    <button class="pn-btn" onclick="switchTab('p-ask', this)">The Ask</button>
     <button class="pn-btn" onclick="switchTab('p-plan', this)">Year 1 Investment</button>
     <button class="pn-btn" onclick="switchTab('p-what', this)">Full scope</button>
     <button class="pn-btn" onclick="switchTab('p-qa', this)">Q&amp;A</button>
@@ -1576,7 +1577,105 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </table>
   </div>
 
-  <div class="hbox"><h3>The comparison that matters most</h3><p>Hiring a Director of AI Innovation externally costs $350–480K in loaded comp, plus 3–6 months to ramp with zero productivity during that period, plus zero existing Algolia domain knowledge, zero cross-functional relationships, and zero working prototypes. I am already ramped, already building, already trusted across functions, and already producing assets the sales team can use today. The incremental cost of formalizing this role is a $50K comp adjustment and a $150K tooling budget against a $2.16M conservative return.</p></div>
+</div>
+
+<!-- The Ask -->
+<div id="p-ask" class="panel">
+  <!-- ============================================================
+       ABOUT ARIJIT - 3-column skeleton
+       LEFT: career timeline | CENTER: photo + name | RIGHT: capabilities
+       TODO: fill in photo URL and career entries from LinkedIn
+       ============================================================ -->
+  <h2 style="margin-top:0;">About Arijit</h2>
+  <div style="display:grid;grid-template-columns:1fr 200px 1fr;gap:32px;align-items:start;margin-bottom:40px;padding:28px 32px;background:rgba(255,255,255,0.6);border-radius:var(--r);border:1px solid var(--border);">
+
+    <!-- LEFT: Career timeline -->
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:16px;">Career</div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <!-- FILL: replace each block with real career entries from LinkedIn -->
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:12px;color:var(--text-hint);white-space:nowrap;padding-top:2px;min-width:72px;">[YEAR-YEAR]</div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--text);">[Role Title]</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">[Company] - [brief description]</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:12px;color:var(--text-hint);white-space:nowrap;padding-top:2px;min-width:72px;">[YEAR-YEAR]</div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--text);">[Role Title]</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">[Company] - [brief description]</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:12px;color:var(--text-hint);white-space:nowrap;padding-top:2px;min-width:72px;">[YEAR-YEAR]</div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--text);">[Role Title]</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">[Company] - [brief description]</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start;">
+          <div style="font-size:12px;color:var(--text-hint);white-space:nowrap;padding-top:2px;min-width:72px;">[YEAR-YEAR]</div>
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--text);">[Role Title]</div>
+            <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">[Company] - [brief description]</div>
+          </div>
+        </div>
+        <!-- Education -->
+        <div style="margin-top:8px;padding-top:14px;border-top:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:10px;">Education</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);">BSc Computing</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-top:2px;">University of London, 1998-2002</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER: Photo + name + title -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:4px;">
+      <!-- FILL: replace with actual LinkedIn photo URL -->
+      <div style="width:120px;height:120px;border-radius:50%;background:var(--bg-surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;">
+        <span style="font-size:12px;color:var(--text-hint);text-align:center;padding:8px;">[photo URL]</span>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:18px;font-weight:600;color:var(--text);">Arijit Chowdhury</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5;">Director, Strategic Partnerships</div>
+        <div style="display:inline-block;margin-top:8px;padding:3px 10px;background:var(--blue);border-radius:20px;font-size:12px;font-weight:600;color:#fff;letter-spacing:.02em;">Algolia</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Why this person -->
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:16px;">Why this person</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <!-- FILL: 4-5 capability statements from LinkedIn / career narrative -->
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;"></span>
+          <div style="font-size:15px;color:var(--text);line-height:1.5;">[FILL: key capability or achievement 1]</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;"></span>
+          <div style="font-size:15px;color:var(--text);line-height:1.5;">[FILL: key capability or achievement 2]</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;"></span>
+          <div style="font-size:15px;color:var(--text);line-height:1.5;">[FILL: key capability or achievement 3]</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;"></span>
+          <div style="font-size:15px;color:var(--text);line-height:1.5;">[FILL: key capability or achievement 4]</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:10px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px;"></span>
+          <div style="font-size:15px;color:var(--text);line-height:1.5;">[FILL: key capability or achievement 5]</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END About Arijit skeleton -->
+
+  <div class="hbox"><h3>The comparison that matters most</h3><p>Hiring a Director of AI Innovation externally costs $350-480K in loaded comp, plus 3-6 months to ramp with zero productivity during that period, plus zero existing Algolia domain knowledge, zero cross-functional relationships, and zero working prototypes. I am already ramped, already building, already trusted across functions, and already producing assets the sales team can use today. The incremental cost of formalizing this role is a $50K comp adjustment and a $150K tooling budget against a $2.16M conservative return.</p></div>
 
   <hr style="margin:32px 0;border-color:rgba(0,0,0,0.08);">
   <h2 style="margin-top:0;">What I am asking for</h2>
@@ -1595,7 +1694,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <li>CTO as technical co-sponsor - acknowledging the platform-building dimension of the role</li>
         <li>Monthly AI Steering Committee with functional VP representation</li>
         <li>Quarterly ROI report to leadership - time saved, pipeline influenced, cost eliminated</li>
-        <li>Year 1 board narrative delivered in Q4 -full impact and Year 2 team plan</li>
+        <li>Year 1 board narrative delivered in Q4 - full impact and Year 2 team plan</li>
       </ul>
     </div>
     <div class="card">
@@ -1615,16 +1714,16 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <table class="comp-table">
       <thead><tr><th>Role</th><th>Company type</th><th>OTE range</th><th>Source basis</th></tr></thead>
       <tbody>
-        <tr><td>Director of AI Strategy</td><td>Mid-market SaaS ($100M–$500M ARR)</td><td>$280K–$340K</td><td>Levels.fyi, Glassdoor, LinkedIn Salary</td></tr>
-        <tr><td>Head of AI Enablement</td><td>Enterprise SaaS</td><td>$300K–$380K</td><td>LinkedIn job postings, 2025–2026</td></tr>
-        <tr><td>VP of AI Innovation</td><td>Growth-stage SaaS</td><td>$340K–$440K</td><td>Compensation benchmarking data</td></tr>
+        <tr><td>Director of AI Strategy</td><td>Mid-market SaaS ($100M-$500M ARR)</td><td>$280K-$340K</td><td>Levels.fyi, Glassdoor, LinkedIn Salary</td></tr>
+        <tr><td>Head of AI Enablement</td><td>Enterprise SaaS</td><td>$300K-$380K</td><td>LinkedIn job postings, 2025-2026</td></tr>
+        <tr><td>VP of AI Innovation</td><td>Growth-stage SaaS</td><td>$340K-$440K</td><td>Compensation benchmarking data</td></tr>
         <tr class="highlight"><td>This proposal - Director of AI Innovation &amp; Enablement</td><td>Algolia</td><td>$300K OTE</td><td>Low end of comparable market range</td></tr>
       </tbody>
     </table>
     <ul class="li" style="margin-top:12px">
-      <li>This role carries 3–4× the organizational scope of the current position - every function, not a single business unit</li>
+      <li>This role carries 3-4x the organizational scope of the current position - every function, not a single business unit</li>
       <li>The conservative year 1 value created is $2.16M. The incremental cost of repricing from $250K to $300K is $50K. That is a 43:1 return on that delta alone</li>
-      <li>Hiring externally costs $350–480K fully loaded, plus 3–6 months ramp, plus zero existing context. This proposal is the capital-efficient path by a significant margin</li>
+      <li>Hiring externally costs $350-480K fully loaded, plus 3-6 months ramp, plus zero existing context. This proposal is the capital-efficient path by a significant margin</li>
     </ul>
   </div>
 
