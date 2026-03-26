@@ -21,7 +21,7 @@
 }
 /* Animated grid sits fixed behind all content */
 #animated-grid{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
-body{font-family:'Sora',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:#F8F9FB;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{overflow-x:hidden;font-family:'Sora',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:#F8F9FB;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
 /* HEADER */
 .site-header { background: #1C1E26; height: 50px; position: fixed; top: 0; left: 0; right: 0; z-index: 200; border-bottom: 2px solid rgba(0,61,255,0.1); }
@@ -448,7 +448,7 @@ a.bfc-panel{display:block;color:inherit;}
    · .irc-cell (data cell) · .irc-cell--role · .irc-cell--src · .irc-cell--rate
    · .irc-cell--team · .irc-cell--hrs · .irc-cell--saving · .irc-total
    ──────────────────────────────────────────────────────────────────────── */
-.irc-wrap{width:100%;margin:0 0 14px;font-family:'Sora',sans-serif;}
+.irc-wrap{width:100%;margin:0 0 14px;font-family:'Sora',sans-serif;overflow-x:auto;-webkit-overflow-scrolling:touch;}
 
 /* Column header row */
 .irc-header{display:grid;grid-template-columns:2fr 3fr 80px 90px 80px 100px;gap:0;padding:6px 16px 8px;margin-bottom:2px;}
@@ -728,6 +728,60 @@ a.bfc-panel{display:block;color:inherit;}
 
   /* Bounce card grids */
   .bfc-card{min-height:140px;}
+}
+
+/* ── Additional mobile fixes: text overflow + animations preserved ── */
+@media(max-width:768px){
+  /* Prevent text cutting off everywhere */
+  * { word-wrap: break-word; }
+  .irc-cell--src { word-break: break-word; line-height: 1.4; }
+  
+  /* Pill nav: make it actually work on mobile */
+  .pill-nav-wrapper { overflow-x: visible; pointer-events: auto !important; }
+  .pill-nav { flex-wrap: wrap; width: auto; max-width: 100%; justify-content: center; gap: 3px; }
+  .pn-btn { font-size: 12px; padding: 7px 11px; }
+
+  /* Fix salary table on mobile — scroll horizontally */
+  .irc-header { min-width: 480px; }
+  .irc-row { min-width: 480px; }
+  .irc-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Fix abt-col item spacing */
+  .abt-col { gap: 32px !important; }
+  
+  /* Fix bounce card panel on mobile — show partially */
+  .bfc-panel { height: 45%; }
+  .bfc-card { min-height: 180px; }
+  
+  /* Timeline items — no card overflow */
+  .tl-card { overflow: visible; }
+  
+  /* Animated grid — ensure visible on mobile */
+  #animated-grid { opacity: 0.7; }
+  
+  /* Why-panel needs height on mobile */
+  .why-panel { min-height: 120px; }
+  .why-panel--active { min-height: 300px; }
+
+  /* Fix overflow on comparison table in business case */
+  [style*="grid-template-columns:2fr 1fr 1fr"] {
+    display: block !important;
+  }
+  [style*="grid-template-columns:2fr 1fr 1fr"] > div {
+    border: none !important;
+    padding: 10px 16px !important;
+  }
+}
+
+@media(max-width:480px){
+  .pill-nav { gap: 2px; }
+  .pn-btn { font-size: 11px; padding: 6px 9px; }
+  .bfc-value { font-size: 22px !important; }
+  .ov-q { font-size: 9px !important; }
+  .yr1-card-title { font-size: 15px !important; }
+  
+  /* Constrain wide elements */
+  .about-grid, .abt-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -2604,6 +2658,120 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
   document.addEventListener('DOMContentLoaded', function(){ initIrcRows(); });
 
   
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE TOUCH SUPPORT — animations + interactions on touch screens
+   ═══════════════════════════════════════════════════════════════ */
+(function initTouchSupport() {
+  var isMobile = window.matchMedia('(max-width: 768px)').matches ||
+                 ('ontouchstart' in window);
+
+  /* ── Bounce cards: tap to reveal/hide panel ─────────────────── */
+  document.querySelectorAll('.bfc-card').forEach(function(card) {
+    card.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      var panel = card.querySelector('.bfc-panel');
+      if (!panel) return;
+      var isOpen = card.classList.contains('touch-open');
+      // Close all others
+      document.querySelectorAll('.bfc-card.touch-open').forEach(function(c) {
+        c.classList.remove('touch-open');
+        var p = c.querySelector('.bfc-panel');
+        if (p) p.style.transform = '';
+      });
+      if (!isOpen) {
+        card.classList.add('touch-open');
+        panel.style.transform = 'translateY(16px) rotate(0.8deg)';
+      } else {
+        panel.style.transform = '';
+      }
+    }, { passive: false });
+  });
+
+  /* ── Bento overview tiles: touchmove tilt ───────────────────── */
+  document.querySelectorAll('.ov-tile').forEach(function(tile) {
+    var spotRaw = tile.getAttribute('data-spotlight-color') || '0,61,255';
+    tile.style.setProperty('--ov-spot', spotRaw);
+
+    tile.addEventListener('touchmove', function(e) {
+      var touch = e.touches[0];
+      var rect = tile.getBoundingClientRect();
+      var x = touch.clientX - rect.left;
+      var y = touch.clientY - rect.top;
+      tile.style.setProperty('--ov-x', x + 'px');
+      tile.style.setProperty('--ov-y', y + 'px');
+      var cx = rect.width / 2, cy = rect.height / 2;
+      var rx = ((y - cy) / cy) * -4;
+      var ry = ((x - cx) / cx) * 4;
+      tile.style.transform = 'perspective(1200px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(6px)';
+      tile.style.boxShadow = '0 18px 48px rgba(0,0,0,0.12), 0 4px 14px rgba(0,0,0,0.08)';
+    }, { passive: true });
+
+    tile.addEventListener('touchend', function() {
+      tile.style.transform = '';
+      tile.style.boxShadow = '';
+    });
+  });
+
+  /* ── IRC rows: tap to show hover lift ───────────────────────── */
+  document.querySelectorAll('.irc-row:not(.irc-total)').forEach(function(row) {
+    row.addEventListener('touchstart', function() {
+      row.style.transform = 'translateY(-2px)';
+      row.style.boxShadow = '0 4px 12px rgba(0,0,0,0.09)';
+    }, { passive: true });
+    row.addEventListener('touchend', function() {
+      setTimeout(function() {
+        row.style.transform = '';
+        row.style.boxShadow = '';
+      }, 300);
+    });
+  });
+
+  /* ── About items: tap lift ──────────────────────────────────── */
+  document.querySelectorAll('.abt-item').forEach(function(item) {
+    item.addEventListener('touchstart', function() {
+      item.style.transform = 'translateY(-3px)';
+      item.style.boxShadow = '0 6px 20px rgba(0,0,0,0.09)';
+    }, { passive: true });
+    item.addEventListener('touchend', function() {
+      setTimeout(function() {
+        item.style.transform = '';
+        item.style.boxShadow = '';
+      }, 300);
+    });
+  });
+
+  /* ── Risk cards: tap lift ───────────────────────────────────── */
+  document.querySelectorAll('.risk-card').forEach(function(card) {
+    card.addEventListener('touchstart', function() {
+      card.style.transform = 'translateY(-3px)';
+    }, { passive: true });
+    card.addEventListener('touchend', function() {
+      setTimeout(function() { card.style.transform = ''; }, 300);
+    });
+  });
+
+  /* ── yr1-card: tap lift ─────────────────────────────────────── */
+  document.querySelectorAll('.yr1-card').forEach(function(card) {
+    card.addEventListener('touchstart', function() {
+      card.style.transform = 'translateY(-2px)';
+      card.style.boxShadow = '0 8px 24px rgba(0,0,0,0.09)';
+    }, { passive: true });
+    card.addEventListener('touchend', function() {
+      setTimeout(function() {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      }, 300);
+    });
+  });
+
+  /* ── Bounce cards: CSS for touch-open state ─────────────────── */
+  var touchStyle = document.createElement('style');
+  touchStyle.textContent = '.bfc-card.touch-open{transform:scale(0.97) rotate(-0.6deg);}';
+  document.head.appendChild(touchStyle);
+
+})();
+
 window.calcInvestRow = calcRow;
   window.spinTeam = spinTeam;
 })();
