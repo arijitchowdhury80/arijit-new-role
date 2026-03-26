@@ -20,7 +20,7 @@
   --r:8px;--rl:12px;--rxl:16px;
 }
 /* Animated grid sits fixed behind all content */
-#animated-grid{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;}
+#animated-grid{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1;will-change:opacity;-webkit-transform:translateZ(0);transform:translateZ(0);}
 body{overflow-x:hidden;font-family:'Sora',sans-serif;font-size:16px;line-height:1.7;color:var(--text);background:#F8F9FB;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
 /* HEADER */
@@ -782,6 +782,59 @@ a.bfc-panel{display:block;color:inherit;}
   
   /* Constrain wide elements */
   .about-grid, .abt-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   iOS SAFARI FIX — hover: none = touch device
+   :active replaces :hover · panels auto-show · DOMContentLoaded JS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* On touch devices: card active states */
+@media (hover: none) and (pointer: coarse) {
+
+  /* All interactive cards: :active for tap feedback */
+  .bfc-card:active         { transform: scale(0.97) rotate(-0.5deg); transition: transform 0.15s ease; }
+  .irc-row:not(.irc-total):active { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.09); transition: transform 0.15s, box-shadow 0.15s; }
+  .yr1-card:active         { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+  .risk-card:active        { transform: translateY(-2px); }
+  .abt-item:active         { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.09); }
+  .ov-tile:active          { transform: scale(0.98); }
+  .bounce-card:active      { transform: translateY(-3px) rotate(-0.5deg); }
+
+  /* Bounce card panels: auto-visible on touch — no hover needed */
+  .bfc-panel {
+    transform: translateY(12px) !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Bfc-panel links always visible on mobile */
+  .bfc-panel-links { display: flex !important; }
+  .bfc-src-pill { color: rgba(255,255,255,0.95) !important; }
+
+  /* Ov-tile spotlight: always on, centered */
+  .ov-tile::before {
+    background: radial-gradient(400px circle at 50% 50%,
+      rgba(var(--ov-spot, 0,61,255), 0.06) 0%, transparent 65%) !important;
+    opacity: 1 !important;
+  }
+  
+  /* Ov-tile shimmer: always visible */
+  .ov-tile::after { opacity: 0.5 !important; }
+
+  /* Tile nav: always visible */
+  .ov-tile-nav { color: var(--blue) !important; }
+
+  /* IRC row reveal: stagger still works via IntersectionObserver */
+
+  /* Why-panel: ensure it's tappable */
+  .why-panel { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+  /* Pill nav: tap highlight off */
+  .pn-btn { -webkit-tap-highlight-color: transparent; cursor: pointer; }
+
+  /* All clickable things */
+  [onclick], button, a { -webkit-tap-highlight-color: rgba(0,61,255,0.1); cursor: pointer; }
 }
 </style>
 </head>
@@ -2274,6 +2327,9 @@ function switchTab(panelId, btn) {
     if(matchBtn) matchBtn.classList.add('on');
     window.scrollTo({ top: 0, behavior: 'instant' });
     buildTOC(target);
+    // Re-init stagger animations for newly visible elements
+    if (typeof initIrcRows === 'function') setTimeout(initIrcRows, 50);
+    if (typeof initTimeline === 'function') setTimeout(function(){ initTimeline(); }, 50);
   }
 }
 
@@ -2659,118 +2715,45 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
 
   
 
-/* ═══════════════════════════════════════════════════════════════
-   MOBILE TOUCH SUPPORT — animations + interactions on touch screens
-   ═══════════════════════════════════════════════════════════════ */
-(function initTouchSupport() {
-  var isMobile = window.matchMedia('(max-width: 768px)').matches ||
-                 ('ontouchstart' in window);
 
-  /* ── Bounce cards: tap to reveal/hide panel ─────────────────── */
-  document.querySelectorAll('.bfc-card').forEach(function(card) {
-    card.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      var panel = card.querySelector('.bfc-panel');
-      if (!panel) return;
-      var isOpen = card.classList.contains('touch-open');
-      // Close all others
-      document.querySelectorAll('.bfc-card.touch-open').forEach(function(c) {
-        c.classList.remove('touch-open');
-        var p = c.querySelector('.bfc-panel');
-        if (p) p.style.transform = '';
-      });
-      if (!isOpen) {
-        card.classList.add('touch-open');
-        panel.style.transform = 'translateY(16px) rotate(0.8deg)';
-      } else {
-        panel.style.transform = '';
-      }
-    }, { passive: false });
-  });
 
-  /* ── Bento overview tiles: touchmove tilt ───────────────────── */
+/* ── iOS Safari touch interactions (DOMContentLoaded) ───────────────── */
+document.addEventListener('DOMContentLoaded', function() {
+  var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  if (!isTouch) return;
+
+  /* Bento tile tilt via touchmove */
   document.querySelectorAll('.ov-tile').forEach(function(tile) {
-    var spotRaw = tile.getAttribute('data-spotlight-color') || '0,61,255';
-    tile.style.setProperty('--ov-spot', spotRaw);
-
     tile.addEventListener('touchmove', function(e) {
-      var touch = e.touches[0];
-      var rect = tile.getBoundingClientRect();
-      var x = touch.clientX - rect.left;
-      var y = touch.clientY - rect.top;
+      var t = e.touches[0];
+      var r = tile.getBoundingClientRect();
+      var x = t.clientX - r.left;
+      var y = t.clientY - r.top;
       tile.style.setProperty('--ov-x', x + 'px');
       tile.style.setProperty('--ov-y', y + 'px');
-      var cx = rect.width / 2, cy = rect.height / 2;
-      var rx = ((y - cy) / cy) * -4;
-      var ry = ((x - cx) / cx) * 4;
-      tile.style.transform = 'perspective(1200px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(6px)';
-      tile.style.boxShadow = '0 18px 48px rgba(0,0,0,0.12), 0 4px 14px rgba(0,0,0,0.08)';
+      var rx = ((y - r.height/2) / (r.height/2)) * -5;
+      var ry = ((x - r.width/2) / (r.width/2)) * 5;
+      tile.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(8px)';
     }, { passive: true });
-
     tile.addEventListener('touchend', function() {
       tile.style.transform = '';
-      tile.style.boxShadow = '';
     });
   });
 
-  /* ── IRC rows: tap to show hover lift ───────────────────────── */
+  /* Bounce card tile nav: tap to go to tab */
+  document.querySelectorAll('.ov-tile-nav').forEach(function(nav) {
+    nav.style.cursor = 'pointer';
+  });
+
+  /* IRC rows: visible on scroll already via IntersectionObserver */
+  /* Just ensure they're tappable */
   document.querySelectorAll('.irc-row:not(.irc-total)').forEach(function(row) {
-    row.addEventListener('touchstart', function() {
-      row.style.transform = 'translateY(-2px)';
-      row.style.boxShadow = '0 4px 12px rgba(0,0,0,0.09)';
-    }, { passive: true });
-    row.addEventListener('touchend', function() {
-      setTimeout(function() {
-        row.style.transform = '';
-        row.style.boxShadow = '';
-      }, 300);
-    });
+    row.style.cursor = 'default';
   });
 
-  /* ── About items: tap lift ──────────────────────────────────── */
-  document.querySelectorAll('.abt-item').forEach(function(item) {
-    item.addEventListener('touchstart', function() {
-      item.style.transform = 'translateY(-3px)';
-      item.style.boxShadow = '0 6px 20px rgba(0,0,0,0.09)';
-    }, { passive: true });
-    item.addEventListener('touchend', function() {
-      setTimeout(function() {
-        item.style.transform = '';
-        item.style.boxShadow = '';
-      }, 300);
-    });
-  });
+  /* Why-panel: ensure tap works (switchPanel already uses onclick) */
 
-  /* ── Risk cards: tap lift ───────────────────────────────────── */
-  document.querySelectorAll('.risk-card').forEach(function(card) {
-    card.addEventListener('touchstart', function() {
-      card.style.transform = 'translateY(-3px)';
-    }, { passive: true });
-    card.addEventListener('touchend', function() {
-      setTimeout(function() { card.style.transform = ''; }, 300);
-    });
-  });
-
-  /* ── yr1-card: tap lift ─────────────────────────────────────── */
-  document.querySelectorAll('.yr1-card').forEach(function(card) {
-    card.addEventListener('touchstart', function() {
-      card.style.transform = 'translateY(-2px)';
-      card.style.boxShadow = '0 8px 24px rgba(0,0,0,0.09)';
-    }, { passive: true });
-    card.addEventListener('touchend', function() {
-      setTimeout(function() {
-        card.style.transform = '';
-        card.style.boxShadow = '';
-      }, 300);
-    });
-  });
-
-  /* ── Bounce cards: CSS for touch-open state ─────────────────── */
-  var touchStyle = document.createElement('style');
-  touchStyle.textContent = '.bfc-card.touch-open{transform:scale(0.97) rotate(-0.6deg);}';
-  document.head.appendChild(touchStyle);
-
-})();
+});
 
 window.calcInvestRow = calcRow;
   window.spinTeam = spinTeam;
