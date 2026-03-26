@@ -380,20 +380,20 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
    Structure: .yr1-timeline > .yr1-quarter > .yr1-card (project)
    Each quarter has a gradient bg. Each project has its own glassmorphism card.
    ───────────────────────────────────────────────────────────────────────── */
-.yr1-timeline{display:flex;flex-direction:column;gap:20px;}
-.yr1-quarter{border-radius:20px;padding:20px 22px;position:relative;}
+.yr1-timeline{display:flex;flex-direction:column;gap:28px;}
+.yr1-quarter{border-radius:24px;padding:32px 32px;position:relative;}
 .yr1-q1{background:rgba(0,61,255,0.03);border:1px solid rgba(0,61,255,0.10);}
 .yr1-q2{background:rgba(84,104,255,0.03);border:1px solid rgba(84,104,255,0.10);}
 .yr1-q3{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
 .yr1-q4{background:rgba(217,119,6,0.03);border:1px solid rgba(217,119,6,0.12);}
 .yr1-y2{background:rgba(13,140,107,0.03);border:1px solid rgba(13,140,107,0.12);}
-.yr1-qlabel{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.yr1-qlabel{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .yr1-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;}
 .yr1-status--current{background:rgba(0,61,255,0.09);color:var(--blue);border:1px solid rgba(0,61,255,0.2);}
 .yr1-status--upcoming{background:rgba(148,163,184,0.14);color:#64748B;border:1px solid rgba(148,163,184,0.28);}
 .yr1-status--horizon{background:rgba(13,140,107,0.08);color:var(--teal);border:1px solid rgba(13,140,107,0.2);}
-.yr1-card{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.92);border-radius:16px;padding:24px 28px;margin-bottom:12px;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06),0 14px 30px rgba(0,0,0,0.05),inset 0 1px 0 rgba(255,255,255,0.95);transition:transform 0.22s ease,box-shadow 0.22s ease;}
-.yr1-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.04),0 14px 32px rgba(0,0,0,0.09),0 24px 44px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95);}
+.yr1-card{background:#ffffff;border:1px solid rgba(29,31,46,0.08);border-radius:16px;padding:28px 32px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 6px 16px rgba(0,0,0,0.07),0 16px 36px rgba(0,0,0,0.06);transition:transform 0.22s ease,box-shadow 0.22s ease;}
+.yr1-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.05),0 14px 32px rgba(0,0,0,0.10),0 28px 52px rgba(0,0,0,0.08);}
 .yr1-card:last-child{margin-bottom:0;}
 .yr1-period{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);margin-bottom:6px;}
 .yr1-card-title{font-size:18px;font-weight:600;color:var(--navy);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.35;}
