@@ -482,6 +482,66 @@ a.bfc-panel{display:block;color:inherit;}
 /* ── Business Case tables, productivity boxes, workstream headers ── */
 
 .method-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+
+/* ── About Arijit — uniquesonu/about-us-section adapted ─────────────────
+   3-col: career left | animated photo center | capabilities right
+   Floating accent blobs + animated offset border frame on photo
+   Stats row with count-up · LinkedIn CTA
+   ─────────────────────────────────────────────────────────────────────── */
+.about-section{padding:0 0 40px;}
+.about-intro{text-align:center;margin-bottom:40px;}
+.about-eyebrow{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.about-eyebrow::before,.about-eyebrow::after{content:'';width:32px;height:1.5px;background:var(--blue);opacity:0.4;}
+.about-name{font-size:32px;font-weight:300;letter-spacing:-0.03em;color:var(--navy);margin-bottom:10px;}
+.about-bio{font-size:16px;color:var(--text-muted);line-height:1.8;max-width:640px;margin:0 auto;}
+
+/* 3-col grid */
+.about-grid{display:grid;grid-template-columns:1fr 280px 1fr;gap:40px;align-items:start;margin-bottom:40px;}
+
+/* Left & right service items */
+.about-service{display:flex;flex-direction:column;gap:28px;}
+.about-item{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:rgba(255,255,255,0.7);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform 0.2s,box-shadow 0.2s;}
+.about-item:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.09);}
+.about-item-icon{width:36px;height:36px;border-radius:10px;background:rgba(0,61,255,0.08);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.about-item-body{}
+.about-item-title{font-size:15px;font-weight:600;color:var(--navy);margin:0 0 4px;}
+.about-item-sub{font-size:13px;color:var(--text-muted);line-height:1.55;margin:0;}
+.about-item-dates{font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint);margin-top:4px;}
+
+/* Center photo */
+.about-photo-wrap{position:relative;display:flex;justify-content:center;align-items:flex-start;padding-top:16px;}
+.about-photo-frame{position:relative;width:240px;z-index:1;}
+.about-photo-img{width:240px;height:300px;object-fit:cover;object-position:center top;border-radius:16px;display:block;position:relative;z-index:2;box-shadow:0 8px 32px rgba(0,0,0,0.15);}
+.about-photo-border{position:absolute;inset:0;border:3px solid rgba(0,61,255,0.25);border-radius:16px;transform:translate(10px,10px);z-index:1;}
+/* Floating blobs */
+.about-blob{position:absolute;border-radius:50%;pointer-events:none;}
+.about-blob-1{width:72px;height:72px;background:rgba(0,61,255,0.08);top:-18px;right:-28px;animation:blobFloat1 3.5s ease-in-out infinite;}
+.about-blob-2{width:88px;height:88px;background:rgba(84,104,255,0.06);bottom:-20px;left:-32px;animation:blobFloat2 4.2s ease-in-out infinite 0.8s;}
+.about-blob-3{width:12px;height:12px;background:var(--blue);opacity:0.6;top:-24px;left:50%;transform:translateX(-50%);animation:blobPulse 2.5s ease-in-out infinite;}
+.about-blob-4{width:8px;height:8px;background:var(--teal);opacity:0.7;bottom:-28px;left:50%;transform:translateX(-50%);animation:blobPulse 2.5s ease-in-out infinite 1.2s;}
+@keyframes blobFloat1{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+@keyframes blobFloat2{0%,100%{transform:translateY(0);}50%{transform:translateY(18px);}}
+@keyframes blobPulse{0%,100%{opacity:0.5;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.4);}}
+
+/* Stats row */
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}
+.about-stat{background:rgba(255,255,255,0.8);border-radius:14px;padding:20px 16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform 0.2s;}
+.about-stat:hover{transform:translateY(-2px);}
+.about-stat-n{font-size:30px;font-weight:700;letter-spacing:-0.03em;color:var(--blue);line-height:1;}
+.about-stat-l{font-size:12px;color:var(--text-muted);margin-top:6px;line-height:1.4;}
+
+/* LinkedIn CTA */
+.about-cta{display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 28px;background:var(--navy);border-radius:14px;}
+.about-cta-text{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.5;flex:1;}
+.about-cta-text strong{color:#fff;}
+.about-li-btn{display:flex;align-items:center;gap:8px;background:#0A66C2;color:#fff;font-size:14px;font-weight:600;padding:10px 20px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:background 0.15s,transform 0.15s;flex-shrink:0;}
+.about-li-btn:hover{background:#004182;transform:translateY(-1px);text-decoration:none;}
+.about-li-logo{width:18px;height:18px;fill:white;}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}.about-photo-wrap{order:-1;}
+  .about-stats{grid-template-columns:repeat(2,1fr);}
+}
 .risk-card{background:linear-gradient(145deg,#ffffff 0%,#f8f9fb 100%);border-radius:14px;padding:20px 24px;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06),0 14px 28px rgba(0,0,0,0.04);transition:transform 0.22s ease,box-shadow 0.22s ease;}
 .risk-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(0,0,0,0.05),0 12px 28px rgba(0,0,0,0.09),0 22px 40px rgba(0,0,0,0.07);}
 .salary-footnote{display:block;padding:16px 0 32px;border-top:1px solid var(--border);width:100%;max-width:none;}.sf-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
@@ -999,6 +1059,130 @@ a.bfc-panel{display:block;color:inherit;}
 
 <!-- PROOF -->
 <div id="p-proof" class="panel">
+
+  <!-- About Arijit — uniquesonu/about-us-section template -->
+  <div class="about-section">
+
+    <!-- Intro -->
+    <div class="about-intro">
+      <div class="about-eyebrow">About Arijit</div>
+      <h2 class="about-name">Arijit Chowdhury</h2>
+      <p class="about-bio">I build ecosystems where technology, customers, and partners grow together. My focus is scaling enterprise adoption and retention through solutions engineering, account management, and strategic partnerships that create measurable, lasting value.</p>
+    </div>
+
+    <!-- 3-col grid -->
+    <div class="about-grid">
+
+      <!-- Left: Career -->
+      <div class="about-service">
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#003DFF" opacity="0.15"/><path d="M10 28c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#003DFF" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="14" r="5" stroke="#003DFF" stroke-width="2.5"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">Director of Strategic Partnerships</div>
+            <div class="about-item-sub">Leading Algolia's embedded partnership ecosystem. Integrating AI Search &amp; Discovery into SaaS platforms to drive shared growth across CMS, DAM, and Commerce providers.</div>
+            <div class="about-item-dates">Algolia &middot; Mar 2024 - Present</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#5468FF" opacity="0.12"/><rect x="10" y="14" width="20" height="14" rx="3" stroke="#5468FF" stroke-width="2.5"/><path d="M15 14v-2a5 5 0 0110 0v2" stroke="#5468FF" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">Director, Strategic Accounts</div>
+            <div class="about-item-sub">Led enterprise account growth across global brands. Trusted advisor to executive stakeholders, aligning content strategies with digital transformation goals at scale.</div>
+            <div class="about-item-dates">RWS Group &middot; Jan 2020 - Feb 2024 &middot; 4 yrs</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#0D8C6B" opacity="0.12"/><path d="M12 26l4-4 4 4 8-8" stroke="#0D8C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">Director &amp; Principal Consultant</div>
+            <div class="about-item-sub">8+ years at SDL plc across pre-sales leadership and principal consulting. Secured multi-million dollar Enterprise CX deals in North America across WCM, WEM, and DAM.</div>
+            <div class="about-item-dates">SDL plc &middot; Oct 2011 - Dec 2019 &middot; 8 yrs</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: Photo -->
+      <div class="about-photo-wrap">
+        <div class="about-blob about-blob-1"></div>
+        <div class="about-blob about-blob-2"></div>
+        <div class="about-blob about-blob-3"></div>
+        <div class="about-blob about-blob-4"></div>
+        <div class="about-photo-frame">
+          <img src="arijit-photo.jpeg" alt="Arijit Chowdhury" class="about-photo-img">
+          <div class="about-photo-border"></div>
+        </div>
+      </div>
+
+      <!-- Right: Capabilities -->
+      <div class="about-service">
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#003DFF" opacity="0.12"/><circle cx="20" cy="20" r="5" stroke="#003DFF" stroke-width="2.5"/><path d="M20 10v3M20 27v3M10 20h3M27 20h3" stroke="#003DFF" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">AI Systems Builder</div>
+            <div class="about-item-sub">Built two production AI systems from scratch with zero budget and no mandate - Prospect Intelligence Platform and Algolia Central - both live and in active use today.</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#5468FF" opacity="0.12"/><path d="M14 20a6 6 0 1012 0 6 6 0 00-12 0zM20 14V10M20 30v-4M10 20H6M34 20h-4" stroke="#5468FF" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">Enterprise Ecosystem Architect</div>
+            <div class="about-item-sub">20+ years designing OEM, resell, and strategic partner frameworks at scale. Deep relationships across the Algolia partner ecosystem - SI and technology partners.</div>
+          </div>
+        </div>
+        <div class="about-item">
+          <div class="about-item-icon">
+            <svg viewBox="0 0 40 40" width="20" height="20" fill="none"><circle cx="20" cy="20" r="18" fill="#0D8C6B" opacity="0.12"/><path d="M12 28V16l8-6 8 6v12M16 28v-6h8v6" stroke="#0D8C6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="about-item-body">
+            <div class="about-item-title">GTM &amp; Revenue Operator</div>
+            <div class="about-item-sub">Cross-functional mandate spanning Sales, Product, Legal, and Finance. Operationalizes deal flow, contracting, and revenue recognition at global scale.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end about-grid -->
+
+    <!-- Stats row -->
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-n" data-count="20">0</div>
+        <div class="about-stat-l">Years enterprise technology</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-n" data-count="2">0</div>
+        <div class="about-stat-l">Production AI systems built</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-n" data-count="7">0</div>
+        <div class="about-stat-l">Prospect audits delivered</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-n" data-prefix="$">0</div>
+        <div class="about-stat-l">Budget invested to date</div>
+      </div>
+    </div>
+
+    <!-- LinkedIn CTA -->
+    <div class="about-cta">
+      <div class="about-cta-text"><strong>Connect on LinkedIn</strong><br>20+ years of work history, recommendations, and full professional background.</div>
+      <a href="https://www.linkedin.com/in/arijitchowdhury/" target="_blank" class="about-li-btn">
+        <svg class="about-li-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        View LinkedIn Profile
+      </a>
+    </div>
+
+  </div><!-- end about-section -->
+
   <h2>Why I am the right person to build this</h2>
 
   <!-- About Arijit - moved here from The Ask, fills top of Why Me -->
@@ -2404,7 +2588,45 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
   }
   document.addEventListener('DOMContentLoaded', function(){ initIrcRows(); });
 
-  window.calcInvestRow = calcRow;
+  
+/* ── About Arijit stat count-up ── */
+(function initAboutStats(){
+  var stats = document.querySelectorAll('.about-stat-n[data-count]');
+  if(!stats.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      var target = parseInt(el.dataset.count)||0;
+      var prefix = el.dataset.prefix||'';
+      var suffix = el.dataset.suffix||'+';
+      var duration = 1200, start = null;
+      function step(ts){
+        if(!start) start=ts;
+        var progress = Math.min((ts-start)/duration,1);
+        var val = Math.round(progress*target);
+        el.textContent = prefix + val + (progress < 1 ? '' : suffix);
+        if(progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      obs.unobserve(el);
+    });
+  },{threshold:0.5});
+  stats.forEach(function(el){ obs.observe(el); });
+  // The $0 budget stat — special case, just shows "$0"
+  var zeroBudget = document.querySelector('.about-stat-n[data-prefix="$"]');
+  if(zeroBudget){
+    var obs2 = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){
+        zeroBudget.textContent = '$0';
+        obs2.unobserve(zeroBudget);
+      }
+    },{threshold:0.5});
+    obs2.observe(zeroBudget);
+  }
+})();
+
+window.calcInvestRow = calcRow;
   window.spinTeam = spinTeam;
 })();
 
