@@ -1061,8 +1061,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
         <div class="prod-box prod-box--blue">
           <div class="prod-eyebrow" style="color:var(--blue);">↗ Productivity Gain</div>
-          <div class="prod-headline">3,950 hours/year redirected to active selling</div>
-          <div class="prod-value prod-value--blue">$1,500,000 additional ARR pipeline</div>
+          <div class="prod-headline"><span id="prod-hrs-gtm">3,950</span> hours/year redirected to active selling</div>
+          <div class="prod-value prod-value--blue"><span id="prod-val-gtm">$1,500,000</span> additional ARR pipeline</div>
           <p class="prod-desc">Salesforce State of Sales 2026: AI-enabled teams are 1.3× more likely to grow revenue. Conservative application: 15% quota uplift on a $10M combined team target.</p>
           <div class="src-pills">
             <a href="https://www.salesforce.com/news/stories/state-of-sales-report-announcement-2026/" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Salesforce</span><span class="proof-pill__label">State of Sales 2026 →</span></a>
@@ -1146,8 +1146,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
         <div class="prod-box prod-box--green">
           <div class="prod-eyebrow" style="color:#059669;">↗ Productivity Gain</div>
-          <div class="prod-headline">Same 5-person team. Double the output.</div>
-          <div class="prod-value prod-value--green">$520,000 equiv. additional headcount value</div>
+          <div class="prod-headline">Same team. Double the output.</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-mkt">$520,000</span> equiv. additional headcount value</div>
           <p class="prod-desc">Bloomreach increased blog output 113% with the same 4-person content team using AI. Applied here: equivalent of 4 additional content headcount at $130K average — at zero hiring cost. What takes 2 marketers a full week (storyboard, blog, press release, social set, outreach email sequence) is completed in under 2 days.</p>
           <div class="src-pills">
             <a href="https://www.jasper.ai/case-studies/bloomreach" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">Bloomreach</span><span class="proof-pill__label">+113% content output →</span></a>
@@ -1197,7 +1197,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <div class="prod-box prod-box--blue">
           <div class="prod-eyebrow" style="color:var(--blue);">↗ Pipeline Gain</div>
           <div class="prod-headline">Win rate improvement across competitive deals</div>
-          <div class="prod-value prod-value--blue">$750,000 additional ARR won/year</div>
+          <div class="prod-value prod-value--blue"><span id="prod-val-ci">$750,000</span> additional ARR won/year</div>
           <p class="prod-desc">Klue 2025 Win-Loss Trends Report (300+ leaders): 56% of VP and C-level executives confirm CI analysis has increased win rates. Wunderkind + Crayon: 7 percentage point win rate improvement. Conservative application: 5% win rate lift on $15M competitive pipeline.</p>
           <div class="src-pills">
             <a href="https://klue.com/win-loss-trends-report" target="_blank" class="proof-pill proof-pill--blue"><span class="proof-pill__badge">Klue</span><span class="proof-pill__label">Win-Loss Trends 2025 →</span></a>
@@ -1213,7 +1213,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
           </div>
           <div class="q-total-item">
             <span class="q-total-lbl">Q1 Productivity &amp; Pipeline Gain</span>
-            <span class="q-total-val q-total-val--blue">$2,770,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
+            <span class="q-total-val q-total-val--blue calc-saving" id="qtotal-q1-prod">$2,770,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
           </div>
         </div>
 
@@ -1276,8 +1276,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 
         <div class="prod-box prod-box--green">
           <div class="prod-eyebrow" style="color:#059669;">↗ Productivity Gain</div>
-          <div class="prod-headline">500 PM-hours/year redirected to strategic roadmap</div>
-          <div class="prod-value prod-value--green">$208,000 accelerated ARR</div>
+          <div class="prod-headline"><span id="prod-hrs-prod">500</span> PM-hours/year redirected to strategic roadmap</div>
+          <div class="prod-value prod-value--green"><span id="prod-val-prod">$208,000</span> accelerated ARR</div>
           <p class="prod-desc">McKinsey: AI has 2× impact on content-heavy PM tasks (user research synthesis, PRDs, backlogs). P&amp;G Harvard study (776 employees): 12% faster product development. Conservative estimate: 2-week acceleration in average feature delivery at $5M monthly ARR run rate.</p>
           <div class="src-pills">
             <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/how-generative-ai-could-accelerate-software-product-time-to-market" target="_blank" class="proof-pill proof-pill--green"><span class="proof-pill__badge">McKinsey</span><span class="proof-pill__label">GenAI PM time to market →</span></a>
@@ -1457,7 +1457,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       </div>
       <div class="ys-item">
         <span class="ys-lbl">Productivity &amp; Pipeline Gains</span>
-        <span class="ys-val ys-val--blue" id="ys-prod">$2,978,000</span>
+        <span class="ys-val ys-val--blue calc-saving" id="ys-prod">$2,978,000</span>
         <span class="ys-sub">Sourced: Salesforce, Klue, Bloomreach, McKinsey</span>
       </div>
       <div class="ys-item">
@@ -1886,118 +1886,163 @@ document.addEventListener('DOMContentLoaded', () => {
 function openDswModal() { document.getElementById('dsw-modal').classList.add('open'); }
 function closeDswModal() { document.getElementById('dsw-modal').classList.remove('open'); }
 
-/* ── Live ROI Calculator ─────────────────────────────────────────────────── */
+/* ── Live ROI Calculator — ALL numbers scale with team size ─────────────── */
 (function(){
-  var FIXED_AGENCY = 80000;
-  var FIXED_CI_SUBS = 36000;  // Crayon/Klue + Owler
+  var FIXED_AGENCY          = 80000;
+  var FIXED_CI_SUBS         = 36000;   // Crayon/Klue $35K + Owler $1K
   var FIXED_OUTSIDE_COUNSEL = 60000;
-  var PROD_GAINS = 2978000;
-  var INVESTMENT = 450000;
+  var INVESTMENT            = 450000;
 
-  function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  /* ── Productivity multipliers (sourced, see proof pills) ──────────────────
+     GTM: Salesforce 2026 — 15% quota uplift per AE on $1M quota = $150K/AE
+     Marketing: Bloomreach 113% lift — freed hrs / FTE × $130K × 2.13 output mult
+     CI: Klue/Crayon — 5% win rate lift; enterprise AE quota $1.5M → $75K/AE
+     Product: McKinsey — 2-week acceleration per PM at $5M ARR run rate
+  ─────────────────────────────────────────────────────────────────────────── */
+  var AE_QUOTA        = 1000000;
+  var AE_LIFT_PCT     = 0.15;
+  var CI_WIN_VALUE    = 75000;    // per AE: 5% × $1.5M quota
+  var MKT_RATE_AVG    = 130000;   // avg fully loaded marketing headcount
+  var MKT_BLOOM_MULT  = 2.13;     // 113% additional output
+  var PM_ACCEL_VALUE  = 104000;   // 2-week acceleration per PM
+
+  function inp(id){ return Math.max(0, parseInt((document.getElementById('inp-'+id)||{}).value)||0); }
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
   function fmtM(n){ return '$' + (n/1000000).toFixed(2) + 'M'; }
-
-  function calcRow(id){
-    var row = document.getElementById('row-' + id);
-    if(!row) return;
-    var rate = parseFloat(row.dataset.rate)||0;
-    var hrs  = parseFloat(row.dataset.hrs)||0;
-    var inp  = document.getElementById('inp-' + id);
-    var team = Math.max(0, parseInt(inp ? inp.value : 0)||0);
-    var saving = Math.round(team * hrs * 50 * rate);
-    row.dataset.current = saving;
-    var cell = document.getElementById('save-' + id);
-    if(cell){ cell.textContent = fmt(saving); flash(cell); }
-    rebuild();
-  }
-
-  function spinTeam(id, delta){
-    var inp = document.getElementById('inp-' + id);
-    if(!inp) return;
-    var v = Math.max(0, (parseInt(inp.value)||0) + delta);
-    inp.value = v;
-    calcRow(id);
-  }
-
-  function sumTable(tblId, fixedAmt){
-    var tbl = document.getElementById(tblId);
-    var total = fixedAmt || 0;
-    if(!tbl) return total;
-    tbl.querySelectorAll('tr[data-rate]').forEach(function(r){
-      total += parseFloat(r.dataset.current||0);
-    });
-    return total;
-  }
-
-  function setCell(id, val){
-    var el = document.getElementById(id);
-    if(!el) return;
-    el.textContent = fmt(val);
-    flash(el);
-  }
-
-  function flash(el){
+  function set(id, text){ var el=document.getElementById(id); if(el) el.textContent=text; }
+  function flash(id){
+    var el=document.getElementById(id);
     if(!el) return;
     el.classList.remove('calc-flash');
     void el.offsetWidth;
     el.classList.add('calc-flash');
   }
+  function setFlash(id, text){ set(id,text); flash(id); }
 
-  function rebuild(){
-    var gtm    = sumTable('tbl-gtm', 0);
-    var mkt    = sumTable('tbl-mkt', FIXED_AGENCY);
-    var ci     = sumTable('tbl-ci',  FIXED_CI_SUBS);
-    var prod   = sumTable('tbl-prod', 0);
-    var legal  = sumTable('tbl-legal', FIXED_OUTSIDE_COUNSEL);
-    var fin    = sumTable('tbl-finance', 0);
-
-    setCell('totalval-gtm',    gtm);
-    setCell('totalval-mkt',    mkt);
-    setCell('totalval-ci',     ci);
-    setCell('totalval-prod',   prod);
-    setCell('totalval-legal',  legal);
-    setCell('totalval-finance',fin);
-
-    var q1 = gtm + mkt + ci;
-    var q4 = legal + fin;
-
-    // Q total boxes
-    var q1el = document.getElementById('qtotal-q1-cost');
-    if(q1el){ q1el.innerHTML = fmt(q1) + '<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash(q1el); }
-    var q4el = document.getElementById('qtotal-q4-cost');
-    if(q4el){ q4el.innerHTML = fmt(q4) + '<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash(q4el); }
-
-    // Year summary
-    var totalCost = q1 + prod + q4;
-    var combined  = totalCost + PROD_GAINS;
-    var roi       = (combined / INVESTMENT).toFixed(1);
-
-    setCell('ys-cost', totalCost);
-    var roiEl = document.getElementById('ys-roi');
-    if(roiEl){ roiEl.textContent = roi + '×'; flash(roiEl); }
-    var subEl = document.getElementById('ys-total-sub');
-    if(subEl) subEl.textContent = fmt(combined) + ' total return';
-
-    // Overview tile
-    var ovRoi = document.getElementById('ov-roi');
-    if(ovRoi){ ovRoi.textContent = roi + '×'; flash(ovRoi); }
-    var ovVal = document.getElementById('ov-value');
-    if(ovVal){ ovVal.textContent = fmtM(combined); }
+  function calcRow(rowId){
+    var row = document.getElementById('row-'+rowId);
+    if(!row) return;
+    var rate = parseFloat(row.dataset.rate)||0;
+    var hrs  = parseFloat(row.dataset.hrs)||0;
+    var team = inp(rowId);
+    var saving = Math.round(team * hrs * 50 * rate);
+    row.dataset.current = saving;
+    var cell = document.getElementById('save-'+rowId);
+    if(cell){ cell.textContent = fmt(saving); flash('save-'+rowId); }
+    rebuild();
   }
 
-  // Init — seed data-current from default inputs
+  function spinTeam(id, delta){
+    var el = document.getElementById('inp-'+id);
+    if(!el) return;
+    el.value = Math.max(0, (parseInt(el.value)||0)+delta);
+    calcRow(id);
+  }
+
+  function sumTable(tblId, fixedAmt){
+    var tbl = document.getElementById(tblId);
+    var t = fixedAmt||0;
+    if(!tbl) return t;
+    tbl.querySelectorAll('tr[data-rate]').forEach(function(r){ t += parseFloat(r.dataset.current||0); });
+    return t;
+  }
+
+  function calcProd(){
+    /* GTM pipeline — AE team drives this; based on quota attainment uplift */
+    var ae  = inp('ae'),  bdr = inp('bdr'),
+        se  = inp('se'),  sa  = inp('sa'), vps = inp('vps');
+    var gtm_hrs  = (ae*4 + bdr*4 + se*2 + sa*2 + vps*3) * 50;
+    var gtm_prod = ae * AE_QUOTA * AE_LIFT_PCT;   // $150K per AE
+
+    /* Marketing — freed hours / FTE × avg headcount rate × Bloomreach multiplier */
+    var cmm = inp('cmm'), smm = inp('smm'), mm = inp('mm'),
+        dre = inp('dre'), vpm = inp('vpm');
+    var mkt_freed = (cmm*10 + smm*8 + mm*6 + dre*5 + vpm*3) * 50;
+    var mkt_prod  = Math.round(mkt_freed / 2080 * MKT_RATE_AVG * MKT_BLOOM_MULT);
+
+    /* CI pipeline — AE team wins more competitive deals */
+    var ci_prod = ae * CI_WIN_VALUE;              // $75K per AE
+
+    /* Product — PM team acceleration */
+    var spm      = inp('spm');
+    var pm_freed = (spm*4) * 50;
+    var prod_prod = spm * PM_ACCEL_VALUE;         // $104K per PM
+
+    /* Update productivity display elements */
+    setFlash('prod-hrs-gtm', gtm_hrs.toLocaleString('en-US'));
+    setFlash('prod-val-gtm', fmt(gtm_prod));
+    setFlash('prod-val-mkt', fmt(mkt_prod));
+    setFlash('prod-val-ci',  fmt(ci_prod));
+    setFlash('prod-hrs-prod', pm_freed.toLocaleString('en-US'));
+    setFlash('prod-val-prod', fmt(prod_prod));
+
+    return { gtm: gtm_prod, mkt: mkt_prod, ci: ci_prod, pm: prod_prod,
+             gtm_hrs: gtm_hrs, total: gtm_prod + mkt_prod + ci_prod + prod_prod };
+  }
+
+  function rebuild(){
+    /* Cost savings */
+    var gtm   = sumTable('tbl-gtm', 0);
+    var mkt   = sumTable('tbl-mkt', FIXED_AGENCY);
+    var ci    = sumTable('tbl-ci',  FIXED_CI_SUBS);
+    var prod  = sumTable('tbl-prod', 0);
+    var legal = sumTable('tbl-legal', FIXED_OUTSIDE_COUNSEL);
+    var fin   = sumTable('tbl-finance', 0);
+
+    /* Update table totals */
+    ['gtm','mkt','ci','prod','legal','finance'].forEach(function(k){
+      var val = {gtm:gtm,mkt:mkt,ci:ci,prod:prod,legal:legal,finance:fin}[k];
+      var el = document.getElementById('totalval-'+k);
+      if(el){ el.textContent = fmt(val); flash('totalval-'+k); }
+    });
+
+    var q1cost = gtm + mkt + ci;
+    var q4cost = legal + fin;
+
+    /* Q total boxes */
+    var q1el = document.getElementById('qtotal-q1-cost');
+    if(q1el){ q1el.innerHTML = fmt(q1cost)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q1-cost'); }
+    var q4el = document.getElementById('qtotal-q4-cost');
+    if(q4el){ q4el.innerHTML = fmt(q4cost)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q4-cost'); }
+
+    /* Productivity — fully dynamic */
+    var P = calcProd();
+    var q1prod = P.gtm + P.mkt + P.ci;
+    var q1el2 = document.getElementById('qtotal-q1-prod');
+    if(q1el2){ q1el2.innerHTML = fmt(q1prod)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q1-prod'); }
+
+    /* Year summary */
+    var totalCost = q1cost + prod + q4cost;
+    var totalProd = P.total;
+    var combined  = totalCost + totalProd;
+    var roi       = (combined / INVESTMENT).toFixed(1);
+
+    var costEl = document.getElementById('ys-cost');
+    if(costEl){ costEl.textContent = fmt(totalCost); flash('ys-cost'); }
+    var prodEl = document.getElementById('ys-prod');
+    if(prodEl){ prodEl.textContent = fmt(totalProd); flash('ys-prod'); }
+    var roiEl  = document.getElementById('ys-roi');
+    if(roiEl){ roiEl.textContent = roi+'×'; flash('ys-roi'); }
+    var subEl  = document.getElementById('ys-total-sub');
+    if(subEl) subEl.textContent = fmt(combined)+' total return';
+
+    /* Overview tile */
+    var ovRoi = document.getElementById('ov-roi');
+    if(ovRoi){ ovRoi.textContent = roi+'×'; flash('ov-roi'); }
+    var ovVal = document.getElementById('ov-value');
+    if(ovVal) ovVal.textContent = fmtM(combined);
+  }
+
+  /* Init on load */
   document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('tr[data-rate]').forEach(function(row){
       var rate = parseFloat(row.dataset.rate)||0;
       var hrs  = parseFloat(row.dataset.hrs)||0;
-      var inp  = row.querySelector('.team-input');
-      var team = inp ? (parseInt(inp.value)||0) : 0;
+      var inp2 = row.querySelector('.team-input');
+      var team = inp2 ? (parseInt(inp2.value)||0) : 0;
       row.dataset.current = Math.round(team * hrs * 50 * rate);
     });
-    // Also add fixed data to fixed rows for safety
-    document.querySelectorAll('tr[data-fixed]').forEach(function(row){
-      // Already handled in sumTable via data-fixed
-    });
+    rebuild();
   });
 
   window.calcInvestRow = calcRow;
