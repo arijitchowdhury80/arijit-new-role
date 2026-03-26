@@ -506,9 +506,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <button class="pn-btn on" onclick="switchTab('p-overview', this)">Overview</button>
     <button class="pn-btn" onclick="switchTab('p-why', this)">Why this role</button>
     <button class="pn-btn" onclick="switchTab('p-proof', this)">Why me</button>
-    <button class="pn-btn" onclick="switchTab('p-invest', this)">The Investment</button>
+    <button class="pn-btn" onclick="switchTab('p-plan', this)">Business Case</button>
     <button class="pn-btn" onclick="switchTab('p-ask', this)">The Ask</button>
-    <button class="pn-btn" onclick="switchTab('p-plan', this)">Year 1 Investment</button>
     <button class="pn-btn" onclick="switchTab('p-what', this)">Full scope</button>
     <button class="pn-btn" onclick="switchTab('p-qa', this)">Q&amp;A</button>
   </nav>
@@ -558,21 +557,38 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
           <div style="display:inline-block;background:rgba(5,150,105,0.10);color:#059669;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:4px;">Strong investment case</div>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:15px;color:var(--text-muted);">Combined Year 1 value</span>
-          <span style="font-size:15px;font-weight:700;color:#059669;" id="ov-value">$3.94M</span>
+      <div style="border-top:1px solid rgba(0,0,0,0.06);padding-top:12px;display:flex;flex-direction:column;gap:10px;">
+        <!-- Row 1: Hours freed → cost savings -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);margin-bottom:2px;">Time reclaimed</div>
+            <div style="font-size:13px;color:var(--text-muted);"><span id="ov-hours">7,700</span> hrs/yr freed → direct savings</div>
+          </div>
+          <span style="font-size:16px;font-weight:700;color:#059669;white-space:nowrap;" id="ov-cost">$959K</span>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:15px;color:var(--text-muted);">Total investment</span>
-          <span style="font-size:15px;font-weight:700;color:var(--navy);">$450K</span>
+        <!-- Row 2: Productivity gain -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,0.04);">
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);margin-bottom:2px;">Productivity gain</div>
+            <div style="font-size:13px;color:var(--text-muted);">Same teams, multiplied output</div>
+          </div>
+          <span style="font-size:16px;font-weight:700;color:var(--blue);white-space:nowrap;" id="ov-prod">$728K</span>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid rgba(0,0,0,0.04);">
-          <span style="font-size:15px;color:var(--text-muted);">FTE hires avoided</span>
-          <span style="font-size:15px;font-weight:600;color:var(--navy);">4–6 ($600K–$900K/yr)</span>
+        <!-- Row 3: Revenue pipeline -->
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding-top:8px;border-top:1px solid rgba(0,0,0,0.04);">
+          <div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--orange);margin-bottom:2px;">Revenue opportunity</div>
+            <div style="font-size:13px;color:var(--text-muted);">Pipeline + win rate + acceleration</div>
+          </div>
+          <span style="font-size:16px;font-weight:700;color:var(--orange);white-space:nowrap;" id="ov-revenue">$2.25M</span>
+        </div>
+        <!-- Total -->
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1.5px solid rgba(0,0,0,0.08);">
+          <span style="font-size:14px;font-weight:600;color:var(--navy);">Combined Year 1 value</span>
+          <span style="font-size:16px;font-weight:700;color:#059669;" id="ov-value">$3.94M</span>
         </div>
       </div>
-      <div class="ov-tile-nav" onclick="switchTab('p-invest',null)">The Investment <span>→</span></div>
+      <div class="ov-tile-nav" onclick="switchTab('p-plan',null)">Business Case <span>→</span></div>
     </div>
 
     <!-- Tile 3: WHY NOW? (col 1-4) -->
@@ -1469,6 +1485,53 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
   </div>
 
+
+  <!-- Comparison: Internal promotion vs external hire -->
+  <div style="margin-top:28px;">
+    <h2 style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin-bottom:6px;">The comparison that matters most</h2>
+    <p style="font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:20px;">Every dollar in this proposal is against a clear alternative: hiring externally. Market data sourced from Glassdoor, Levels.fyi, and RepVue across comparable Director-level AI strategy roles at enterprise SaaS companies.</p>
+    <div style="background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.92);border-radius:18px;padding:0;overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06);">
+      <!-- Table header -->
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1.5px solid var(--border-med);">
+        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Dimension</div>
+        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;border-left:1px solid var(--border);text-align:center;">External hire</div>
+        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">This proposal</div>
+      </div>
+      <!-- Rows -->
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Compensation (OTE)</div>
+        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">$350–480K</div>
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">$300K</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">AI tooling budget</div>
+        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">$150K</div>
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">$150K</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Ramp to full productivity</div>
+        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">3–6 months at zero output</div>
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">Zero - already in production</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Algolia domain knowledge</div>
+        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">None</div>
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">20+ years enterprise tech</div>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Working systems on day 1</div>
+        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">Zero</div>
+        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">2 production systems · 7 audits</div>
+      </div>
+      <!-- Total row -->
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;background:rgba(0,0,0,0.02);">
+        <div style="padding:16px 20px;font-size:15px;font-weight:700;color:var(--navy);">Year 1 return on investment</div>
+        <div style="padding:16px 20px;font-size:15px;font-weight:600;color:#94A3B8;border-left:1px solid var(--border-med);text-align:center;">Unknown</div>
+        <div style="padding:16px 20px;font-size:16px;font-weight:700;color:#059669;border-left:1px solid var(--border-med);text-align:center;background:rgba(0,61,255,0.04);">8.7× ($3.94M)</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:10px;font-style:italic;">External hire compensation range sourced from Glassdoor, Levels.fyi, and RepVue across Director of AI Strategy roles at comparable B2B SaaS companies (March 2026).</p>
+  </div>
   </div><!-- end max-width wrapper -->
 
   <div style="margin-top:24px;background:var(--navy);border-radius:var(--rl);padding:22px 26px">
@@ -2125,11 +2188,32 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var subEl  = document.getElementById('ys-total-sub');
     if(subEl) subEl.textContent = fmt(combined)+' total return';
 
-    /* Overview tile */
+    /* Overview tile — main ROI */
     var ovRoi = document.getElementById('ov-roi');
     if(ovRoi){ ovRoi.textContent = roi+'×'; flash('ov-roi'); }
     var ovVal = document.getElementById('ov-value');
     if(ovVal) ovVal.textContent = fmtM(combined);
+
+    /* Overview tile — breakdown rows */
+    var totalHrs = 0;
+    document.querySelectorAll('tr[data-rate]').forEach(function(row){
+      var rate = parseFloat(row.dataset.rate)||0;
+      var curr = parseFloat(row.dataset.current||0);
+      if(rate > 0) totalHrs += Math.round(curr / rate);
+    });
+    var ovHrs = document.getElementById('ov-hours');
+    if(ovHrs){ ovHrs.textContent = totalHrs.toLocaleString('en-US'); }
+
+    var ovCost = document.getElementById('ov-cost');
+    if(ovCost){ ovCost.textContent = fmt(totalCost); flash('ov-cost'); }
+
+    /* Productivity split: output (mkt + product) vs revenue pipeline (gtm + ci) */
+    var prodOutput = P.mkt + P.pm;    /* marketing output value + PM acceleration */
+    var prodRevenue = P.gtm + P.ci;   /* AE pipeline + CI win rate */
+    var ovProd = document.getElementById('ov-prod');
+    if(ovProd){ ovProd.textContent = fmt(prodOutput); flash('ov-prod'); }
+    var ovRev = document.getElementById('ov-revenue');
+    if(ovRev){ ovRev.textContent = fmtM(prodRevenue); flash('ov-revenue'); }
   }
 
   /* Init on load */
