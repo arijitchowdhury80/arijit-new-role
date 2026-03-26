@@ -297,6 +297,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .page-content { width: 100%; }
 .panel { display: none !important; background: #fff; border: 0.5px solid var(--border-med); border-radius: var(--rl); padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-top:0;}
 .panel.on { display: block !important; animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+/* Overview sits bare on the page — tiles are their own cards */
+.panel--bare { background: none !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* TOC floats fixed on the right — does not displace content */
@@ -378,7 +380,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 <div class="page-content">
 
 <!-- OVERVIEW -->
-<div id="p-overview" class="panel on">
+<div id="p-overview" class="panel panel--bare on">
   <div class="ov-bento">
 
     <!-- Tile 1: WHAT IS THIS? (col 1-3) -->
@@ -1195,15 +1197,25 @@ document.addEventListener('DOMContentLoaded', () => {
     activePanel.classList.add('on');
     buildTOC(activePanel);
   }
-  // Spotlight mouse tracking for bento tiles
-  document.querySelectorAll('.ov-tile').forEach(tile => {
-    tile.addEventListener('mousemove', (e) => {
-      const rect = tile.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
-      const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
-      tile.style.setProperty('--ov-x', x + '%');
-      tile.style.setProperty('--ov-y', y + '%');
-      tile.style.setProperty('--ov-spot', tile.dataset.spotlightColor || '0,61,255');
+  // Full 3D tilt + spotlight — exact implementation from Algolia Search Audit SPA
+  document.querySelectorAll('.ov-tile').forEach(function(tile) {
+    var spotRaw = tile.getAttribute('data-spotlight-color') || '0,61,255';
+    tile.style.setProperty('--ov-spot', spotRaw);
+    tile.addEventListener('mousemove', function(e) {
+      var r = tile.getBoundingClientRect();
+      var x = e.clientX - r.left;
+      var y = e.clientY - r.top;
+      tile.style.setProperty('--ov-x', x + 'px');
+      tile.style.setProperty('--ov-y', y + 'px');
+      var cx = r.width / 2, cy = r.height / 2;
+      var rx = ((y - cy) / cy) * -6;
+      var ry = ((x - cx) / cx) * 6;
+      tile.style.transform = 'perspective(1200px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(10px)';
+      tile.style.boxShadow = '0 24px 64px rgba(0,0,0,0.14), 0 6px 20px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.95)';
+    });
+    tile.addEventListener('mouseleave', function() {
+      tile.style.transform = '';
+      tile.style.boxShadow = '';
     });
   });
 });
