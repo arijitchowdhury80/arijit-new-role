@@ -403,6 +403,12 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 .bfc-card--green .bfc-panel{background:linear-gradient(135deg,#059669 0%,#10B981 100%);}
 .bfc-card--blue .bfc-panel{background:linear-gradient(135deg,#003DFF 0%,#5468FF 100%);}
 .bfc-card--navy .bfc-panel{background:linear-gradient(135deg,#1D1F2E 0%,#2D3047 100%);}
+.bfc-grid--sm{grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px;}
+.bfc-card--sm{min-height:145px;padding:18px 20px 0;}
+.bfc-card--sm .bfc-value{font-size:26px;}
+.bfc-card--sm .bfc-eyebrow{font-size:10px;}
+.bfc-card--sm .bfc-sub{font-size:12px;}
+.bfc-card--sm .bfc-panel{height:55%;}
 .bfc-panel-text{color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;line-height:1.5;}
 
 /* ── Year 1 Quarter Containers + Project Cards ──────────────────────────────
@@ -411,11 +417,11 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
    ───────────────────────────────────────────────────────────────────────── */
 .yr1-timeline{display:flex;flex-direction:column;gap:32px;}
 .yr1-quarter{border-radius:24px;padding:32px 44px;position:relative;}
-.yr1-q1{background:rgba(0,61,255,0.07);border:1.5px solid rgba(0,61,255,0.15);}
-.yr1-q2{background:rgba(84,104,255,0.07);border:1.5px solid rgba(84,104,255,0.15);}
-.yr1-q3{background:rgba(13,140,107,0.07);border:1.5px solid rgba(13,140,107,0.16);}
-.yr1-q4{background:rgba(217,119,6,0.07);border:1.5px solid rgba(217,119,6,0.16);}
-.yr1-y2{background:rgba(13,140,107,0.07);border:1.5px solid rgba(13,140,107,0.16);}
+.yr1-q1{background:#FAFBFC;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 12px 28px rgba(0,0,0,0.07),0 24px 48px rgba(0,0,0,0.05);}
+.yr1-q2{background:#FAFBFC;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 12px 28px rgba(0,0,0,0.07),0 24px 48px rgba(0,0,0,0.05);}
+.yr1-q3{background:#FAFBFC;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 12px 28px rgba(0,0,0,0.07),0 24px 48px rgba(0,0,0,0.05);}
+.yr1-q4{background:#FAFBFC;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 12px 28px rgba(0,0,0,0.07),0 24px 48px rgba(0,0,0,0.05);}
+.yr1-y2{background:#FAFBFC;border:none;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 12px 28px rgba(0,0,0,0.07),0 24px 48px rgba(0,0,0,0.05);}
 .yr1-qlabel{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-hint);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .yr1-status{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:0.04em;}
 .yr1-status--current{background:rgba(0,61,255,0.09);color:var(--blue);border:1px solid rgba(0,61,255,0.2);}
@@ -1106,38 +1112,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <p style="font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:20px;">Every initiative below is quantified against verified salary data. Each table shows the median total compensation and loaded hourly rate we found for that role - so every number can be traced back to its source.</p>
 
     <!-- Methodology note -->
-    <div class="methodology-note">
-      <p style="font-size:14px;font-weight:600;color:var(--navy);margin:0 0 5px;">Salary benchmark methodology</p>
-      <p style="font-size:14px;color:var(--text-muted);margin:0 0 10px;line-height:1.6;">Loaded hourly rate = median total compensation (base + bonus + equity) ÷ 2,080 annual hours. Median figures compiled from salary data submitted by employees at the following companies, sourced March 2026.</p>
-      <div style="margin-bottom:8px;">
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint);margin-right:8px;">Companies benchmarked</span>
-        <div class="method-chips" style="margin-top:5px;">
-          <span class="method-chip">Algolia</span>
-          <span class="method-chip">Coveo</span>
-          <span class="method-chip">Constructor.io</span>
-          <span class="method-chip">Elastic</span>
-          <span class="method-chip">Adobe</span>
-          <span class="method-chip">Salesforce</span>
-          <span class="method-chip">Nvidia</span>
-        </div>
-      </div>
-      <div>
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint);margin-right:8px;">Sources</span>
-        <div class="method-chips" style="margin-top:5px;">
-          <a href="https://www.levels.fyi" target="_blank" class="method-chip method-chip--src">Levels.fyi</a>
-          <a href="https://www.glassdoor.com" target="_blank" class="method-chip method-chip--src">Glassdoor</a>
-          <a href="https://www.repvue.com" target="_blank" class="method-chip method-chip--src">RepVue</a>
-          <a href="https://www.comparably.com" target="_blank" class="method-chip method-chip--src">Comparably</a>
-          <a href="https://www.payscale.com" target="_blank" class="method-chip method-chip--src">Payscale</a>
-          <a href="https://www.inhouseblog.com/inhouse-counsel-salaries-guide/" target="_blank" class="method-chip method-chip--src">InhouseBlog 2026</a>
-          <a href="https://www.bls.gov" target="_blank" class="method-chip method-chip--src">US Bureau of Labor Statistics</a>
-        </div>
-      </div>
-    </div>
-
-  <!-- Year 1 Timeline — quarter containers -->
-  
-  <!-- Bounce Card Financial Summary — top of Business Case -->
+<!-- Bounce Card Financial Summary — top of Business Case -->
   <div class="bfc-grid">
 
     <!-- Card 1: Cost Savings -->
@@ -1170,6 +1145,37 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       </div>
     </div>
 
+
+    <div class="methodology-note">
+      <p style="font-size:14px;font-weight:600;color:var(--navy);margin:0 0 5px;">Salary benchmark methodology</p>
+      <p style="font-size:14px;color:var(--text-muted);margin:0 0 10px;line-height:1.6;">Loaded hourly rate = median total compensation (base + bonus + equity) ÷ 2,080 annual hours. Median figures compiled from salary data submitted by employees at the following companies, sourced March 2026.</p>
+      <div style="margin-bottom:8px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint);margin-right:8px;">Companies benchmarked</span>
+        <div class="method-chips" style="margin-top:5px;">
+          <span class="method-chip">Algolia</span>
+          <span class="method-chip">Coveo</span>
+          <span class="method-chip">Constructor.io</span>
+          <span class="method-chip">Elastic</span>
+          <span class="method-chip">Adobe</span>
+          <span class="method-chip">Salesforce</span>
+          <span class="method-chip">Nvidia</span>
+        </div>
+      </div>
+      <div>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-hint);margin-right:8px;">Sources</span>
+        <div class="method-chips" style="margin-top:5px;">
+          <a href="https://www.levels.fyi" target="_blank" class="method-chip method-chip--src">Levels.fyi</a>
+          <a href="https://www.glassdoor.com" target="_blank" class="method-chip method-chip--src">Glassdoor</a>
+          <a href="https://www.repvue.com" target="_blank" class="method-chip method-chip--src">RepVue</a>
+          <a href="https://www.comparably.com" target="_blank" class="method-chip method-chip--src">Comparably</a>
+          <a href="https://www.payscale.com" target="_blank" class="method-chip method-chip--src">Payscale</a>
+          <a href="https://www.inhouseblog.com/inhouse-counsel-salaries-guide/" target="_blank" class="method-chip method-chip--src">InhouseBlog 2026</a>
+          <a href="https://www.bls.gov" target="_blank" class="method-chip method-chip--src">US Bureau of Labor Statistics</a>
+        </div>
+      </div>
+    </div>
+
+  <!-- Year 1 Timeline — quarter containers -->
   </div>
 
   <div class="yr1-timeline">
@@ -1177,6 +1183,22 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <!-- ═══ Q1 2026 ═══ -->
     <div class="yr1-quarter yr1-q1">
       <div class="yr1-qlabel">Q1 2026 <span class="yr1-status yr1-status--current">Current</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q1 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q1-cost">$732,750</div>
+          <div class="bfc-sub">GTM &middot; Marketing &middot; CI</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">Direct savings from 16 roles across 3 initiatives &middot; verified salary benchmarks</div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q1 Productivity &amp; Pipeline</div>
+          <div class="bfc-value calc-saving" id="qtotal-q1-prod">$2,770,000</div>
+          <div class="bfc-sub">AE pipeline &middot; output &middot; win rate</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">Salesforce 2026 &middot; Bloomreach +113% &middot; Klue Win-Loss 2025</div></div>
+        </div>
+      </div>
+
 
       <!-- Project 1: GTM Engineering -->
       <div class="yr1-card">
@@ -1383,21 +1405,28 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         </div>
       </div>
 
-      <div class="q-total-box">
-        <div class="q-total-item">
-          <span class="q-total-lbl">Q1 Cost Savings</span>
-          <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q1-cost">$732,750<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-        </div>
-        <div class="q-total-item">
-          <span class="q-total-lbl">Q1 Productivity &amp; Pipeline Gain</span>
-          <span class="q-total-val q-total-val--blue calc-saving" id="qtotal-q1-prod">$2,770,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-        </div>
-      </div>
+
     </div>
 
     <!-- ═══ Q2 2026 ═══ -->
     <div class="yr1-quarter yr1-q2">
       <div class="yr1-qlabel">Q2 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q2 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q2-cost">$67,600</div>
+          <div class="bfc-sub">PM capacity freed</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">2 Senior PMs + VP Product freed from manual feedback synthesis</div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q2 Productivity Gain</div>
+          <div class="bfc-value calc-saving" id="qtotal-q2-prod">$208,000</div>
+          <div class="bfc-sub">2-week faster feature delivery</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">McKinsey 2024 &middot; P&amp;G Harvard study</div></div>
+        </div>
+      </div>
+
 
       <!-- Project 1: Product Intelligence -->
       <div class="yr1-card">
@@ -1458,6 +1487,22 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <!-- ═══ Q3 2026 ═══ -->
     <div class="yr1-quarter yr1-q3">
       <div class="yr1-qlabel">Q3 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q3 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q3-cost">$268,900</div>
+          <div class="bfc-sub">CS intelligence &middot; 15-person team</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">10 CSMs &middot; 3 Renewal AEs &middot; 2 CS Managers</div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm">
+          <div class="bfc-eyebrow">Q3 Retention &amp; Productivity</div>
+          <div class="bfc-value calc-saving" id="qtotal-q3-prod">$300,000</div>
+          <div class="bfc-sub">Churn reduction &middot; renewal uplift</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">Gainsight 2025 &middot; Bain Aug 2025 &middot; Clari Forrester TEI</div></div>
+        </div>
+      </div>
+
 
       <!-- Project 1: Customer Success Intelligence -->
       <div class="yr1-card">
@@ -1533,6 +1578,22 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     <!-- ═══ Q4 2026 ═══ -->
     <div class="yr1-quarter yr1-q4">
       <div class="yr1-qlabel">Q4 2026 <span class="yr1-status yr1-status--upcoming">Upcoming</span></div>
+
+      <div class="bfc-grid bfc-grid--sm">
+        <div class="bfc-card bfc-card--green bfc-card--sm">
+          <div class="bfc-eyebrow">Q4 Cost Savings</div>
+          <div class="bfc-value calc-saving" id="qtotal-q4-cost">$159,000</div>
+          <div class="bfc-sub">Legal &middot; Finance automation</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">Thomson Reuters 63% review reduction &middot; McKinsey Nov 2025</div></div>
+        </div>
+        <div class="bfc-card bfc-card--blue bfc-card--sm" style="background:#EEF2FF;">
+          <div class="bfc-eyebrow">Q4 Deal Velocity</div>
+          <div class="bfc-value" style="font-size:20px;color:var(--blue);font-weight:700;">Faster close</div>
+          <div class="bfc-sub">$60K outside counsel offset &middot; board pack automation</div>
+          <div class="bfc-panel"><div class="bfc-panel-text">Gartner: 30% faster financial close by 2028</div></div>
+        </div>
+      </div>
+
 
       <!-- Project 1: Contract Review -->
       <div class="yr1-card">
@@ -1635,22 +1696,6 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
         <p class="tl-desc">Establish the AI Champions network - one designated champion per department responsible for adoption feedback and surfacing workflow improvement opportunities. Deliver the Year 1 board narrative: quantified impact, ROI, and the Year 2 team expansion case.</p>
       </div>
 
-      <div class="q-total-box">
-        <div class="q-total-item">
-          <span class="q-total-lbl">Q4 Cost Savings</span>
-          <span class="q-total-val q-total-val--teal calc-saving" id="qtotal-q4-cost">$159,000<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span></span>
-        </div>
-        <div class="q-total-item">
-          <span class="q-total-lbl">Deal velocity + executive time reclaimed</span>
-          <span class="q-total-val" style="color:rgba(255,255,255,0.7);font-size:16px;">Faster close · Better forecast visibility</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══ Year 2+ ═══ -->
-    <div class="yr1-quarter yr1-y2">
-      <div class="yr1-qlabel">Year 2+ <span class="yr1-status yr1-status--horizon">Horizon</span></div>
-
       <div class="yr1-card">
         <div class="yr1-period">Year 2 and beyond · Company &amp; Market</div>
         <h3 class="yr1-card-title">Team expansion, external AI story &amp; platform commercialisation</h3>
@@ -1685,80 +1730,8 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
   </div>
 
 
-  <!-- Comparison: Internal promotion vs external hire -->
-  <div style="margin-top:28px;">
-    <h2 style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin-bottom:6px;">The comparison that matters most</h2>
-    <p style="font-size:16px;color:var(--text-muted);line-height:1.75;margin-bottom:20px;">Every dollar in this proposal is against a clear alternative: hiring externally. Market data sourced from Glassdoor, Levels.fyi, and RepVue across comparable Director-level AI strategy roles at enterprise SaaS companies.</p>
-    <div style="background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.92);border-radius:18px;padding:0;overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,0.03),0 6px 16px rgba(0,0,0,0.06);">
-      <!-- Table header -->
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1.5px solid var(--border-med);">
-        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-hint);">Dimension</div>
-        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;border-left:1px solid var(--border);text-align:center;">External hire</div>
-        <div style="padding:14px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">This proposal</div>
-      </div>
-      <!-- Rows -->
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Compensation (OTE)</div>
-        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">$350–480K</div>
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">$300K</div>
-      </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">AI tooling budget</div>
-        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">$150K</div>
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--blue);border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">$150K</div>
-      </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Ramp to full productivity</div>
-        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">3–6 months at zero output</div>
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">Zero - already in production</div>
-      </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Algolia domain knowledge</div>
-        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">None</div>
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">20+ years enterprise tech</div>
-      </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:0.5px solid var(--border);">
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:var(--navy);">Working systems on day 1</div>
-        <div style="padding:14px 20px;font-size:15px;color:var(--text-muted);border-left:1px solid var(--border);text-align:center;">Zero</div>
-        <div style="padding:14px 20px;font-size:15px;font-weight:600;color:#059669;border-left:1px solid var(--border);text-align:center;background:rgba(0,61,255,0.03);">2 production systems · 7 audits</div>
-      </div>
-      <!-- Total row -->
-      <div style="display:grid;grid-template-columns:2fr 1fr 1fr;background:rgba(0,0,0,0.02);">
-        <div style="padding:16px 20px;font-size:15px;font-weight:700;color:var(--navy);">Year 1 return on investment</div>
-        <div style="padding:16px 20px;font-size:15px;font-weight:600;color:#94A3B8;border-left:1px solid var(--border-med);text-align:center;">Unknown</div>
-        <div style="padding:16px 20px;font-size:16px;font-weight:700;color:#059669;border-left:1px solid var(--border-med);text-align:center;background:rgba(0,61,255,0.04);">8.7× ($3.94M)</div>
-      </div>
-    </div>
-    <p style="font-size:13px;color:var(--text-muted);margin-top:10px;font-style:italic;">External hire compensation range sourced from Glassdoor, Levels.fyi, and RepVue across Director of AI Strategy roles at comparable B2B SaaS companies (March 2026).</p>
-  </div>
   </div><!-- end max-width wrapper -->
 
-  <div style="margin-top:24px;background:var(--navy);border-radius:var(--rl);padding:22px 26px">
-    <div style="font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">The Algolia AI Flywheel - how this compounds beyond Year 1</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border-radius:8px;overflow:hidden">
-      <div style="background:var(--navy-mid);padding:16px 14px;text-align:center">
-        <div style="font-size:22px;font-weight:700;color:#8AABFF;margin-bottom:6px">1</div>
-        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Innovate Internally</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Build AI agents and workflows for Sales, Marketing, and Ops. Measure hard ROI. Ship what works.</div>
-      </div>
-      <div style="background:var(--navy-mid);padding:16px 14px;text-align:center">
-        <div style="font-size:22px;font-weight:700;color:#4DD9A8;margin-bottom:6px">2</div>
-        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Prove the Model</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Capture data on hours saved, pipeline influenced, cost eliminated. Build the internal case study library.</div>
-      </div>
-      <div style="background:var(--navy-mid);padding:16px 14px;text-align:center">
-        <div style="font-size:22px;font-weight:700;color:#F5B731;margin-bottom:6px">3</div>
-        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Market the Maturity</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Publish externally. Algolia becomes the AI-native SaaS operator. Enterprise buyers see proof, not claims.</div>
-      </div>
-      <div style="background:var(--navy-mid);padding:16px 14px;text-align:center">
-        <div style="font-size:22px;font-weight:700;color:#FF6B3D;margin-bottom:6px">4</div>
-        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Productize the Learnings</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Feed successful internal workflows back to Product. Algolia becomes Customer Zero for its own AI platform.</div>
-      </div>
-    </div>
-    <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-top:14px;line-height:1.6">The flywheel is what separates this role from a cost centre. Every internal win creates an external proof point. Every external proof point strengthens Algolia's AI-native brand. Every brand win feeds back into product. This is how a $450K investment becomes a compounding strategic asset.</p>
-  </div>
 
 </div>
 
@@ -1895,9 +1868,6 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
       <li>Hiring externally costs $350-480K fully loaded, plus 3-6 months ramp, plus zero existing context. This proposal is the capital-efficient path by a significant margin</li>
     </ul>
   </div>
-
-  <!-- 4. The comparison that matters -->
-  <div class="hbox"><h3>The comparison that matters most</h3><p>Hiring a Director of AI Innovation externally costs $350-480K in loaded comp, plus 3-6 months to ramp with zero productivity during that period, plus zero existing Algolia domain knowledge, zero cross-functional relationships, and zero working prototypes. I am already ramped, already building, already trusted across functions, and already producing assets the sales team can use today. The incremental cost of formalizing this role is a $50K comp adjustment and a $150K tooling budget against a $2.16M conservative return.</p></div>
 
   <!-- 5. Strategic opportunity -->
   <div class="final-cta" style="margin-top:24px;">
@@ -2213,7 +2183,7 @@ function scrollToToc(e, id) {
 
 function initAnimatedGrid() {
   if (typeof document.createElementNS !== 'function' || !document.body) return;
-  const GRID = 44, NUM = 45, MAX_OP = 0.55, MIN_OP = 0.12;
+  const GRID = 44, NUM = 20, MAX_OP = 0.22, MIN_OP = 0.05;
   const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
   svg.id = 'animated-grid';
   svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
@@ -2248,8 +2218,8 @@ function initAnimatedGrid() {
       r.style.opacity = String(MIN_OP + Math.random()*(MAX_OP-MIN_OP));
       setTimeout(() => {
         r.style.opacity = '0';
-        setTimeout(() => pulse(r, 0), 2000 + Math.random()*1500);
-      }, 1800 + Math.random()*800);
+        setTimeout(() => pulse(r, 0), 4500 + Math.random()*3500);
+      }, 2800 + Math.random()*1200);
     }, delay);
   }
   squares.forEach((r, i) => pulse(r, i * 200 + Math.random()*300));
@@ -2426,17 +2396,18 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     var q1cost = gtm + mkt + ci;
     var q4cost = legal + fin;
 
-    /* Q total boxes */
-    var q1el = document.getElementById('qtotal-q1-cost');
-    if(q1el){ q1el.innerHTML = fmt(q1cost)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q1-cost'); }
-    var q4el = document.getElementById('qtotal-q4-cost');
-    if(q4el){ q4el.innerHTML = fmt(q4cost)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q4-cost'); }
+    /* Q total boxes — now mini bfc cards at top of each quarter */
+    setCell('qtotal-q1-cost', q1cost);
+    setCell('qtotal-q2-cost', prod);
+    setCell('qtotal-q3-cost', cs);
+    setCell('qtotal-q4-cost', q4cost);
 
     /* Productivity — fully dynamic */
     var P = calcProd();
     var q1prod = P.gtm + P.mkt + P.ci;
-    var q1el2 = document.getElementById('qtotal-q1-prod');
-    if(q1el2){ q1el2.innerHTML = fmt(q1prod)+'<span style="font-size:14px;font-weight:400;color:rgba(255,255,255,0.45)">/yr</span>'; flash('qtotal-q1-prod'); }
+    setCell('qtotal-q1-prod', q1prod);
+    setCell('qtotal-q2-prod', P.pm);
+    setCell('qtotal-q3-prod', P.cs);
 
     /* Year summary */
     var totalCost = q1cost + prod + cs + q4cost;
