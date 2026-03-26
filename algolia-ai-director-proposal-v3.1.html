@@ -376,6 +376,35 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
 @media(max-width:900px){.ov-bento{grid-template-columns:1fr 1fr;}.ov-tile-score{grid-column:1/3;}.ov-tile-next{grid-column:1/2;}.ov-tile-who{grid-column:2/3;}.ov-tile-opp{grid-column:1/3;}}
 @media(max-width:600px){.ov-bento{grid-template-columns:1fr;}.ov-tile-score,.ov-tile-next,.ov-tile-who,.ov-tile-opp{grid-column:1/2;}}
 
+
+/* ── Bounce-Card Financial Summary (top of Business Case) ─────────────────
+   3-card grid. Each card has a gradient panel that rises from the bottom
+   on hover. Card itself shrinks slightly + tilts. Vanilla CSS, no deps.
+   Dynamic: bfc-cost / bfc-prod / bfc-roi / bfc-total updated by rebuild()
+   ─────────────────────────────────────────────────────────────────────── */
+.bfc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+.bfc-card{position:relative;min-height:210px;overflow:hidden;border-radius:20px;padding:28px 28px 0;transition:transform 250ms ease,box-shadow 250ms ease;cursor:default;}
+.bfc-card:hover{transform:scale(0.97) rotate(-0.6deg);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
+.bfc-card--green{background:#F0FDF4;border:1px solid rgba(5,150,105,0.18);}
+.bfc-card--blue{background:#EEF2FF;border:1px solid rgba(0,61,255,0.15);}
+.bfc-card--navy{background:#F0F4FF;border:1px solid rgba(29,31,46,0.12);}
+.bfc-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:10px;}
+.bfc-card--green .bfc-eyebrow{color:#059669;}
+.bfc-card--blue .bfc-eyebrow{color:var(--blue);}
+.bfc-card--navy .bfc-eyebrow{color:var(--navy);}
+.bfc-value{font-size:38px;font-weight:700;letter-spacing:-0.03em;line-height:1;margin-bottom:8px;}
+.bfc-card--green .bfc-value{color:#059669;}
+.bfc-card--blue .bfc-value{color:var(--blue);}
+.bfc-card--navy .bfc-value{color:var(--navy);}
+.bfc-sub{font-size:13px;color:var(--text-muted);line-height:1.5;}
+/* Rising panel — hidden by default, slides up on hover */
+.bfc-panel{position:absolute;bottom:0;left:10px;right:10px;height:52%;border-radius:14px 14px 0 0;padding:16px 20px;transform:translateY(100%);transition:transform 260ms cubic-bezier(0.16,1,0.3,1);}
+.bfc-card:hover .bfc-panel{transform:translateY(16px) rotate(0.8deg);}
+.bfc-card--green .bfc-panel{background:linear-gradient(135deg,#059669 0%,#10B981 100%);}
+.bfc-card--blue .bfc-panel{background:linear-gradient(135deg,#003DFF 0%,#5468FF 100%);}
+.bfc-card--navy .bfc-panel{background:linear-gradient(135deg,#1D1F2E 0%,#2D3047 100%);}
+.bfc-panel-text{color:rgba(255,255,255,0.92);font-size:13px;font-weight:600;line-height:1.5;}
+
 /* ── Year 1 Quarter Containers + Project Cards ──────────────────────────────
    Structure: .yr1-timeline > .yr1-quarter > .yr1-card (project)
    Each quarter has a gradient bg. Each project has its own glassmorphism card.
@@ -1107,6 +1136,42 @@ hr{border:none;border-top:0.5px solid var(--border);margin:22px 0}
     </div>
 
   <!-- Year 1 Timeline — quarter containers -->
+  
+  <!-- Bounce Card Financial Summary — top of Business Case -->
+  <div class="bfc-grid">
+
+    <!-- Card 1: Cost Savings -->
+    <div class="bfc-card bfc-card--green">
+      <div class="bfc-eyebrow">Direct Cost Savings</div>
+      <div class="bfc-value calc-saving" id="bfc-cost">$1,228,250</div>
+      <div class="bfc-sub">2.1× on cost savings alone<br>16 roles · 7 companies benchmarked</div>
+      <div class="bfc-panel">
+        <div class="bfc-panel-text">Hours freed across all teams × verified loaded rates · salary data from Algolia, Elastic, Adobe, Salesforce, Nvidia &amp; peers</div>
+      </div>
+    </div>
+
+    <!-- Card 2: Productivity & Pipeline -->
+    <div class="bfc-card bfc-card--blue">
+      <div class="bfc-eyebrow">Productivity &amp; Pipeline Gains</div>
+      <div class="bfc-value calc-saving" id="bfc-prod">$3,010,938</div>
+      <div class="bfc-sub">Sourced research · conservative estimates</div>
+      <div class="bfc-panel">
+        <div class="bfc-panel-text">Salesforce 2026 · Klue Win-Loss · Bloomreach · McKinsey · Gainsight · Bain 2025</div>
+      </div>
+    </div>
+
+    <!-- Card 3: Combined ROI -->
+    <div class="bfc-card bfc-card--navy">
+      <div class="bfc-eyebrow">Combined Year 1 Return</div>
+      <div class="bfc-value calc-saving" id="bfc-roi">9.4×</div>
+      <div class="bfc-sub" id="bfc-total">$4,239,188 total return</div>
+      <div class="bfc-panel">
+        <div class="bfc-panel-text">vs $450K investment · 3.6× even at 50% of estimates</div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="yr1-timeline">
 
     <!-- ═══ Q1 2026 ═══ -->
@@ -2393,6 +2458,16 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
     if(ovRoi){ ovRoi.textContent = roi+'×'; flash('ov-roi'); }
     var ovVal = document.getElementById('ov-value');
     if(ovVal) ovVal.textContent = fmtM(combined);
+
+    /* Bounce cards at top of Business Case */
+    var bfcCost = document.getElementById('bfc-cost');
+    if(bfcCost){ bfcCost.textContent = fmt(totalCost); flash('bfc-cost'); }
+    var bfcProd = document.getElementById('bfc-prod');
+    if(bfcProd){ bfcProd.textContent = fmt(totalProd); flash('bfc-prod'); }
+    var bfcRoi  = document.getElementById('bfc-roi');
+    if(bfcRoi){ bfcRoi.textContent = roi+'×'; flash('bfc-roi'); }
+    var bfcTot  = document.getElementById('bfc-total');
+    if(bfcTot) bfcTot.textContent = fmt(combined)+' total return';
 
     /* Overview tile — breakdown rows */
     var totalHrs = 0;
