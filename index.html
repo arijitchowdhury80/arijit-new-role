@@ -2130,6 +2130,171 @@ a.bfc-panel{display:block;color:inherit;}
     </ul>
   </div>
 
+<div class="roi-summary">
+    <div class="label">How the return is built - three independent value categories</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;margin-top:4px">
+      <div style="background:var(--navy-mid);padding:16px 18px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(138,171,255,0.6);margin-bottom:8px">Category A</div>
+        <div style="font-size:18px;font-weight:700;color:#4DD9A8;margin-bottom:4px"><span id="cat-a-val">$729K</span></div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Revenue impact</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Win rate lift on qualified pipeline + sales cycle compression + BDR pipeline creation</div>
+      </div>
+      <div style="background:var(--navy-mid);padding:16px 18px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(138,171,255,0.6);margin-bottom:8px">Category B</div>
+        <div style="font-size:18px;font-weight:700;color:#4DD9A8;margin-bottom:4px"><span id="cat-b-val">$1.29M</span></div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Productivity recaptured</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">AE + BDR research time, marketing content, RevOps reporting, CS capacity, campaign creation</div>
+      </div>
+      <div style="background:var(--navy-mid);padding:16px 18px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(138,171,255,0.6);margin-bottom:8px">Category C</div>
+        <div style="font-size:18px;font-weight:700;color:#4DD9A8;margin-bottom:4px"><span id="cat-c-val">$135K</span></div>
+        <div style="font-size:12px;font-weight:600;color:#fff;margin-bottom:6px">Cost avoidance</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5">Legal counsel offset, tooling rationalization - plus $600K–$900K/yr in FTE hires avoided (not included above)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="roi-section">
+    <div class="roi-section-label">Category A - Revenue impact</div>
+    <p style="margin-bottom:12px;font-size:13px">When AEs enter discovery calls knowing the prospect's financial pressures, technology stack, strategic priorities, hiring signals, and exact search gaps - they close at a higher rate and cycle faster. Forrester and Gartner research consistently show a 15–20% improvement in conversion rates when reps use deep account intelligence versus generic manual research.</p>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Win Rate Improvement</strong></td><td class="desc">3% absolute lift on $30M qualified pipeline converts additional deals at $45K ACV</td><td class="amt" style="color:var(--blue)">$540K/yr</td></tr>
+        <tr><td><strong>Sales Cycle Compression</strong></td><td class="desc">7 days faster average close × 60 deals × $4.5K/day revenue recognition value</td><td class="amt" style="color:var(--blue)">$189K/yr</td></tr>
+        <tr><td><strong>BDR Pipeline Lift</strong></td><td class="desc">Personalized outreach at 3× reply rate lifts creation by 20% on $6M baseline</td><td class="amt" style="color:var(--blue); font-size:12px">($1.2M Pipeline)</td></tr>
+        <tr class="total"><td>Category A Total</td><td>Estimated hard revenue impact & accelerated cash</td><td class="amt revenue" id="cat-a-total">$729K/yr</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="roi-section">
+    <div class="roi-section-label">Category B - Productivity recaptured</div>
+    <p style="margin-bottom:12px;font-size:13px">Every hour of manual work absorbed by AI is an hour redirected to revenue-generating activity. The figures below represent the value of that redirected time - using fully loaded cost rates per role. These are not hard cash savings; they are capacity gains. The assumption is that capacity freed is redeployed to selling, not eliminated. A CFO should read this as: <em>"we can grow pipeline without growing headcount."</em></p>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Capacity Value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>AE Research Time</strong></td><td class="desc">40 AEs × 2.5 hours/week × 50 weeks × $115/hr fully loaded</td><td class="amt">$575K/yr</td></tr>
+        <tr><td><strong>BDR Outreach Prep</strong></td><td class="desc">20 BDRs × 3 hours/week × 50 weeks × $85/hr fully loaded</td><td class="amt">$255K/yr</td></tr>
+        <tr><td><strong>Marketing Content</strong></td><td class="desc">Automated engine replaces ~1.5 FTEs of production bandwidth</td><td class="amt">$210K/yr</td></tr>
+        <tr><td><strong>RevOps Reporting</strong></td><td class="desc">Automated pipeline narratives, QBR prep, board packs (~0.75 FTE)</td><td class="amt">$116K/yr</td></tr>
+        <tr><td><strong>CS Intelligence</strong></td><td class="desc">QBR automation, health scoring, churn detection (~0.5 FTE)</td><td class="amt">$70K/yr</td></tr>
+        <tr><td><strong>ABX Campaign Creation</strong></td><td class="desc">4 hrs × $85/hr × 200 personalized account packages</td><td class="amt">$68K/yr</td></tr>
+        <tr class="total"><td>Category B Total</td><td>Total productivity recaptured for revenue-generating activities</td><td class="amt positive" id="cat-b-total">$1,294,000/yr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="roi-section">
+    <div class="roi-section-label">Category C - Cost avoidance</div>
+    <p style="margin-bottom:12px;font-size:13px">This category represents spend that is eliminated or prevented - outside counsel time, duplicated tool subscriptions, and the incremental FTE hires that AI capacity absorbs. These are hard savings, not productivity estimates.</p>
+    <table class="ledger">
+      <thead><tr><th>Initiative</th><th>Description & Calculation</th><th class="amt">Cost Avoided</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Legal Contract Review</strong></td><td class="desc">Outside counsel offset and internal review time reduction</td><td class="amt">$90K/yr</td></tr>
+        <tr><td><strong>Tooling Rationalization</strong></td><td class="desc">Consolidating redundant, uncoordinated tool subscriptions directly</td><td class="amt">$45K/yr</td></tr>
+        <tr><td><strong>FTE Hires Avoided</strong></td><td class="desc">AI absorbs work requiring 4–6 incremental hires</td><td class="amt">$600K-$900K/yr</td></tr>
+        <tr class="total"><td>Category C Total</td><td>Total hard operating expenses avoided or eliminated</td><td class="amt positive" id="cat-c-total">~$885,000/yr</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- The Ask -->
+<div id="p-ask" class="panel">
+
+  <!-- 1. STRATEGIC OPPORTUNITY - leads the page, sets the why -->
+  <div style="background:var(--navy);border-radius:var(--rl);padding:32px 36px;margin-bottom:36px;position:relative;overflow:hidden;">
+    <div style="position:absolute;right:-40px;top:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,61,255,0.22) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(138,171,255,0.7);margin-bottom:14px;">The strategic opportunity</div>
+    <p style="font-size:18px;font-weight:300;color:#fff;line-height:1.7;margin:0;max-width:700px;font-family:'Sora',sans-serif;letter-spacing:-.01em;">Algolia has a chance that very few companies at this stage get: to become the proof of concept for the very transformation it sells. Every enterprise prospect asks <span style="color:#FFE566;font-style:italic;">"how do you use AI internally?"</span> The companies that can answer with substance - real tools, real workflows, real data - win trust before the first demo ends. <strong style="color:#8AABFF;font-weight:600;">This role builds that answer. It turns Algolia's internal maturity into an external competitive asset.</strong></p>
+  </div>
+
+  <!-- 2. THE ASK - three cards -->
+  <h2 style="margin-top:0;">What I am asking for</h2>
+  <div class="g3" style="margin-bottom:36px">
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#003DFF 0%,#2B5FFF 100%);">
+        <span class="ask-card-label">Title</span>
+      </div>
+      <div class="ask-card-body">
+        <h3 data-no-toc>Director of AI Innovation &amp; Enablement</h3>
+        <p>A net-new role - not a rebranding of an existing position. Cross-functional authority with dotted-line access to every functional VP.</p>
+      </div>
+    </div>
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#0D8C6B 0%,#18B887 100%);">
+        <span class="ask-card-label">$300K OTE</span>
+      </div>
+      <div class="ask-card-body">
+        <h3 data-no-toc>Market repricing for a new scope</h3>
+        <p>$225K base / $75K variable. The 75/25 split is preserved. This is not a raise. It is the market rate for a company-wide mandate. Benchmarks below.</p>
+      </div>
+    </div>
+    <div class="ask-card">
+      <div class="ask-card-top" style="background:linear-gradient(135deg,#D97706 0%,#F59E0B 100%);">
+        <span class="ask-card-label">$150K</span>
+      </div>
+      <div class="ask-card-body">
+        <h3 data-no-toc>Annual AI tooling budget</h3>
+        <p>API subscriptions, automation stack, intelligence platforms. Every dollar tracked against demonstrated ROI and reported quarterly.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. NON-DISRUPTIVE BY DESIGN -->
+  <h2 class="section-head">Non-disruptive by design</h2>
+  <div class="g2">
+    <div class="card" style="background:linear-gradient(145deg,#FFFFFF 0%,#EEF3FF 60%,#E0EAFF 100%);">
+      <h3 data-no-toc>Reporting line: unchanged</h3>
+      <ul class="li">
+        <li>Reports to: Chief Ecosystem Development Officer - same as today</li>
+        <li>CTO as technical co-sponsor for the platform-building dimension</li>
+        <li>Monthly AI Steering Committee with functional VP representation</li>
+        <li>Quarterly ROI report to leadership - time saved, pipeline influenced, cost eliminated</li>
+        <li>Year 1 board narrative in Q4 - full impact and Year 2 plan</li>
+      </ul>
+    </div>
+    <div class="card" style="background:linear-gradient(145deg,#FFFFFF 0%,#EDFAF4 60%,#DCFBEF 100%);">
+      <h3 data-no-toc>No reorg. No new teams. Nothing moved.</h3>
+      <ul class="li">
+        <li>Zero organizational restructuring - no teams consolidated or moved</li>
+        <li>Embedded AI Champions per department own adoption - this role builds the tools</li>
+        <li>Functions own their outcomes - no dependency on a central team to operate</li>
+        <li>No overlap with Product or Engineering - this is operational AI, not product AI</li>
+        <li>Partner relationships become an asset for the new role, not an obligation left behind</li>
+      </ul>
+    </div>
+  </div>
+  <div style="text-align:right;margin-top:-8px;margin-bottom:4px;">
+    <a href="#" onclick="switchTab('p-what',null);return false;" style="font-size:12px;color:var(--blue);text-decoration:none;font-weight:600;">Full cross-functional scope →</a>
+  </div>
+
+  <!-- 4. MARKET RATE NOT A RAISE -->
+  <h2 class="section-head">Same person. New scope. Market price.</h2>
+  <div class="raise-box">
+    <h3 data-no-toc>$300K is the low end of the market range for this scope</h3>
+    <table class="comp-table">
+      <thead><tr><th>Role</th><th>Company type</th><th>OTE range</th><th>Source basis</th></tr></thead>
+      <tbody>
+        <tr><td>Director of AI Strategy</td><td>Mid-market SaaS ($100M-$500M ARR)</td><td>$280K-$340K</td><td>Levels.fyi, Glassdoor, LinkedIn Salary</td></tr>
+        <tr><td>Head of AI Enablement</td><td>Enterprise SaaS</td><td>$300K-$380K</td><td>LinkedIn job postings, 2025-2026</td></tr>
+        <tr><td>VP of AI Innovation</td><td>Growth-stage SaaS</td><td>$340K-$440K</td><td>Compensation benchmarking data</td></tr>
+        <tr class="highlight"><td>This proposal - Director of AI Innovation &amp; Enablement</td><td>Algolia</td><td>$300K OTE</td><td>Low end of comparable market range</td></tr>
+      </tbody>
+    </table>
+    <ul class="li" style="margin-top:12px">
+      <li>3-4x the organizational scope of the current role - every function, not a single business unit</li>
+      <li>Incremental cost to reprice: $50K. Year 1 value created: $3.94M (see Business Case). That is a compelling return on the $50K delta alone</li>
+      <li>The alternative - hiring externally - costs $350-480K loaded, 3-6 months ramp, zero existing context</li>
+    </ul>
+  </div>
+
+  <!-- 5. THE COMPARISON - capital efficiency argument -->
+
+
   <!-- 5. THE COMPARISON - capital efficiency argument -->
   <div class="hbox" style="margin-top:24px;background:var(--bg-surface);border-left:3px solid var(--border-med);border-radius:0 var(--rl) var(--rl) 0;"><h3 data-no-toc style="color:var(--text);">The comparison that matters</h3><p>Hiring externally costs $350-480K in loaded comp, plus months of zero productivity, plus no Algolia domain knowledge, no cross-functional relationships, and no working prototypes. This person is already ramped, already building, already trusted, and already producing assets the field can use today. The incremental cost of formalizing this role is a $50K comp adjustment and a $150K tooling budget against a <span class="live-roi-ref" id="qa-roi-ref-2">$3.94M</span> combined year 1 return.</p></div>
 
@@ -2612,6 +2777,24 @@ function closeDswModal() { document.getElementById('dsw-modal').classList.remove
       var el = document.getElementById(id);
       if(el) el.textContent = fmtM(combined);
     });
+
+    /* Sync Category A/B/C ROI summary and ledger totals */
+    var catA = P.gtm + P.ci;              /* Revenue: AE pipeline + CI win rate */
+    var catB = totalCost;                  /* Productivity recaptured: all role time savings */
+    var catC = P.mkt + P.pm + P.cs;       /* Output: marketing output + PM + CS retention */
+    function setAmt(id, val, suffix) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (val >= 1000000) { el.textContent = '$' + (val/1000000).toFixed(2) + 'M'; }
+      else if (val >= 1000) { el.textContent = '$' + Math.round(val/1000) + 'K'; }
+      else { el.textContent = '$' + Math.round(val).toLocaleString('en-US'); }
+    }
+    setAmt('cat-a-val', catA);
+    setAmt('cat-b-val', catB);
+    setAmt('cat-c-val', catC);
+    setAmt('cat-a-total', catA);
+    setAmt('cat-b-total', catB);
+    setAmt('cat-c-total', catC);
 
     /* Bounce cards at top of Business Case */
     var bfcCost = document.getElementById('bfc-cost');
